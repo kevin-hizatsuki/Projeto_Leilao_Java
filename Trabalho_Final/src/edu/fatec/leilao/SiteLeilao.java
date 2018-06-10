@@ -14,28 +14,91 @@ import edu.fatec.leilao.banco.InstituicaoFinanceira;
 import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.Imoveis;
+import edu.fatec.leilao.produto.Produto;
+import edu.fatec.leilao.produto.Veiculos;
+import edu.fatec.leilao.usuario.Cliente;
+import edu.fatec.leilao.usuario.Lance;
 
 public class SiteLeilao {
 
 	List<Leiloes> leilao = new LinkedList();
-	List<Imoveis> imovel = new LinkedList();
-
+	List<Produto> produto = new LinkedList();
+	List<Lance> lance= new LinkedList();
+	List<Cliente> cliente =new LinkedList();
+//--------------------------------------------------------
+	public void AdicionarProduto(Produto p) {
+		this.produto.add(p);
+	}
+	
+	public void atualizarProduto(Produto atualizar) {
+		for(Produto p:produto) {
+			if(p.equals(atualizar)) {
+				produto.set(produto.indexOf(p), atualizar);
+			}
+		}
+	}
+	
+	public void removerProduto(Produto remover) {
+		for(Produto p:produto) {
+			if(p.equals(remover)) {
+				produto.remove(produto.indexOf(p));
+			}
+		}
+	}
+	
+	public List<Produto> getListaProduto(){
+		return this.produto;
+	}
+//--------------------------------------------------------	
 	public void AdicionarLeilao(Leiloes v) {
 		this.leilao.add(v);
 	}
 
-	public void AdicionarImovel(Imoveis v) {
-		this.imovel.add(v);
+	public void AtualizarLeilao(Leiloes atualizar) {
+		for (Leiloes l : leilao) {
+			if (l.equals(atualizar)) {
+				leilao.set(leilao.indexOf(l), atualizar);
+			}
+		}
+	}
+
+	public void RemoverLeilao(Leiloes remover) {
+		for (Leiloes l : leilao) {
+			if (l.equals(remover)) {
+				leilao.remove(leilao.indexOf(l));
+			}
+		}
 	}
 
 	public List<Leiloes> getListaLeilao() {
 		return this.leilao;
 	}
-
-	public List<Imoveis> getListaImovel() {
-		return this.imovel;
+//--------------------------------------------------------
+	public void adicionarLance(Lance l) {
+		this.lance.add(l);
 	}
+//--------------------------------------------------------
 
+	public void adicionarCliente(Cliente c) {
+		this.cliente.add(c);
+	}
+	
+	public void atualizarCliente(Cliente atualizar) {
+		for (Cliente c : cliente) {
+			if (c.equals(atualizar)) {
+				cliente.set(cliente.indexOf(c), atualizar);
+			}
+		}
+	}
+	
+	public void removerCliente(Cliente remover) {
+		for (Cliente c : cliente) {
+			if (c.equals(remover)) {
+				cliente.remove(cliente.indexOf(c));
+			}
+		}
+	}
+//--------------------------------------------------------
 	public void CadastroLeilao() throws IOException {
 		int id;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -64,10 +127,12 @@ public class SiteLeilao {
 		String site = br.readLine();
 		System.out.print("Digite Razao Social da Instituicao Financeira: ");
 		String razaoSocial = br.readLine();
-		System.out.print("Digite data do leilao(dd/mm/yyyy): ");
+		System.out.print("Digite data de inicio leilao(dd/mm/yyyy): ");
 		String data = br.readLine();
+		System.out.print("Digite data de fim leilao(dd/mm/yyyy): ");
+		String dataFim = br.readLine();
 		AdicionarLeilao(new Leiloes(id, leilao, new Endereco(enderecoCompleto, cidade, estado, cep),
-				new InstituicaoFinanceira(cnpj, site, razaoSocial), LocalDate.parse(data, formatter)));
+				new InstituicaoFinanceira(cnpj, site, razaoSocial), LocalDate.parse(data, formatter),LocalDate.parse(dataFim, formatter)));
 	}
 
 	public int geraId() {
@@ -84,8 +149,8 @@ public class SiteLeilao {
 	}
 
 	public boolean imovelRepetido(int id) {
-		for (Imoveis l : imovel) {
-			if (l.getId() == id)
+		for (Produto l : produto) {
+			if (l.getIdProduto() == id)
 				return false;
 		}
 		return true;
@@ -144,7 +209,7 @@ public class SiteLeilao {
 			String preco = br.readLine();
 			System.out.print("Digite o condominio: ");
 			String condominio = br.readLine();
-			AdicionarImovel(new Imoveis(Integer.parseInt(id), idImovel, EnumImoveis.Terrenos.toString(),
+			AdicionarProduto(new Imoveis(Integer.parseInt(id), idImovel, EnumImoveis.Terrenos.toString(),
 					Double.parseDouble(area), new Endereco(enderecoCompleto, cidade, estado, cep),
 					Double.parseDouble(preco), Double.parseDouble(condominio)));
 		}
@@ -162,10 +227,10 @@ public class SiteLeilao {
 		}
 	}
 
-	public void listarTodosImoveis() {
+	public void listarTodosProdutos() {
 		try {
-			for (Imoveis s : imovel) {
-				System.out.println(s.toString());
+			for (Produto p : produto) {
+				System.out.println(p.toString());
 				System.out.println("--------------");
 			}
 		} catch (java.lang.NullPointerException e) {
@@ -213,9 +278,12 @@ public class SiteLeilao {
 				System.out.print("Digite Razao Social da Instituicao Financeira: ");
 				String razaoSocial = br.readLine();
 				l.instF.setRazaoSocial(razaoSocial);
-				System.out.print("Digite data do leilao(dd/mm/yyyy): ");
+				System.out.print("Digite data de inicio leilao(dd/mm/yyyy): ");
 				String data = br.readLine();
-				l.setData(LocalDate.parse(data, formatter));
+				l.setDataInicio(LocalDate.parse(data, formatter));
+				System.out.print("Digite data de fim leilao(dd/mm/yyyy): ");
+				String dataFim = br.readLine();
+				l.setDataFim(LocalDate.parse(dataFim, formatter));
 				cont++;
 			}
 		}
@@ -295,7 +363,7 @@ public class SiteLeilao {
 			String preco = br.readLine();
 			System.out.print("Digite o condominio: ");
 			String condominio = br.readLine();
-			AdicionarImovel(new Casas(Integer.parseInt(id), idImovel, EnumImoveis.Casas.toString(),
+			AdicionarProduto(new Casas(Integer.parseInt(id), idImovel, EnumImoveis.Casas.toString(),
 					Double.parseDouble(area), new Endereco(enderecoCompleto, cidade, estado, cep),
 					Double.parseDouble(preco), Double.parseDouble(condominio), Integer.parseInt(garagem),
 					Integer.parseInt(quarto), Integer.parseInt(banheiro)));

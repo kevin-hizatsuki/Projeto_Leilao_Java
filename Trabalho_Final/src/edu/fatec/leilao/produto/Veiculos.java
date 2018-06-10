@@ -1,9 +1,7 @@
 package edu.fatec.leilao.produto;
 
-public class Veiculos {
+public class Veiculos extends Produto{
 
-	public Integer id;
-	public String tipo;
 	public String marca;
 	public String modelo;
 	public double cilindrada;
@@ -11,13 +9,12 @@ public class Veiculos {
 	public String cambio;
 	public double km;
 	public String combustivel;
-	public double valor;
 	
-	public Veiculos(Integer id, String tipo,String marca,String modelo,
+	public Veiculos(Integer id,Integer idVeiculo, String tipo,String marca,String modelo,
 	double cilindrada,int ano,String cambio,double km, String combustivel,
 	double valor) {
-		this.id=id;
-		this.tipo=tipo;
+		
+		super(id,idVeiculo,tipo,valor);
 		this.marca=marca;
 		this.modelo=modelo;
 		this.cilindrada=cilindrada;
@@ -25,15 +22,7 @@ public class Veiculos {
 		this.cambio=cambio;
 		this.km=km;
 		this.combustivel=combustivel;
-		this.valor=valor;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		
 	}
 
 	public String getTipo() {
@@ -100,16 +89,16 @@ public class Veiculos {
 		this.combustivel = combustivel;
 	}
 
-	public double getValor() {
-		return valor;
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Marca: "+this.marca).append("\n");
+		sb.append("Modelo: "+this.modelo).append("\n");
+		sb.append("Cilindrada: "+this.cilindrada).append("\n");
+		sb.append("Ano: "+this.ano).append("\n");
+		sb.append("Cambio: "+this.cambio).append("\n");
+		sb.append("KM: "+this.km).append("\n");
+		sb.append("Combustivel: "+this.combustivel).append("\n");
+		return super.toString()+sb.toString();
 	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-	
-	
-	
-	
 	
 }

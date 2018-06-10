@@ -10,14 +10,16 @@ public class Leiloes {
 	public String nome;
 	public Endereco endereco;
 	public InstituicaoFinanceira instF;
-	public LocalDate data;
+	public LocalDate dataInicio;
+	public LocalDate dataFim;
 	
-	public Leiloes(int id,String nome,Endereco endereco,InstituicaoFinanceira instF,LocalDate data) {
+	public Leiloes(int id,String nome,Endereco endereco,InstituicaoFinanceira instF,LocalDate dataInicio,LocalDate dataFim) {
 		this.id=id;
 		this.nome=nome;
 		this.endereco=endereco;
 		this.instF=instF;
-		this.data=data;
+		this.dataInicio=dataInicio;
+		this.dataFim=dataFim;
 	}
 
 	public int getId() {
@@ -52,15 +54,23 @@ public class Leiloes {
 	public void setInstF(InstituicaoFinanceira instF) {
 		this.instF = instF;
 	}
-
-	public LocalDate getData() {
-		return data;
-	}
-
-	public void setData(LocalDate data) {
-		this.data = data;
-	}
 	
+	public LocalDate getDataInicio() {
+		return dataInicio;
+	}
+
+	public void setDataInicio(LocalDate dataInicio) {
+		this.dataInicio = dataInicio;
+	}
+
+	public LocalDate getDataFim() {
+		return dataFim;
+	}
+
+	public void setDataFim(LocalDate dataFim) {
+		this.dataFim = dataFim;
+	}
+
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("ID : "+this.id).append("\n");
@@ -72,7 +82,8 @@ public class Leiloes {
 		sb.append("Cnpj: "+this.instF.cnpj).append("\n");
 		sb.append("Site da Instituicao Financeira: "+this.instF.site).append("\n");
 		sb.append("Razão social da Instituicao Financeira: "+this.instF.razaoSocial).append("\n");
-		sb.append("Data: "+this.data).append("\n");
+		sb.append("Data Inicio: "+this.dataInicio).append("\n");
+		sb.append("Data Fim: "+this.dataFim).append("\n");
 		return sb.toString();
 	}
 

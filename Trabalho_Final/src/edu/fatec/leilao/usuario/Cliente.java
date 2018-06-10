@@ -46,6 +46,12 @@ public class Cliente {
 		this.senha = senha;
 	}
 	
-	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Cpf: "+this.cpf).append("\n");
+		sb.append("Nome: "+this.getNome()).append("\n");
+		sb.append("User: "+this.usuario).append("\n");
+		return sb.toString();
+	}
 	
 }
