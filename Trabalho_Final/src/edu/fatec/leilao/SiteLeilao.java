@@ -15,13 +15,29 @@ import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
-import edu.fatec.leilao.produto.Veiculos;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.Lance;
 
+//import com.db4o.Db4oEmbedded;
+//import com.db4o.ObjectContainer;
+//import com.db4o.ObjectSet;
+//import com.db4o.query.Query;
+
+
 public class SiteLeilao {
 
+private static SiteLeilao modeloUniqueInstance;
+	
+
+	public static SiteLeilao getInstance() {
+		if (modeloUniqueInstance == null) {
+			modeloUniqueInstance = new SiteLeilao();
+		}
+		return modeloUniqueInstance;
+	}
+	
 	List<Leiloes> leilao = new LinkedList();
+	//ObjectContainer leilao = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), "bd/leilao.db4o");
 	List<Produto> produto = new LinkedList();
 	List<Lance> lance= new LinkedList();
 	List<Cliente> cliente =new LinkedList();
@@ -370,5 +386,16 @@ public class SiteLeilao {
 		}
 
 	}
+	
+	public List<Produto> buscaPorFaixa(double valorMin,double valorMax){
+		List<Produto> listaDeProdutos = new LinkedList();
+		for(Produto p: produto) {
+			if((p.getPreco()>=valorMin)&& (p.getPreco()<=valorMax)) {
+				listaDeProdutos.add(p);
+			}
+		}
+		return listaDeProdutos;
+	}
+	
 
 }

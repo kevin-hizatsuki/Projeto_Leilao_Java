@@ -1,6 +1,6 @@
 package edu.fatec.leilao.produto;
 
-public class Produto {
+public abstract class Produto {
 	
 	public Integer idLeilao;
 	public Integer idProduto;

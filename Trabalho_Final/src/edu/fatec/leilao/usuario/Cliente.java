@@ -51,7 +51,7 @@ public class Cliente {
 		sb.append("Cpf: "+this.cpf).append("\n");
 		sb.append("Nome: "+this.getNome()).append("\n");
 		sb.append("User: "+this.usuario).append("\n");
-		return sb.toString();
+		return sb.toString();  
 	}
 	
 }
