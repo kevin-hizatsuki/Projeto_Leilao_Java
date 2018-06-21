@@ -179,6 +179,8 @@ public class Form_Novo_Automovel extends JFrame {
 		contentPane.add(textField_10);
 		
 		textField_11 = new JTextField();
+		textField_11.setEditable(false);
+		textField_11.setEnabled(false);
 		textField_11.setColumns(10);
 		textField_11.setBounds(104, 59, 262, 20);
 		contentPane.add(textField_11);
@@ -188,6 +190,7 @@ public class Form_Novo_Automovel extends JFrame {
 		contentPane.add(label_12);
 		
 		textField_12 = new JTextField();
+		textField_12.setEditable(false);
 		textField_12.setColumns(10);
 		textField_12.setBounds(104, 31, 262, 20);
 		contentPane.add(textField_12);
@@ -195,5 +198,8 @@ public class Form_Novo_Automovel extends JFrame {
 		JLabel label_13 = new JLabel("ID Leil\u00E3o");
 		label_13.setBounds(54, 34, 97, 14);
 		contentPane.add(label_13);
+		
+		//Capturando valores do formulario
+//		String
 	}
 }

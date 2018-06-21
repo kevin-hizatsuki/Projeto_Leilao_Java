@@ -29,9 +29,21 @@ public class ModelCliente {
 			}
 		}
 	}
-	
+	 
 	public static List<Cliente> getLisCliente(){
 		return cliente;
+	}
+	 
+	public static Boolean ifClientExists(String username, String senha){
+		for (Cliente c : cliente) {
+			if (c.getUsuario().equals(username) && c.getSenha().equals(senha)) {
+				return true;
+			}
+			return false;
+		}
+		return null;
+		
+		
 	}
 
 }

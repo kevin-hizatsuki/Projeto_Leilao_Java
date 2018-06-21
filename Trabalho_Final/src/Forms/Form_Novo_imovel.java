@@ -6,6 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.SiteLeilao;
+import edu.fatec.leilao.produto.Casas;
+import edu.fatec.leilao.produto.EnumImoveis;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -203,5 +209,8 @@ public class Form_Novo_imovel extends JFrame {
 		});
 		btnNewButton_1.setBounds(335, 389, 89, 25);
 		contentPane.add(btnNewButton_1);
+		
+		SiteLeilao s = new SiteLeilao();
+		s.AdicionarProduto(new Casas(1,1,EnumImoveis.Casas.toString(),100,new Endereco("Rua M","SJC","SP","123456"),10.50,0,4,3,2));
 	}
 }
