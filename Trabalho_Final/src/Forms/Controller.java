@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import javax.swing.Action;
+import java.awt.event.ActionListener;
 
 public class Controller extends JFrame {
 
@@ -32,6 +33,9 @@ public class Controller extends JFrame {
 				}
 			}
 		});
+		
+		
+		
 	}
 
 	/**
@@ -52,17 +56,40 @@ public class Controller extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnChecarLeilesAtuais = new JButton("Checar Leil\u00F5es Atuais");
+		btnChecarLeilesAtuais.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Leiloes_Atuais janela_leiloes_atuais = new Form_Leiloes_Atuais();
+				janela_leiloes_atuais.setVisible(true);
+				dispose();
+			}
+		});
 		btnChecarLeilesAtuais.setBounds(128, 119, 164, 71);
 		contentPane.add(btnChecarLeilesAtuais);
 		
 		JButton btnHistricoDeLeiles = new JButton("Hist\u00F3rico de\r\n Leil\u00F5es");
+		btnHistricoDeLeiles.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Historico_Leiloes janela_historico_leiloes = new Form_Historico_Leiloes();
+				janela_historico_leiloes.setVisible(true);
+				dispose();
+				
+			}
+		});
 		btnHistricoDeLeiles.setBounds(128, 202, 164, 71);
 		contentPane.add(btnHistricoDeLeiles);
 		
 		JButton btnCriarUmLeilo = new JButton("Criar um leil\u00E3o");
+		btnCriarUmLeilo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Novo_Leilao janela_novo_leilao = new Form_Novo_Leilao();
+				janela_novo_leilao.setVisible(true);
+				dispose();
+			}
+		});
 		btnCriarUmLeilo.setBounds(150, 36, 116, 71);
 		contentPane.add(btnCriarUmLeilo);
 	}
+
 
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {

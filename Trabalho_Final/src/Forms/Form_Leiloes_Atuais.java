@@ -12,12 +12,15 @@ import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Forn_Leiloes_Atuais extends JFrame {
+public class Form_Leiloes_Atuais extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private JLabel label_1;
+	private JLabel lblLeilesAtivos;
+	private JButton button;
 
 	/**
 	 * Launch the application.
@@ -26,7 +29,7 @@ public class Forn_Leiloes_Atuais extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Forn_Leiloes_Atuais frame = new Forn_Leiloes_Atuais();
+					Form_Leiloes_Atuais frame = new Form_Leiloes_Atuais();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +41,7 @@ public class Forn_Leiloes_Atuais extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Forn_Leiloes_Atuais() {
+	public Form_Leiloes_Atuais() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -54,10 +57,21 @@ public class Forn_Leiloes_Atuais extends JFrame {
 		table.setBounds(15, 41, 409, 215);
 		contentPane.add(table);
 		
-		label_1 = new JLabel("Hist\u00F3rico de Leil\u00F5es");
-		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		label_1.setBounds(5, 11, 424, 19);
-		contentPane.add(label_1);
+		lblLeilesAtivos = new JLabel("Leil\u00F5es Ativos");
+		lblLeilesAtivos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLeilesAtivos.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblLeilesAtivos.setBounds(5, 11, 424, 19);
+		contentPane.add(lblLeilesAtivos);
+		
+		button = new JButton("Voltar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controller janela_home = new Controller();
+				janela_home.setVisible(true);
+				dispose();
+			}
+		});
+		button.setBounds(0, 0, 89, 23);
+		contentPane.add(button);
 	}
 }

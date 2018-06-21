@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
@@ -54,14 +57,35 @@ public class Form_Novo_Leilao extends JFrame {
 		contentPane.add(lblLeilesAtuais);
 		
 		JButton btnNewButton = new JButton("Im\u00F3vel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Novo_Automovel janela_novo_automovel = new Form_Novo_Automovel();
+				janela_novo_automovel.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setBounds(63, 101, 119, 51);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Automovel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Novo_imovel janela_novo_imovel = new Form_Novo_imovel();
+				janela_novo_imovel.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_1.setBounds(270, 101, 105, 51);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controller janela_home = new Controller();
+				janela_home.setVisible(true);
+				dispose();
+			}
+		});
 		btnVoltar.setBounds(0, 0, 89, 23);
 		contentPane.add(btnVoltar);
 	}
