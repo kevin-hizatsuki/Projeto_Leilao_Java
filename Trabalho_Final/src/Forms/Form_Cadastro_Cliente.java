@@ -98,6 +98,7 @@ public class Form_Cadastro_Cliente extends JFrame {
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Ver o porque o cadastro nao consegue fazer o login!!
 				ModelCliente.adicionarCliente(new Cliente(textField_1.getText(),textField.getText(),textField_2.getText(),textField_3.getText()));
 				dispose();
 				Form_Login a = new Form_Login();
