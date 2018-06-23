@@ -23,6 +23,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JComboBox;
+import java.awt.Color;
 
 public class Form_Novo_Leilao extends JFrame {
 
@@ -62,6 +63,13 @@ public class Form_Novo_Leilao extends JFrame {
 		}
 		contentPane.add(comboBox_1);
 		
+		JLabel lblMessageSelect = new JLabel("Selecione uma op\u00E7\u00E3o acima");
+		lblMessageSelect.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblMessageSelect.setForeground(Color.RED);
+		lblMessageSelect.setBounds(124, 212, 190, 15);
+		contentPane.add(lblMessageSelect);
+		lblMessageSelect.setVisible(false);
+		
 		JLabel lblLeilesAtuais = new JLabel("Novo Leil\u00E3o");
 		lblLeilesAtuais.setBounds(164, 10, 105, 19);
 		lblLeilesAtuais.setHorizontalAlignment(SwingConstants.CENTER);
@@ -80,32 +88,35 @@ public class Form_Novo_Leilao extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (comboBox.getSelectedIndex() == 1 || comboBox.getSelectedIndex() == 2 || comboBox.getSelectedIndex() == 3 || comboBox.getSelectedIndex() == 4) {
 					comboBox_1.setSelectedIndex(0);
-				}
-				switch(comboBox.getSelectedIndex()) {
-					case 1:{ 
-						Form_Cadastro_Apartamento c = new Form_Cadastro_Apartamento();
-						c.setVisible(true);
-						dispose();
-						break;
+					lblMessageSelect.setVisible(false);
+					switch(comboBox.getSelectedIndex()) {
+						case 1:{ 
+							Form_Cadastro_Apartamento c = new Form_Cadastro_Apartamento();
+							c.setVisible(true);
+							dispose();
+							break;
+						}
+						case 2:{ 
+							Form_Cadastro_Terreno c = new Form_Cadastro_Terreno();
+							c.setVisible(true);
+							dispose();
+							break;
+						}
+						case 3:{ 
+							Form_Cadastro_Casa c = new Form_Cadastro_Casa();
+							c.setVisible(true);
+							dispose();
+							break;
+						}
+						case 4:{ 
+							Form_Cadastro_Edificio c = new Form_Cadastro_Edificio();
+							c.setVisible(true);
+							dispose();
+							break;
+						}
 					}
-					case 2:{ 
-						Form_Cadastro_Terreno c = new Form_Cadastro_Terreno();
-						c.setVisible(true);
-						dispose();
-						break;
-					}
-					case 3:{ 
-						Form_Cadastro_Casa c = new Form_Cadastro_Casa();
-						c.setVisible(true);
-						dispose();
-						break;
-					}
-					case 4:{ 
-						Form_Cadastro_Edificio c = new Form_Cadastro_Edificio();
-						c.setVisible(true);
-						dispose();
-						break;
-					}
+				}else {
+					lblMessageSelect.setVisible(true);
 				}
 			}
 		});
@@ -147,6 +158,8 @@ public class Form_Novo_Leilao extends JFrame {
 		});
 		btnVoltar.setBounds(0, 0, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		
 		
 		
 		

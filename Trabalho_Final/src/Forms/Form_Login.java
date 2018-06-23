@@ -43,6 +43,7 @@ public class Form_Login extends JFrame {
 	public Form_Login() {
 		
 		
+		System.out.println(ModelCliente.getLisCliente());
 		ModelCliente.adicionarCliente(new Cliente("361-306-068-48","Lucas Domingos Leão Gomes","lucasdlg","123"));
 		
 		
@@ -65,11 +66,11 @@ public class Form_Login extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Usu\u00E1rio");
-		lblNewLabel.setBounds(117, 69, 46, 14);
+		lblNewLabel.setBounds(105, 69, 46, 14);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(105, 98, 46, 14);
+		JLabel lblNewLabel_1 = new JLabel("Senha");
+		lblNewLabel_1.setBounds(115, 98, 36, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		textField_1 = new JTextField();
@@ -90,7 +91,7 @@ public class Form_Login extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(74, 142, 89, 23);
+		btnNewButton.setBounds(191, 132, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnCriarConta = new JButton("Criar Conta");
@@ -101,7 +102,7 @@ public class Form_Login extends JFrame {
 				dispose();
 			}
 		});
-		btnCriarConta.setBounds(246, 142, 89, 23);
+		btnCriarConta.setBounds(324, 225, 105, 23);
 		contentPane.add(btnCriarConta);
 	}
 }

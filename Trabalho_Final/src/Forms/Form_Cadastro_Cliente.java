@@ -60,7 +60,7 @@ public class Form_Cadastro_Cliente extends JFrame {
 		contentPane.add(lblFaaSeuCadastro);
 		
 		JLabel lblNewLabel = new JLabel("Nome Completo");
-		lblNewLabel.setBounds(27, 54, 75, 14);
+		lblNewLabel.setBounds(10, 54, 92, 14);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
@@ -69,7 +69,7 @@ public class Form_Cadastro_Cliente extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblUsurio = new JLabel("CPF");
-		lblUsurio.setBounds(83, 82, 19, 14);
+		lblUsurio.setBounds(80, 82, 22, 14);
 		contentPane.add(lblUsurio);
 		
 		textField_1 = new JTextField();
@@ -78,7 +78,7 @@ public class Form_Cadastro_Cliente extends JFrame {
 		contentPane.add(textField_1);
 		
 		JLabel lblUsurio_1 = new JLabel("Usu\u00E1rio");
-		lblUsurio_1.setBounds(66, 110, 36, 14);
+		lblUsurio_1.setBounds(58, 110, 44, 14);
 		contentPane.add(lblUsurio_1);
 		
 		textField_2 = new JTextField();
@@ -87,7 +87,7 @@ public class Form_Cadastro_Cliente extends JFrame {
 		contentPane.add(textField_2);
 		
 		JLabel lblSenha = new JLabel("Senha");
-		lblSenha.setBounds(72, 138, 30, 14);
+		lblSenha.setBounds(66, 136, 36, 14);
 		contentPane.add(lblSenha);
 		
 		textField_3 = new JTextField();
@@ -105,7 +105,7 @@ public class Form_Cadastro_Cliente extends JFrame {
 				a.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(10, 185, 89, 23);
+		btnNewButton.setBounds(10, 185, 92, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
@@ -115,6 +115,8 @@ public class Form_Cadastro_Cliente extends JFrame {
 				textField_1.setText(null);
 				textField_2.setText(null);
 				textField_3.setText(null);
+				Form_Login c = new Form_Login();
+				c.setVisible(true);
 				dispose();
 			}
 		});

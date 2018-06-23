@@ -10,10 +10,25 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JSpinner;
 
 public class Form_Cadastro_Casa extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_IdProduto;
+	private JTextField txtTipo;
+	private JTextField txtPreo;
+	private JTextField textField_1;
+	private JTextField txtCidade;
+	private JTextField txtEstado;
+	private JTextField txtCep;
 
 	/**
 	 * Launch the application.
@@ -36,24 +51,165 @@ public class Form_Cadastro_Casa extends JFrame {
 	 */
 	public Form_Cadastro_Casa() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 436);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
+		JLabel lblIdLeilo = new JLabel("ID Leil\u00E3o");
+		lblIdLeilo.setBounds(29, 60, 55, 16);
+		
+		textField = new JTextField();
+		textField.setBounds(88, 60, 114, 20);
+		textField.setColumns(10);
+		
+		JLabel lblIdProduto = new JLabel("ID Produto");
+		lblIdProduto.setBounds(25, 86, 59, 16);
+		
+		textField_IdProduto = new JTextField();
+		textField_IdProduto.setBounds(88, 86, 114, 20);
+		textField_IdProduto.setColumns(10);
+		
+		JLabel lblTipo = new JLabel("Tipo");
+		lblTipo.setBounds(60, 112, 24, 16);
+		
+		txtTipo = new JTextField();
+		txtTipo.setBounds(88, 112, 114, 20);
+		txtTipo.setColumns(10);
+		
+		JLabel lblPreo = new JLabel("Pre\u00E7o");
+		lblPreo.setBounds(50, 138, 34, 16);
+		
+		txtPreo = new JTextField();
+		txtPreo.setBounds(88, 138, 114, 20);
+		txtPreo.setColumns(10);
+		
+		JLabel lblArea = new JLabel("Area");
+		lblArea.setBounds(57, 164, 27, 16);
+		
+		JLabel lblEndereo = new JLabel("Rua");
+		lblEndereo.setBounds(62, 218, 22, 16);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(88, 218, 114, 20);
+		textField_1.setColumns(10);
+		
+		JLabel lblCidade = new JLabel("Cidade");
+		lblCidade.setBounds(45, 244, 39, 16);
+		
+		txtCidade = new JTextField();
+		txtCidade.setBounds(88, 244, 114, 20);
+		txtCidade.setColumns(10);
+		
+		JLabel lblEstado = new JLabel("Estado");
+		lblEstado.setBounds(45, 270, 39, 16);
+		
+		txtEstado = new JTextField();
+		txtEstado.setBounds(88, 270, 114, 20);
+		txtEstado.setColumns(10);
+		
+		JLabel lblCep = new JLabel("CEP");
+		lblCep.setBounds(61, 296, 23, 16);
+		
+		txtCep = new JTextField();
+		txtCep.setBounds(88, 296, 114, 20);
+		txtCep.setColumns(10);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBounds(157, 365, 91, 26);
+		
+		
+		
+		JLabel lblCadastroDe = new JLabel("Cadastro de Casa");
+		lblCadastroDe.setBounds(108, 5, 281, 21);
+		lblCadastroDe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCadastroDe.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		JLabel lblGaragem = new JLabel("Garagem");
+		lblGaragem.setBounds(32, 322, 52, 16);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(88, 322, 27, 20);
+		
+		JLabel lblQuarto = new JLabel("Quarto");
+		lblQuarto.setBounds(45, 348, 39, 16);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setBounds(88, 348, 27, 20);
+		
+		JLabel lblBanheiro = new JLabel("Banheiro");
+		lblBanheiro.setBounds(33, 375, 51, 16);
+		
+		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setBounds(88, 373, 27, 20);
+		
+		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setBounds(88, 164, 27, 20);
+		
+		JLabel lblM = new JLabel("M\u00B2");
+		lblM.setBounds(119, 164, 14, 16);
+		
+		JLabel lblCondominio = new JLabel("Condominio");
+		lblCondominio.setBounds(17, 189, 67, 16);
+		
+		JSpinner spinner_4 = new JSpinner();
+		spinner_4.setBounds(88, 190, 27, 20);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(337, 370, 85, 26);
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textField.setText(null);
+				textField_1.setText(null);
+				textField_IdProduto.setText(null);
+				txtCep.setText(null);
+				txtCidade.setText(null);
+				txtEstado.setText(null);
+				txtPreo.setText(null);
+				txtTipo.setText(null);
+				textField.setText(null);
+				textField_1.setText(null);
+				textField_IdProduto.setText(null);
+				spinner.setValue(0);
+				spinner_1.setValue(0);
+				spinner_2.setValue(0);
+				spinner_3.setValue(0);
+				spinner_4.setValue(0);
 				Form_Novo_Leilao c = new Form_Novo_Leilao();
 				c.setVisible(true);
 				dispose();
 			}
 		});
-		contentPane.add(btnNewButton, BorderLayout.NORTH);
-		
-		JLabel lblNewLabel = new JLabel("Casa");
-		contentPane.add(lblNewLabel, BorderLayout.CENTER);
+		contentPane.setLayout(null);
+		contentPane.add(lblCadastroDe);
+		contentPane.add(lblTipo);
+		contentPane.add(txtTipo);
+		contentPane.add(lblPreo);
+		contentPane.add(txtPreo);
+		contentPane.add(lblEndereo);
+		contentPane.add(textField_1);
+		contentPane.add(lblCidade);
+		contentPane.add(txtCidade);
+		contentPane.add(lblEstado);
+		contentPane.add(txtEstado);
+		contentPane.add(lblCep);
+		contentPane.add(txtCep);
+		contentPane.add(lblGaragem);
+		contentPane.add(spinner);
+		contentPane.add(lblQuarto);
+		contentPane.add(lblBanheiro);
+		contentPane.add(spinner_1);
+		contentPane.add(spinner_2);
+		contentPane.add(btnCadastrar);
+		contentPane.add(btnCancelar);
+		contentPane.add(lblCondominio);
+		contentPane.add(lblArea);
+		contentPane.add(spinner_3);
+		contentPane.add(lblM);
+		contentPane.add(spinner_4);
+		contentPane.add(lblIdLeilo);
+		contentPane.add(textField);
+		contentPane.add(lblIdProduto);
+		contentPane.add(textField_IdProduto);
 	}
-
 }
