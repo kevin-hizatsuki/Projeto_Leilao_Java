@@ -57,7 +57,7 @@ public class Form_Cadastro_Carro extends JFrame {
 		JButton btnNewButton = new JButton("Voltar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Form_Novo_Leilao c = new Form_Novo_Leilao();
+				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
 				c.setVisible(true);
 				dispose();
 			}

@@ -87,7 +87,7 @@ public class Controller extends JFrame {
 		JButton btnCriarUmLeilo = new JButton("Criar um leil\u00E3o");
 		btnCriarUmLeilo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Form_Novo_Leilao janela_novo_leilao = new Form_Novo_Leilao();
+				Form_Tela_CadastroGeral janela_novo_leilao = new Form_Tela_CadastroGeral();
 				janela_novo_leilao.setVisible(true);
 				dispose();
 			}

@@ -169,7 +169,7 @@ public class Form_Cadastro_Apartamento extends JFrame {
 				spinner.setValue(0);
 				spinner_1.setValue(0);
 				spinner_2.setValue(0);
-				Form_Novo_Leilao c = new Form_Novo_Leilao();
+				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
 				c.setVisible(true);
 				dispose();	
 			}

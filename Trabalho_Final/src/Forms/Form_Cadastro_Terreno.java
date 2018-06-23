@@ -173,7 +173,7 @@ public class Form_Cadastro_Terreno extends JFrame {
 				textField_8.setText(null);
 				spinner.setValue(0);
 				spinner_1.setValue(0);
-				Form_Novo_Leilao c = new Form_Novo_Leilao();
+				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
 				c.setVisible(true);
 				dispose();	
 			}

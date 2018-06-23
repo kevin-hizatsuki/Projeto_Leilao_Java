@@ -25,7 +25,7 @@ import javax.swing.JMenu;
 import javax.swing.JComboBox;
 import java.awt.Color;
 
-public class Form_Novo_Leilao extends JFrame {
+public class Form_Tela_CadastroGeral extends JFrame {
 
 	private JPanel contentPane;
 
@@ -36,7 +36,7 @@ public class Form_Novo_Leilao extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Form_Novo_Leilao frame = new Form_Novo_Leilao();
+					Form_Tela_CadastroGeral frame = new Form_Tela_CadastroGeral();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,16 +48,16 @@ public class Form_Novo_Leilao extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Form_Novo_Leilao() {
+	public Form_Tela_CadastroGeral() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 435);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(266, 165, 109, 20);
+		comboBox_1.setBounds(183, 195, 119, 20);
 		for (EnumVeiculo c : EnumVeiculo.getValues()) {
 			comboBox_1.addItem(c);
 		}
@@ -66,18 +66,18 @@ public class Form_Novo_Leilao extends JFrame {
 		JLabel lblMessageSelect = new JLabel("Selecione uma op\u00E7\u00E3o acima");
 		lblMessageSelect.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblMessageSelect.setForeground(Color.RED);
-		lblMessageSelect.setBounds(124, 212, 190, 15);
+		lblMessageSelect.setBounds(124, 369, 190, 15);
 		contentPane.add(lblMessageSelect);
 		lblMessageSelect.setVisible(false);
 		
-		JLabel lblLeilesAtuais = new JLabel("Novo Leil\u00E3o");
-		lblLeilesAtuais.setBounds(164, 10, 105, 19);
+		JLabel lblLeilesAtuais = new JLabel("Tela de Cadastros");
+		lblLeilesAtuais.setBounds(164, 10, 150, 19);
 		lblLeilesAtuais.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLeilesAtuais.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblLeilesAtuais);
 		
 		JComboBox<EnumImoveis> comboBox = new JComboBox<EnumImoveis>();
-		comboBox.setBounds(36, 166, 119, 19);
+		comboBox.setBounds(183, 136, 119, 19);
 		for (EnumImoveis c : EnumImoveis.getValues()) {
 			comboBox.addItem(c);
 		}
@@ -120,7 +120,7 @@ public class Form_Novo_Leilao extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(36, 101, 119, 51);
+		btnNewButton.setBounds(55, 180, 119, 51);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Automovel");
@@ -145,7 +145,7 @@ public class Form_Novo_Leilao extends JFrame {
 					}
 			}
 		});
-		btnNewButton_1.setBounds(270, 101, 105, 51);
+		btnNewButton_1.setBounds(55, 120, 116, 51);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -159,6 +159,25 @@ public class Form_Novo_Leilao extends JFrame {
 		btnVoltar.setBounds(0, 0, 89, 23);
 		contentPane.add(btnVoltar);
 		
+		JButton btnNewButton_2 = new JButton("Cliente");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Cadastro_Cliente c = new Form_Cadastro_Cliente();
+				c.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_2.setBounds(55, 243, 119, 51);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Institui\u00E7\u00E3o Financeira");
+		btnNewButton_3.setBounds(55, 306, 161, 51);
+		contentPane.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Leil\u00E3o");
+		btnNewButton_4.setBounds(55, 56, 116, 51);
+		contentPane.add(btnNewButton_4);
+		
 		
 		
 		
@@ -167,5 +186,4 @@ public class Form_Novo_Leilao extends JFrame {
 		
 	
 	}
-	
 }
