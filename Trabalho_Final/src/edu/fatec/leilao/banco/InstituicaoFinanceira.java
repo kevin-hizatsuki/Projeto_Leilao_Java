@@ -36,7 +36,12 @@ public class InstituicaoFinanceira {
 		this.razaoSocial = razaoSocial;
 	}
 	
-	
-	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("CNPJ: "+this.cnpj).append("\n");
+		sb.append("Razao social: "+this.razaoSocial).append("\n");
+		sb.append("Site: "+this.site).append("\n");
+		return sb.toString();
+	}
 
 }

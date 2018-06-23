@@ -1,10 +1,16 @@
 package edu.fatec.model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
 
 public class ModelLeilao {
@@ -12,26 +18,29 @@ public class ModelLeilao {
 	static List<Leiloes> leilao = new LinkedList();
 	
 	public static void AdicionarLeilao(Leiloes v) {
+		if(idRepetido(v.getId())) {
 		leilao.add(v);
+		}
 	}
 
-	public static void AtualizarLeilao(Leiloes atualizar) {
+	public static void AtualizarLeilao(int id,Leiloes atualizar) {
 		for (Leiloes l : leilao) {
-			if (l.equals(atualizar)) {
+			if (l.getId()==id) {
 				leilao.set(leilao.indexOf(l), atualizar);
 			}
 		}
 	}
-
+	
+	
 	public static void RemoverLeilao(Leiloes remover) {
 		for (Leiloes l : leilao) {
-			if (l.equals(remover)) {
+			if (l.getId()==(remover.getId())) {
 				leilao.remove(leilao.indexOf(l));
 			}
 		}
 	}
 
-	public static List<Leiloes> getListaLeilao() {
+	public static List<Leiloes> getLisLeiloes(){
 		return leilao;
 	}
 	
@@ -54,21 +63,11 @@ public class ModelLeilao {
 		}
 	}
 	
-	public static boolean removerLeilao(int id) {
-		int posicao = 0;
-		for (Leiloes l : leilao) {
-			if (l.id == id) {
-				leilao.remove(posicao);
-				return true;
-			}
-			posicao++;
-		}
-		return false;
-	}
-	
 	public static boolean idRepetido(int id) {
 		for (Leiloes l : leilao) {
+				if(l.getId()==id) {
 				return false;
+				}
 		}
 		return true;
 	}
@@ -78,8 +77,29 @@ public class ModelLeilao {
 		return gerador.nextInt(100000);
 	}
 	
-	public static List<Leiloes> getLisLeiloes(){
-		return leilao;
+	
+	
+	public static String statusLeilao(Leiloes l) {
+		
+		LocalDate hoje = LocalDate.now();
+		
+		if((hoje.isAfter(l.dataInicio))&&(hoje.isBefore(l.dataFim))) {
+			return "EM ANDAMENTO";
+		}
+		if(hoje.isAfter(l.dataFim)) {
+			return "FINALIZADO";
+		}
+		else
+			return "EM ABERTO";
+	}
+	
+	public static void gerarArquivo(List<Leiloes> list) throws IOException {
+		PrintWriter escritor = new PrintWriter( new FileWriter("C:\\temp\\leiloes_"+LocalDate.now().toString()+".det"));
+		for(Leiloes l:list) {
+			escritor.println(l.toString());
+			escritor.println("-----------------------------------");
+		}
+		escritor.close();
 	}
 
 }
