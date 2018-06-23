@@ -1,75 +1,35 @@
 package edu.fatec.leilao;
 
-import java.io.BufferedReader;
-import java.io.File;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.LinkedList;
-import java.util.List;
 
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-import edu.fatec.leilao.banco.InstituicaoFinanceira;
-import edu.fatec.leilao.produto.Apartamento;
-import edu.fatec.leilao.produto.Casas;
-import edu.fatec.leilao.produto.EnumImoveis;
-import edu.fatec.leilao.produto.Produto;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Forms.Form_Login;
 
 public class Main {
-
+	
+	
 	public static void main(String[] args) throws IOException {
 		
-		/*JOptionPane.showMessageDialog(null, "Minha mensagem!");
-		JFileChooser fileChooser = new JFileChooser();
-		int retorno = fileChooser.showOpenDialog(null);
-
-		if (retorno == JFileChooser.APPROVE_OPTION) {
-		  File file = fileChooser.getSelectedFile();
-		  // faz alguma coisa com arquivo
-		} else {
-		  // dialogo cancelado
-		}*/
-		/*InputStream is = System.in;
-		InputStreamReader isr = new InputStreamReader(is);
-		BufferedReader br = new BufferedReader(isr);
-
-		SiteLeilao s = new SiteLeilao();
 		
-		s.CadastroLeilao();
-		System.out.println();
-		System.out.println("Dados do leilao: ");
-		s.listarTodosLeilao();
-		//System.out.print("Digite o ID do leilao: ");
-		*/
-		/*String id= br.readLine();
-		if(s.removerLeilao(Integer.parseInt(id))) {
-			System.out.println("Deletado com sucesso");
-		}
-		else {
-			System.out.println("Este refistro nao existe");
-		}
-		//s.atualizacaoLeilao(Integer.parseInt(id));
-		//s.listarTodosLeilao();
-		//s.getListaLeilao().remove(0);
 		
-		System.out.println("Dados listados: ");
-		s.listarTodosLeilao();
-		*/
-		/*SiteLeilao s = new SiteLeilao();
-		s.CadastroLeilao();
-		System.out.println();
-		System.out.println("Dados do leilao: ");
-		s.listarTodosLeilao();
-		s.CadastroTerreno();
-		s.cadastroCasa();
-		System.out.println();
-		s.listarTodosProdutos();
-		*/
+		Form_Login c = new Form_Login();
+		c.setVisible(true);
+		
 		SiteLeilao s = new SiteLeilao();
+		/*
 		s.AdicionarLeilao(new Leiloes(1,"Leilao do ze",new Endereco("Rua Ma","SJC","SP","123457"),new InstituicaoFinanceira("456789","www.bradesco","Bradesco"),LocalDate.of(2018,11,20),LocalDate.of(2018,11,29)));
 		s.AdicionarProduto(new Casas(1,1,EnumImoveis.Casas.toString(),100,new Endereco("Rua M","SJC","SP","123456"),10.50,0,4,3,2));
 		s.AdicionarProduto(new Casas(1,2,EnumImoveis.Casas.toString(),100,new Endereco("Rua Mas","SJC","SP","123455"),20.50,0,4,3,2));
@@ -86,7 +46,7 @@ public class Main {
 		for(Produto p:prod) {
 			System.out.println(p.toString());
 		}
-		
+		*/
 	}
 	
 }
