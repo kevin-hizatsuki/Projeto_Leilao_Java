@@ -50,6 +50,7 @@ public abstract class Produto {
 		StringBuilder sb = new StringBuilder();
 		sb.append("ID Leilao: "+this.idLeilao).append("\n");
 		sb.append("ID Imovel: "+this.idProduto).append("\n");
+		sb.append("Tipo: "+this.tipo).append("\n");
 		sb.append("Area: "+this.tipo).append("\n");
 		sb.append("Preco: R$ "+this.preco).append("\n");
 		return sb.toString();
