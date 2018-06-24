@@ -49,41 +49,28 @@ public class Form_Pesquisa_CadastroGeral extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("Selecione uma das op\u00E7\u00F5es acima!!");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setForeground(Color.RED);
-		label.setFont(new Font("Tahoma", Font.BOLD, 12));
-		label.setBounds(123, 362, 207, 19);
-		contentPane.add(label);
-		label.setVisible(false);
-		
 		JButton button = new JButton("Institui\u00E7\u00E3o Financeira");
-		button.setBounds(142, 299, 161, 51);
+		button.setBounds(131, 276, 161, 51);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Cliente");
-		button_1.setBounds(157, 236, 119, 51);
+		button_1.setBounds(152, 213, 119, 51);
 		contentPane.add(button_1);
-		
-		JButton button_2 = new JButton("Im\u00F3vel");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-					}
-		});
-		button_2.setBounds(157, 173, 119, 51);
-		contentPane.add(button_2);
 
 		
-		JButton button_3 = new JButton("Automovel");
-		button_3.addActionListener(new ActionListener() {
+		JButton btnAutomovelimvel = new JButton("Automovel/Im\u00F3vel");
+		btnAutomovelimvel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Form_Pesquisa_ProdutoGeral c = new Form_Pesquisa_ProdutoGeral();
+				c.setVisible(true);
+				dispose();
 				}
 		});
-		button_3.setBounds(157, 113, 116, 51);
-		contentPane.add(button_3);
+		btnAutomovelimvel.setBounds(131, 150, 161, 51);
+		contentPane.add(btnAutomovelimvel);
 		
 		JButton button_4 = new JButton("Leil\u00E3o");
-		button_4.setBounds(157, 49, 116, 51);
+		button_4.setBounds(153, 87, 116, 51);
 		contentPane.add(button_4);
 		
 		JButton button_5 = new JButton("Voltar");

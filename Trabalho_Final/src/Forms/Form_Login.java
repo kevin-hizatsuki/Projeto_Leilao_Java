@@ -44,7 +44,7 @@ public class Form_Login extends JFrame {
 		
 		
 		System.out.println(ModelCliente.getLisCliente());
-		ModelCliente.adicionarCliente(new Cliente("361-306-068-48","Lucas Domingos Leão Gomes","lucasdlg","123"));
+		ModelCliente.adicionarCliente(new Cliente("361-306-068-48","Lucas Domingos Leão Gomes","lucasdlg","123", "title"));
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
