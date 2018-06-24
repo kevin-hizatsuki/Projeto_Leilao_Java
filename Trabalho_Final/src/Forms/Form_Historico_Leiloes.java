@@ -110,6 +110,7 @@ public class Form_Historico_Leiloes extends JFrame {
 		});
 		button.setBounds(0, 0, 89, 23);
 		contentPane.add(button);
+		
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		table_1 = new JTable(tabelaModelo);
 //		for (int i = 0; i < colunas.length; i++) {

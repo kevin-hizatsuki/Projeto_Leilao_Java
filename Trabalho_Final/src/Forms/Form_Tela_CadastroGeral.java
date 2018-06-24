@@ -57,7 +57,7 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		contentPane.setLayout(null);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(183, 195, 119, 20);
+		comboBox_1.setBounds(183, 134, 119, 20);
 		for (EnumVeiculo c : EnumVeiculo.getValues()) {
 			comboBox_1.addItem(c);
 		}
@@ -70,14 +70,14 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		contentPane.add(lblMessageSelect);
 		lblMessageSelect.setVisible(false);
 		
-		JLabel lblLeilesAtuais = new JLabel("Tela de Cadastros");
-		lblLeilesAtuais.setBounds(164, 10, 150, 19);
+		JLabel lblLeilesAtuais = new JLabel("Tela de Cadastros Gerais");
+		lblLeilesAtuais.setBounds(107, 15, 195, 19);
 		lblLeilesAtuais.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLeilesAtuais.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblLeilesAtuais);
 		
 		JComboBox<EnumImoveis> comboBox = new JComboBox<EnumImoveis>();
-		comboBox.setBounds(183, 136, 119, 19);
+		comboBox.setBounds(183, 196, 119, 19);
 		for (EnumImoveis c : EnumImoveis.getValues()) {
 			comboBox.addItem(c);
 		}
@@ -120,7 +120,7 @@ public class Form_Tela_CadastroGeral extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(55, 180, 119, 51);
+		btnNewButton.setBounds(52, 180, 119, 51);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Automovel");
@@ -128,7 +128,6 @@ public class Form_Tela_CadastroGeral extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (comboBox_1.getSelectedIndex() == 1 || comboBox.getSelectedIndex() == 2) {
 					comboBox.setSelectedIndex(0);
-				}
 				switch(comboBox_1.getSelectedIndex()) {
 						case 1:{ 
 							Form_Cadastro_Carro c = new Form_Cadastro_Carro();
@@ -143,9 +142,12 @@ public class Form_Tela_CadastroGeral extends JFrame {
 							break;
 						}
 					}
+				}else {
+					lblMessageSelect.setVisible(true);
+				}
 			}
 		});
-		btnNewButton_1.setBounds(55, 120, 116, 51);
+		btnNewButton_1.setBounds(55, 119, 116, 51);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -177,6 +179,28 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		JButton btnNewButton_4 = new JButton("Leil\u00E3o");
 		btnNewButton_4.setBounds(55, 56, 116, 51);
 		contentPane.add(btnNewButton_4);
+		
+		JButton btnDeletar = new JButton("Deletar");
+		btnDeletar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Deleta_CadastroGeral c = new Form_Deleta_CadastroGeral();
+				c.setVisible(true);
+				dispose();
+			}
+		});
+		btnDeletar.setBounds(324, 12, 98, 26);
+		contentPane.add(btnDeletar);
+		
+		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Pesquisa_CadastroGeral c = new Form_Pesquisa_CadastroGeral();
+				c.setVisible(true);
+				dispose();
+			}
+		});
+		btnPesquisar.setBounds(324, 45, 98, 26);
+		contentPane.add(btnPesquisar);
 		
 		
 		
