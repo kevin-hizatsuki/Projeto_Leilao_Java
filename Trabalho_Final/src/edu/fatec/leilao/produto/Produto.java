@@ -7,11 +7,13 @@ public abstract class Produto {
 	public String tipo;
 	public double preco;
 	
+	
 	public Produto(Integer idLeilao,Integer idProduto,String tipo,double preco) {
 		this.idLeilao=idLeilao;
 		this.idProduto=idProduto;
 		this.tipo=tipo;
 		this.preco=preco;
+		
 	}
 
 	public Integer getIdLeilao() {
@@ -51,7 +53,6 @@ public abstract class Produto {
 		sb.append("ID Leilao: "+this.idLeilao).append("\n");
 		sb.append("ID Imovel: "+this.idProduto).append("\n");
 		sb.append("Tipo: "+this.tipo).append("\n");
-		sb.append("Area: "+this.tipo).append("\n");
 		sb.append("Preco: R$ "+this.preco).append("\n");
 		return sb.toString();
 	}
