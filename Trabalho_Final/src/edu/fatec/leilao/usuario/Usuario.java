@@ -2,24 +2,24 @@ package edu.fatec.leilao.usuario;
 
 public class Usuario {
 	
-	public String tipo;
+	public EnumUsuario tipo;
 	public String user;
 	public String senha;
 	
-	public Usuario(String tipo,String user,String senha) {
-		this.tipo=tipo;
+	public Usuario(EnumUsuario cliente,String user,String senha) {
+		this.tipo=cliente;
 		this.user=user;
 		this.senha=senha;
 	}
 	
 
-	public String getTipo() {
+	public EnumUsuario getTipo() {
 		return tipo;
 	}
 
 
 
-	public void setTipo(String tipo) {
+	public void setTipo(EnumUsuario tipo) {
 		this.tipo = tipo;
 	}
 

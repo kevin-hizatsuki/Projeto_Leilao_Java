@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import edu.fatec.leilao.banco.InstituicaoFinanceira;
+import edu.fatec.model.ModelInstituicaoFinanceira;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -64,6 +68,19 @@ public class Form_Cadastro_Instituicao_Financeira extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModelInstituicaoFinanceira c = new ModelInstituicaoFinanceira();
+				if ((c.cnpjRepetido(textField.getText()))) {
+					c.AdicionarInstituicaoFinanceira(new InstituicaoFinanceira(textField.getText(),textField_1.getText(),textField_2.getText()));
+					Form_Tela_CadastroGeral d = new Form_Tela_CadastroGeral();
+					d.setVisible(true);
+					dispose();
+					
+				}
+				
+			}
+		});
 		btnCadastrar.setBounds(48, 180, 111, 23);
 		contentPane.add(btnCadastrar);
 		

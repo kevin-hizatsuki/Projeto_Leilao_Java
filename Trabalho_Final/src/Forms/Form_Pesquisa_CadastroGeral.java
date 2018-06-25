@@ -50,6 +50,11 @@ public class Form_Pesquisa_CadastroGeral extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton button = new JButton("Institui\u00E7\u00E3o Financeira");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 		button.setBounds(131, 276, 161, 51);
 		contentPane.add(button);
 		
@@ -100,17 +105,6 @@ public class Form_Pesquisa_CadastroGeral extends JFrame {
 		});
 		button_6.setBounds(336, 0, 98, 26);
 		contentPane.add(button_6);
-		
-		JButton btnDeletar = new JButton("Deletar");
-		btnDeletar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Deleta_CadastroGeral c = new Form_Deleta_CadastroGeral();
-				c.setVisible(true);
-				dispose();
-			}
-		});
-		btnDeletar.setBounds(336, 33, 98, 26);
-		contentPane.add(btnDeletar);
 	}
 
 }

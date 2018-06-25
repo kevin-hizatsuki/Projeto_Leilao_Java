@@ -153,12 +153,12 @@ String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condomini
 //		
 		    }
 		});
-		for (EnumImoveis c : EnumImoveis.getValues()) {
+		for (EnumImoveis c : EnumImoveis.values()) {
 			if (c.toString() != "Nenhum") {
 				comboBox.addItem(c);
 			}
 		}
-		for (EnumVeiculo c : EnumVeiculo.getValues()) {
+		for (EnumVeiculo c : EnumVeiculo.values()) {
 			if (c.toString() != "Nenhum") {
 				comboBox.addItem(c);
 			}

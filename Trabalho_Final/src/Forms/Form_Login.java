@@ -1,5 +1,6 @@
 package Forms;
 import edu.fatec.model.ModelCliente;
+import edu.fatec.model.ModelUsuario;
 import edu.fatec.leilao.usuario.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -42,9 +43,6 @@ public class Form_Login extends JFrame {
 	 */
 	public Form_Login() {
 		
-		
-		System.out.println(ModelCliente.getLisCliente());
-		ModelCliente.adicionarCliente(new Cliente("361-306-068-48","Lucas Domingos Leão Gomes","lucasdlg","123", "title"));
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

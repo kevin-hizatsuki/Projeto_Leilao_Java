@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.EnumVeiculo;
+import edu.fatec.model.ModelInstituicaoFinanceira;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -56,9 +57,11 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		ModelInstituicaoFinanceira.ListarTodos();
+		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(183, 134, 119, 20);
-		for (EnumVeiculo c : EnumVeiculo.getValues()) {
+		for (EnumVeiculo c : EnumVeiculo.values()) {
 			comboBox_1.addItem(c);
 		}
 		contentPane.add(comboBox_1);
@@ -78,7 +81,7 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		
 		JComboBox<EnumImoveis> comboBox = new JComboBox<EnumImoveis>();
 		comboBox.setBounds(183, 196, 119, 19);
-		for (EnumImoveis c : EnumImoveis.getValues()) {
+		for (EnumImoveis c : EnumImoveis.values()) {
 			comboBox.addItem(c);
 		}
 		contentPane.add(comboBox);
@@ -173,23 +176,19 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Institui\u00E7\u00E3o Financeira");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Cadastro_Instituicao_Financeira c = new Form_Cadastro_Instituicao_Financeira();
+				c.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_3.setBounds(55, 306, 161, 51);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Leil\u00E3o");
 		btnNewButton_4.setBounds(55, 56, 116, 51);
 		contentPane.add(btnNewButton_4);
-		
-		JButton btnDeletar = new JButton("Deletar");
-		btnDeletar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Deleta_CadastroGeral c = new Form_Deleta_CadastroGeral();
-				c.setVisible(true);
-				dispose();
-			}
-		});
-		btnDeletar.setBounds(324, 12, 98, 26);
-		contentPane.add(btnDeletar);
 		
 		JButton btnPesquisar = new JButton("Pesquisar");
 		btnPesquisar.addActionListener(new ActionListener() {
@@ -199,7 +198,7 @@ public class Form_Tela_CadastroGeral extends JFrame {
 				dispose();
 			}
 		});
-		btnPesquisar.setBounds(324, 45, 98, 26);
+		btnPesquisar.setBounds(324, 12, 98, 26);
 		contentPane.add(btnPesquisar);
 		
 		

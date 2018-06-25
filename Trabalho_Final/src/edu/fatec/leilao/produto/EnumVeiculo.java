@@ -1,5 +1,10 @@
 package edu.fatec.leilao.produto;
 
 public enum EnumVeiculo {
-	Carros,Motocicletas
+	Nenhum,Carros,Motocicletas;
+
+	public static Object getValues() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

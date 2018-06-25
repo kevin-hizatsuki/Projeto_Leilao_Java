@@ -5,7 +5,7 @@ public class Cliente extends Usuario{
 	public String cpf;
 	public String nome;
 
-	public Cliente(String tipo,String cpf,String nome,String usuario,String senha) {
+	public Cliente(EnumUsuario tipo,String cpf,String nome,String usuario,String senha) {
 		super(tipo,usuario,senha);
 		this.cpf=cpf;
 		this.nome=nome;

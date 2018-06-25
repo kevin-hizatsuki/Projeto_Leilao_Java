@@ -106,7 +106,7 @@ public class Form_Novo_imovel extends JFrame {
 		comboBox.setBounds(119, 43, 262, 19);
 		contentPane.add(comboBox);
 		
-		for (EnumImoveis c : EnumImoveis.getValues()) {
+		for (EnumImoveis c : EnumImoveis.values()) {
 //			System.out.println(c);
 			comboBox.addItem(c);
 		}
