@@ -12,6 +12,11 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+
+import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.SiteLeilao;
+import edu.fatec.leilao.produto.Apartamento;
+import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.EnumVeiculo;
 
@@ -61,6 +66,7 @@ public class Form_Pesquisa_CadastroGeral extends JFrame {
 		JButton button_1 = new JButton("Cliente");
 		button_1.setBounds(152, 213, 119, 51);
 		contentPane.add(button_1);
+
 
 		
 		JButton btnAutomovelimvel = new JButton("Automovel/Im\u00F3vel");
