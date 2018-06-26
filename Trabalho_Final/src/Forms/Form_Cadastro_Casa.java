@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.produto.Casas;
+import edu.fatec.model.ModelProduto;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -115,8 +120,7 @@ public class Form_Cadastro_Casa extends JFrame {
 		txtCep.setBounds(88, 296, 114, 20);
 		txtCep.setColumns(10);
 		
-		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(157, 365, 91, 26);
+		
 		
 		
 		
@@ -154,6 +158,31 @@ public class Form_Cadastro_Casa extends JFrame {
 		
 		JSpinner spinner_4 = new JSpinner();
 		spinner_4.setBounds(88, 190, 27, 20);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModelProduto c = new ModelProduto();
+//				c.AdicionarProduto(new Casas(
+//						textField.getText(), //Id
+//						textField_IdProduto.getText(), //IdImovel
+//						txtTipo.getText(), //Tipo do produto
+//						txtPreo.getText(), //Preço 
+//						spinner_3.getValue(),
+//						spinner_4.getValue(),
+//						textField_1.getText(),
+//						txtCidade.getText(),
+//						
+//						txtCep.getText(),
+//						spinner.getValue(),
+//						spinner_1.getValue(),
+//						spinner_2.getValue()
+//											)
+//				);
+				dispose();
+			}
+		});
+		btnCadastrar.setBounds(157, 365, 91, 26);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(337, 370, 85, 26);

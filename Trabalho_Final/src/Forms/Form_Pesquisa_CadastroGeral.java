@@ -19,6 +19,7 @@ import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.EnumVeiculo;
+import edu.fatec.model.ModelProduto;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -54,14 +55,14 @@ public class Form_Pesquisa_CadastroGeral extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton button = new JButton("Institui\u00E7\u00E3o Financeira");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-		button.setBounds(131, 276, 161, 51);
-		contentPane.add(button);
+//		JButton button = new JButton("Institui\u00E7\u00E3o Financeira");
+//		button.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//
+//			}
+//		});
+//		button.setBounds(131, 276, 161, 51);
+//		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Cliente");
 		button_1.setBounds(152, 213, 119, 51);
@@ -111,6 +112,20 @@ public class Form_Pesquisa_CadastroGeral extends JFrame {
 		});
 		button_6.setBounds(336, 0, 98, 26);
 		contentPane.add(button_6);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				ModelProduto p = null;
+//				Casas produto1;
+//				Endereco endereco = new Endereco("Rua x", "SJC", "SP", "123456");
+//				produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
+//				p.AdicionarProduto(produto1);
+				
+			}
+		});
+		btnNewButton.setBounds(47, 46, 98, 26);
+		contentPane.add(btnNewButton);
 	}
 
 }

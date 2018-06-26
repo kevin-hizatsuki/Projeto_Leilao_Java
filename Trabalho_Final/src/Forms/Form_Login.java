@@ -1,5 +1,6 @@
 package Forms;
 import edu.fatec.model.ModelCliente;
+import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelUsuario;
 import edu.fatec.leilao.usuario.*;
 import java.awt.BorderLayout;
@@ -14,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class Form_Login extends JFrame {
@@ -102,5 +104,31 @@ public class Form_Login extends JFrame {
 		});
 		btnCriarConta.setBounds(324, 225, 105, 23);
 		contentPane.add(btnCriarConta);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					ModelLeilao.gerarArquivo(ModelLeilao.getLisLeiloes());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("Deu problema kkk");
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnSair.setBounds(30, 223, 98, 26);
+		contentPane.add(btnSair);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				ModelLeilao.listarTodosLeilao();
+			}
+		});
+		btnNewButton_1.setBounds(12, 130, 98, 26);
+		contentPane.add(btnNewButton_1);
 	}
 }

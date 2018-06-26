@@ -202,6 +202,7 @@ String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condomini
 				
 				switch (comboBox.getSelectedItem().toString().toLowerCase()) {
 				case "apartamentos":
+					//Preciso criar os produtos em outra classe e puxar aqui para deletar
 					for (Produto a :s.getListaProduto()) {
 						if (a.idProduto.equals((int) table.getValueAt(table.getSelectedRow(), 1))) {
 //							ModelProduto.removerProduto(a);
