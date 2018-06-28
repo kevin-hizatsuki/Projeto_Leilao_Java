@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.fatec.leilao.usuario.Cliente;
+import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Usuario;
 import edu.fatec.model.ModelUsuario;
 
@@ -23,13 +24,13 @@ class TestModelUsuario {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		admin = new Usuario("Administrador", "Admin", "Admin");
-		usuario1 = new Cliente("Cliente", "123456", "Jose", "JOJO", "123");
-		usuario2 = new Cliente("Cliente", "123457", "Julia", "JULIA", "124");
-		usuario3 = new Cliente("Cliente", "123458", "Karinao", "karinao", "125");
-		usuario4 = new Cliente("Cliente", "123459", "Lusca", "lucasdlg", "126");
-		usuario5 = new Cliente("Cliente", "123457", "Julia", "JULIA", "12426");
-		atualizar = new Cliente("Cliente", "123456", "Jose", "JOJO", "321");
+		admin = new Usuario(EnumUsuario.Administrador, "Admin", "Admin");
+		usuario1 = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "123");
+		usuario2 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "124");
+		usuario3 = new Cliente(EnumUsuario.Cliente, "123458", "Karinao", "karinao", "125");
+		usuario4 = new Cliente(EnumUsuario.Cliente, "123459", "Lusca", "lucasdlg", "126");
+		usuario5 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "12426");
+		atualizar = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "321");
 	}
 
 	@Test

@@ -61,7 +61,7 @@ public class Controller extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblNewLabel);
 		
-		JButton btnChecarLeilesAtuais = new JButton("Checar Leil\u00F5es Atuais");
+		JButton btnChecarLeilesAtuais = new JButton("Area de Leil\u00F5es");
 		btnChecarLeilesAtuais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Form_Leiloes_Atuais janela_leiloes_atuais = new Form_Leiloes_Atuais();
@@ -84,7 +84,7 @@ public class Controller extends JFrame {
 		btnHistricoDeLeiles.setBounds(128, 202, 164, 71);
 		contentPane.add(btnHistricoDeLeiles);
 		
-		JButton btnCriarUmLeilo = new JButton("Criar um leil\u00E3o");
+		JButton btnCriarUmLeilo = new JButton("Area de Cadastros");
 		btnCriarUmLeilo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Form_Tela_CadastroGeral janela_novo_leilao = new Form_Tela_CadastroGeral();
@@ -92,7 +92,7 @@ public class Controller extends JFrame {
 				dispose();
 			}
 		});
-		btnCriarUmLeilo.setBounds(150, 36, 116, 71);
+		btnCriarUmLeilo.setBounds(128, 36, 164, 71);
 		contentPane.add(btnCriarUmLeilo);
 	}
 

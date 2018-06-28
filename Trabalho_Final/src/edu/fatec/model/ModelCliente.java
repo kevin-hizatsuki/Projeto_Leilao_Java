@@ -36,7 +36,7 @@ public class ModelCliente {
 	 
 	public static Boolean ifClientExists(String username, String senha){
 		for (Cliente c : cliente) {
-			if (c.getUsuario().equals(username) && c.getSenha().equals(senha)) {
+			if (c.getUser().equals(username) && c.getSenha().equals(senha)) {
 				return true;
 			}
 			return false;

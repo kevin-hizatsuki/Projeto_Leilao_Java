@@ -20,6 +20,7 @@ import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EdificiosComerciais;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.usuario.Cliente;
+import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Lance;
 import edu.fatec.model.ModelInstituicaoFinanceira;
 import edu.fatec.model.ModelLance;
@@ -64,8 +65,8 @@ class TestModelLance {
 		produto2 = new Apartamento(1, 2, 100, endereco2, 200, 0.5, "Apartamento", 15, 1, 2, 2);
 		produto3 = new Imoveis(1, 3, "Terreno", 120, endereco3, 60, 0);
 		produto5 = new Carro(1, 5, "Carro", "Ford", "Fusion", 4.0, 2017, "Automatico", 50, "Gasolina", 70, 4);
-		usuario1 = new Cliente("Cliente", "123456", "Jose", "JOJO", "123");
-		usuario2 = new Cliente("Cliente", "123457", "Julia", "JULIA", "124");
+		usuario1 = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "123");
+		usuario2 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "124");
 		l1 = new Lance(15, leilao1, produto1, usuario1, 155.5);
 		l2 = new Lance(8, leilao1, produto2, usuario1, 200.5);
 		l3 = new Lance(1, leilao1, produto2, usuario2, 210.5);

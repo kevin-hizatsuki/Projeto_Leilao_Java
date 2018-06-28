@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.Main;
 import edu.fatec.leilao.SiteLeilao;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Casas;
@@ -16,13 +17,16 @@ import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.EnumVeiculo;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
+import edu.fatec.model.ModelProduto;
 
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.management.modelmbean.ModelMBeanOperationInfo;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Observable;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
@@ -78,18 +82,7 @@ public class Form_Pesquisa_ProdutoGeral extends JFrame {
 		
 String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condominio", "garagem", "quarto","banheiro"}; 
 		
-		SiteLeilao s = new SiteLeilao();
-		//s.AdicionarLeilao(new Leiloes(1,"Leilao do ze",new Endereco("Rua Ma","SJC","SP","123457"),new InstituicaoFinanceira("456789","www.bradesco","Bradesco"),LocalDate.of(2018,11,20),LocalDate.of(2018,11,29)));
-		s.AdicionarProduto(new Casas(1,1,EnumImoveis.Casas.toString(),100,new Endereco("Rua M","SJC","SP","123456"),10.50,0,4,3,2));
-		s.AdicionarProduto(new Casas(1,2,EnumImoveis.Casas.toString(),100,new Endereco("Rua Mas","SJC","SP","123455"),20.50,0,4,3,2));
-		s.AdicionarProduto(new Casas(1,3,EnumImoveis.Casas.toString(),100,new Endereco("Rua Mdas","SJC","SP","123454"),30.50,0,4,3,2));
-		s.AdicionarProduto(new Casas(1,4,EnumImoveis.Casas.toString(),100,new Endereco("Rua Masdasd","SJC","SP","143456"),40.50,0,4,3,2));
-		s.AdicionarProduto(new Casas(1,5,EnumImoveis.Casas.toString(),100,new Endereco("Rua aadsM","SJC","SP","123856"),60.50,0,4,3,2));
-		s.AdicionarProduto(new Apartamento(1,6,50,new Endereco("Rua aadsM","SJC","SP","1238599"),39,5,EnumImoveis.Apartamentos.toString(),15,1,2,1));
-		//s.listarTodosLeilao();
-//		s.listarTodosProdutos();
-//		System.out.println(s.getListaLeilao());
-		
+
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		table = new JTable(tabelaModelo);
 		table.setBounds(10, 64, 412, 312);
@@ -111,6 +104,10 @@ String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condomini
 //		}
 		contentPane.add(table);
 		
+		SiteLeilao s = new SiteLeilao();
+		//Arrumar uma forma de trazer a lista de produtos cadastrados
+		//s.AdicionarLeilao(new Leiloes(1,"Leilao do ze",new Endereco("Rua Ma","SJC","SP","123457"),new InstituicaoFinanceira("456789","www.bradesco","Bradesco"),LocalDate.of(2018,11,20),LocalDate.of(2018,11,29)));
+	
 		JComboBox comboBox = new JComboBox();
 //		JComboBox<EnumImoveis> comboBox = new JComboBox<EnumImoveis>();
 //		List<Produto> dados;
@@ -119,7 +116,11 @@ String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condomini
 //		    	System.out.println(comboBox.getSelectedItem());
 		    	tabelaModelo.setRowCount(0);
 //				dados.clear();
-				for (Produto t : s.getListaProduto()) {
+		    	
+
+		    	
+		    	
+		    	for (Produto t : s.getListaProduto()) {
 					if (t.getTipo().toString()==comboBox.getSelectedItem().toString()) {
 //						System.out.println("Entrou o produto "+comboBox.getSelectedItem());
 //						for (int i = 0; i < dados.size(); i++) {
@@ -150,12 +151,12 @@ String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condomini
 //		
 		    }
 		});
-		for (EnumImoveis c : EnumImoveis.getValues()) {
+		for (EnumImoveis c : EnumImoveis.values()) {
 			if (c.toString() != "Nenhum") {
 				comboBox.addItem(c);
 			}
 		}
-		for (EnumVeiculo c : EnumVeiculo.getValues()) {
+		for (EnumVeiculo c : EnumVeiculo.values()) {
 			if (c.toString() != "Nenhum") {
 				comboBox.addItem(c);
 			}
@@ -170,39 +171,69 @@ String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condomini
 //	    {"João da Silva", "48 8890-3345", "joaosilva@hotmail.com","0","0","0","0","0","0","0"},
 //	    {"Pedro Cascaes", "48 9870-5634", "pedrinho@gmail.com","0","0","0","0","0","0","0"}
 //	};
-
-		
-	
-		
-		
-		
-		
-		JButton btnDeletarRegistro = new JButton("Deletar Registro");
-		btnDeletarRegistro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_YesNo_DeletaReg_Pesquisa c = new Form_YesNo_DeletaReg_Pesquisa();
-				c.setAlwaysOnTop(true);
-				c.setVisible(true);
-				
-			}
-		});
-		btnDeletarRegistro.setBounds(286, 35, 136, 26);
-		contentPane.add(btnDeletarRegistro);
-		
 		JButton btnEntrarNoRegistro = new JButton("Entrar no Registro");
 		btnEntrarNoRegistro.addActionListener(new ActionListener() {
 //			List<Produto> dados = s.getListaProduto();
 			public void actionPerformed(ActionEvent e) {
-
+				
 				//Aqui sera necessario enviar dois paramentros para a proxima tela: ID do Produto e Tipo de produto selecionado para que os campos possam mudar de status de setVisible de FALSE para TRUE de acordo com os parametros enviados
 				//Usar Observable
-				System.out.println(table.getValueAt(table.getSelectedRow(), 1)); // Aqui ele faz esquema X,Y - verifica qual a linha e qual a coluna para pegar o ID do produto listado
-				comboBox.getSelectedItem().toString(); //Tipo selecionado
+				Main.setIdProduto_FormPesquisa((int) table.getValueAt(table.getSelectedRow(), 1)); // Aqui ele faz esquema X,Y - verifica qual a linha e qual a coluna para pegar o ID do produto listado
+				Main.setTipoProduto_FormPesquisa(comboBox.getSelectedItem().toString()); //Tipo selecionado
+				
+				Form_Altera_Imovel c = new Form_Altera_Imovel();
+				c.setVisible(true);
+				dispose();
 				
 			}
 		});
 		btnEntrarNoRegistro.setBounds(10, 35, 148, 26);
 		contentPane.add(btnEntrarNoRegistro);
+
+		JButton btnDeletarRegistro = new JButton("Deletar Registro");
+		btnDeletarRegistro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				Form_YesNo_DeletaReg_Pesquisa c = new Form_YesNo_DeletaReg_Pesquisa();
+//				c.setAlwaysOnTop(true);
+//				c.setVisible(true);
+				
+//				System.out.println((int) table.getValueAt(table.getSelectedRow(), 1)); // Aqui ele faz esquema X,Y - verifica qual a linha e qual a coluna para pegar o ID do produto listado
+//				comboBox.getSelectedItem().toString(); //Tipo selecionado
+				
+				switch (comboBox.getSelectedItem().toString().toLowerCase()) {
+				case "apartamentos":
+					//Preciso criar os produtos em outra classe e puxar aqui para deletar
+					for (Produto a :s.getListaProduto()) {
+						if (a.idProduto.equals((int) table.getValueAt(table.getSelectedRow(), 1))) {
+//							ModelProduto.removerProduto(a);
+							s.removerProduto(a);
+							Form_Pesquisa_ProdutoGeral d = new Form_Pesquisa_ProdutoGeral();
+							dispose();
+							d.setVisible(true);
+						}
+					}
+					break;
+				case "terrenos":
+					
+					break;
+				case "casas":
+					
+					break;
+				case "edifícios_comerciais":
+					
+					break;
+				case "carros":
+					
+					break;
+				case "motocicletas":
+					
+					break;
+				}
+			}
+		});
+		btnDeletarRegistro.setBounds(286, 35, 136, 26);
+		contentPane.add(btnDeletarRegistro);
+		
 		
 		
 		

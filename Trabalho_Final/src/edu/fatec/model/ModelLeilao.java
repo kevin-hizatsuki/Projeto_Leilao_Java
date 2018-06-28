@@ -94,7 +94,7 @@ public class ModelLeilao {
 	}
 	
 	public static void gerarArquivo(List<Leiloes> list) throws IOException {
-		PrintWriter escritor = new PrintWriter( new FileWriter("C:\\temp\\leiloes_"+LocalDate.now().toString()+".det"));
+		PrintWriter escritor = new PrintWriter( new FileWriter("C:\\temp\\leiloes_"+LocalDate.now().toString()+".txt"));
 		for(Leiloes l:list) {
 			escritor.println(l.toString());
 			escritor.println("-----------------------------------");

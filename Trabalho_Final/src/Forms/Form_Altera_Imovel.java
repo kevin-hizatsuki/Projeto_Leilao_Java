@@ -6,12 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import edu.fatec.leilao.Main;
+import edu.fatec.model.ModelProduto;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Form_Altera_Imovel extends JFrame {
 
@@ -49,8 +55,7 @@ public class Form_Altera_Imovel extends JFrame {
 		setBounds(100, 100, 450, 444);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
 		
 		JLabel label = new JLabel("Cadastro de Edificios Comerciais");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -64,11 +69,13 @@ public class Form_Altera_Imovel extends JFrame {
 		contentPane.add(label_1);
 		
 		textField = new JTextField();
+		textField.setEditable(false);
 		textField.setColumns(10);
 		textField.setBounds(116, 46, 86, 20);
 		contentPane.add(textField);
 		
 		textField_1 = new JTextField();
+		textField_1.setEditable(false);
 		textField_1.setColumns(10);
 		textField_1.setBounds(116, 72, 86, 20);
 		contentPane.add(textField_1);
@@ -82,6 +89,7 @@ public class Form_Altera_Imovel extends JFrame {
 		contentPane.add(label_3);
 		
 		textField_2 = new JTextField();
+		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		textField_2.setBounds(116, 98, 86, 20);
 		contentPane.add(textField_2);
@@ -89,6 +97,7 @@ public class Form_Altera_Imovel extends JFrame {
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(116, 124, 86, 20);
+		
 		contentPane.add(textField_3);
 		
 		JLabel label_4 = new JLabel("Pre\u00E7o");
@@ -171,74 +180,137 @@ public class Form_Altera_Imovel extends JFrame {
 		label_13.setVisible(false);
 		contentPane.add(label_13);
 		
-		JButton button = new JButton("Cadastrar");
-		button.setBounds(232, 371, 91, 23);
-		contentPane.add(button);
+		
 		
 		JButton button_1 = new JButton("Cancelar");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Pesquisa_ProdutoGeral c = new Form_Pesquisa_ProdutoGeral();
+				c.setVisible(true);
+				dispose();
+			}
+		});
 		button_1.setBounds(333, 371, 91, 23);
 		contentPane.add(button_1);
 		
 		JSpinner spinner_4 = new JSpinner();
-		spinner_4.setBounds(201, 311, 29, 20);
+		spinner_4.setBounds(116, 311, 29, 20);
 		spinner_4.setVisible(false);
 		contentPane.add(spinner_4);
 		
 		JLabel label_14 = new JLabel("Cadastro de Apartamento");
 		label_14.setHorizontalAlignment(SwingConstants.CENTER);
 		label_14.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_14.setBounds(79, 20, 281, 21);
+		label_14.setBounds(79, 0, 281, 21);
 		label_14.setVisible(false);
 		contentPane.add(label_14);
 		
 		JLabel label_15 = new JLabel("Andar");
-		label_15.setBounds(167, 314, 35, 14);
+		label_15.setBounds(79, 314, 35, 14);
 		label_15.setVisible(false);
 		contentPane.add(label_15);
 		
 		JLabel label_16 = new JLabel("Cadastro de Terrenos");
 		label_16.setHorizontalAlignment(SwingConstants.CENTER);
 		label_16.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_16.setBounds(79, 45, 281, 21);
+		label_16.setBounds(79, 0, 281, 21);
 		label_16.setVisible(false);
 		contentPane.add(label_16);
 		
 		JLabel label_17 = new JLabel("Cadastro de Casa");
 		label_17.setHorizontalAlignment(SwingConstants.CENTER);
 		label_17.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_17.setBounds(89, 71, 281, 21);
+		label_17.setBounds(79, 0, 281, 21);
 		label_17.setVisible(false);
 		contentPane.add(label_17);
 		
 		JSpinner spinner_5 = new JSpinner();
-		spinner_5.setBounds(383, 308, 27, 20);
+		spinner_5.setBounds(116, 333, 27, 20);
 		spinner_5.setVisible(false);
 		contentPane.add(spinner_5);
 		
 		JSpinner spinner_6 = new JSpinner();
-		spinner_6.setBounds(383, 282, 27, 20);
+		spinner_6.setBounds(116, 308, 27, 20);
 		spinner_6.setVisible(false);
 		contentPane.add(spinner_6);
 		
 		JSpinner spinner_7 = new JSpinner();
-		spinner_7.setBounds(383, 333, 27, 20);
+		spinner_7.setBounds(116, 356, 27, 20);
 		spinner_7.setVisible(false);
 		contentPane.add(spinner_7);
 		
 		JLabel label_18 = new JLabel("Banheiro");
-		label_18.setBounds(328, 335, 51, 16);
+		label_18.setBounds(56, 358, 51, 16);
 		label_18.setVisible(false);
 		contentPane.add(label_18);
 		
 		JLabel label_19 = new JLabel("Quarto");
-		label_19.setBounds(340, 308, 39, 16);
+		label_19.setBounds(72, 339, 39, 16);
 		label_19.setVisible(false);
 		contentPane.add(label_19);
 		
 		JLabel label_20 = new JLabel("Garagem");
-		label_20.setBounds(327, 282, 52, 16);
+		label_20.setBounds(62, 311, 52, 16);
 		label_20.setVisible(false);
 		contentPane.add(label_20);
+		
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				
+			}
+		});
+		btnAlterar.setBounds(232, 371, 91, 23);
+		contentPane.add(btnAlterar);
+		
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		//Main.getIdProduto_FormPesquisa() //Puxa o ID do produto escolhido na planilha anterior
+//		Main.getTipoProduto_FormPesquisa() //Puxa o tipo do produto escolhido anteriormente
+		System.out.println("Id do produto escolhido - "+Main.getIdProduto_FormPesquisa());
+		System.out.println("Tipo do produto escolhido - "+Main.getTipoProduto_FormPesquisa());
+		ModelProduto t = new ModelProduto();
+		switch (Main.getTipoProduto_FormPesquisa().toLowerCase()) {
+		case "apartamentos":
+			textField_1.setText(String.valueOf(Main.getIdProduto_FormPesquisa()));
+			label_14.setVisible(true);
+			label_15.setVisible(true);
+			spinner_4.setVisible(true);
+			break;
+		case "terrenos":
+			textField_1.setText(String.valueOf(Main.getIdProduto_FormPesquisa()));
+			label_16.setVisible(true);
+			
+			break;
+		case "casas":
+			textField_1.setText(String.valueOf(Main.getIdProduto_FormPesquisa()));
+			label_17.setVisible(true);
+			label_20.setVisible(true);
+			label_19.setVisible(true);
+			label_18.setVisible(true);
+			spinner_6.setVisible(true);
+			spinner_5.setVisible(true);
+			spinner_7.setVisible(true);
+			
+			break;
+		case "edifícios_comerciais":
+			textField_1.setText(String.valueOf(Main.getIdProduto_FormPesquisa()));
+			spinner_2.setVisible(true);
+			spinner_3.setVisible(true);
+			label.setVisible(true);
+			label_12.setVisible(true);
+			label_13.setVisible(true);
+			break;
+		case "carros":
+			
+			break;
+		case "motocicletas":
+			
+			break;
+
+		default:
+			break;
+		}
 	}
 
 }
