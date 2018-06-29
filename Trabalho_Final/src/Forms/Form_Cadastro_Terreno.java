@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.Main;
+import edu.fatec.model.ModelLeilao;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -55,6 +60,13 @@ public class Form_Cadastro_Terreno extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton button = new JButton("Cadastrar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Main.getIdLeilao_AddProduto();//Id do leilao que o produto sera cadastrado!!
+				ModelLeilao.AtualizarLeilao(id, atualizar);
+			}
+		});
 		button.setBounds(202, 321, 99, 23);
 		contentPane.add(button);
 		

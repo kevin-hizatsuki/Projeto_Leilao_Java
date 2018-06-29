@@ -120,15 +120,5 @@ public class Form_Login extends JFrame {
 		});
 		btnSair.setBounds(30, 223, 98, 26);
 		contentPane.add(btnSair);
-		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				ModelLeilao.listarTodosLeilao();
-			}
-		});
-		btnNewButton_1.setBounds(12, 130, 98, 26);
-		contentPane.add(btnNewButton_1);
 	}
 }

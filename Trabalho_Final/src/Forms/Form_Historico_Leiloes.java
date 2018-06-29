@@ -18,11 +18,13 @@ import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
+import edu.fatec.model.ModelLeilao;
 
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -77,7 +79,6 @@ public class Form_Historico_Leiloes extends JFrame {
 //			    {"Pedro Cascaes", "48 9870-5634", "pedrinho@gmail.com","0","0","0","0","0","0","0"}
 //			};
 		
-		String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condominio", "garagem", "quarto","banheiro"}; 
 		
 		SiteLeilao s = new SiteLeilao();
 //		s.AdicionarLeilao(new Leiloes(1,"Leilao do ze",new Endereco("Rua Ma","SJC","SP","123457"),new InstituicaoFinanceira("456789","www.bradesco","Bradesco"),LocalDate.of(2018,11,20),LocalDate.of(2018,11,29)));
@@ -111,25 +112,23 @@ public class Form_Historico_Leiloes extends JFrame {
 		button.setBounds(0, 0, 89, 23);
 		contentPane.add(button);
 		
+		String [] colunas = {"ID","NOME","CEP","CIDADE","ENDERECO COMPLETO","ESTADO","CNPJ", "DATA INICIO", "DATA FIM"}; 
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		table_1 = new JTable(tabelaModelo);
-//		for (int i = 0; i < colunas.length; i++) {
-//			table_1.getColumnModel().getColumn(i).setHeaderValue(colunas[i]);
-//		}
-		List<Produto> dados = s.getListaProduto();
+		
+		List<Leiloes> dados = ModelLeilao.getLisLeiloes();
 		for (int i = 0; i < dados.size(); i++) {
-			Integer id = dados.get(i).getIdLeilao();
-			Integer idImovel = dados.get(i).getIdProduto();
-			String tipo = dados.get(i).getTipo();
-			double area = ((Imoveis) dados.get(i)).getArea();
-			Endereco endereco = ((Imoveis) dados.get(i)).getEndereco(); //ARRUMAR
-			double preco = dados.get(i).getPreco();
-			double condominio = ((Imoveis) dados.get(i)).getCondominio();
-			int garagem = ((Casas) dados.get(i)).getGaragem();
-			int quarto = ((Casas) dados.get(i)).getQuarto();
-			int banheiro = ((Casas) dados.get(i)).getBanheiro();
+			Integer id = dados.get(i).getId();
+			String nome = dados.get(i).getNome();
+			String cep = dados.get(i).getEndereco().cep;
+			String cidade =  dados.get(i).getEndereco().cidade;
+			String endereco = dados.get(i).getEndereco().enderecoCompleto; //ARRUMAR
+			String estado = dados.get(i).getEndereco().estado;
+			String cnpj = dados.get(i).getInstF().cnpj;
+			LocalDate data_inicio =  dados.get(i).getDataInicio();
+			LocalDate data_fim = dados.get(i).getDataFim();
 			
-			Object [] dados1 = {id, idImovel, tipo, area, endereco, preco, condominio, garagem, quarto, banheiro};
+			Object [] dados1 = {id, nome, cep, cidade, endereco, estado, cnpj, data_inicio, data_fim};
 			tabelaModelo.addRow(dados1);
 		}
 		

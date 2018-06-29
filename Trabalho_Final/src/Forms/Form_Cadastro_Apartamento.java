@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.produto.Apartamento;
+import edu.fatec.model.ModelProduto;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -48,7 +53,7 @@ public class Form_Cadastro_Apartamento extends JFrame {
 	 */
 	public Form_Cadastro_Apartamento() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 430);
+		setBounds(100, 100, 450, 451);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -146,7 +151,56 @@ public class Form_Cadastro_Apartamento extends JFrame {
 		label_10.setBounds(58, 277, 27, 14);
 		contentPane.add(label_10);
 		
+		JLabel lblAndar = new JLabel("Andar");
+		lblAndar.setBounds(50, 308, 35, 14);
+		contentPane.add(lblAndar);
+		
+		JLabel lblGaragem = new JLabel("Garagem");
+		lblGaragem.setBounds(33, 340, 52, 14);
+		contentPane.add(lblGaragem);
+		
+		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setBounds(92, 334, 29, 20);
+		contentPane.add(spinner_3);
+		
+		JLabel lblQuarto = new JLabel("Quarto");
+		lblQuarto.setBounds(33, 361, 52, 14);
+		contentPane.add(lblQuarto);
+		
+		JSpinner spinner_4 = new JSpinner();
+		spinner_4.setBounds(92, 355, 29, 20);
+		contentPane.add(spinner_4);
+		
+		JLabel lblBanheiro = new JLabel("Banheiro");
+		lblBanheiro.setBounds(33, 386, 52, 14);
+		contentPane.add(lblBanheiro);
+		
+		JSpinner spinner_5 = new JSpinner();
+		spinner_5.setBounds(92, 380, 29, 20);
+		contentPane.add(spinner_5);
+		
 		JButton button = new JButton("Cadastrar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModelProduto.AdicionarProduto(
+						new Apartamento(
+								Integer.valueOf(textField.getText()), 
+								Integer.valueOf(textField_1.getText()),
+								(double) spinner.getValue(), 
+								new Endereco(
+										textField_4.getText(),
+										textField_5.getText(),
+										textField_6.getText(),
+										textField_7.getText()), 
+								Double.valueOf(textField_3.getText()), 
+								(double)spinner_1.getValue(), 
+								textField_2.getText(), 
+								(int)spinner.getValue(), 
+								(int)spinner_3.getValue(), 
+								(int)spinner_4.getValue(),  
+								(int)spinner_5.getValue()));
+			}
+		});
 		button.setBounds(210, 342, 91, 23);
 		contentPane.add(button);
 		
@@ -182,10 +236,7 @@ public class Form_Cadastro_Apartamento extends JFrame {
 		lblCadastroDeApartamento.setFont(new Font("Tahoma", Font.BOLD, 13));
 		contentPane.add(lblCadastroDeApartamento);
 		
-		JLabel lblAndar = new JLabel("Andar");
-		lblAndar.setBounds(50, 308, 35, 14);
-		contentPane.add(lblAndar);
+		
 	
 	}
-
 }

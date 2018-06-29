@@ -27,11 +27,20 @@ import edu.fatec.model.ModelProduto;
 
 public class Main {
 	
-	static int IdProduto_Form;
-	static String tipoProduto_Form;
+	static int IdProduto_Form; //Utilizado para passar status para outra janela
+	static String tipoProduto_Form; //Utilizado para passar status para outra janela
+	
+	static int idLeilao_AddProduto; //Captura o ID do leilao em que o produto sera inserido na tela de cadastro deproduto!!
 	
 	
 	
+	
+	public static int getIdLeilao_AddProduto() {
+		return idLeilao_AddProduto;
+	}
+	public static void setIdLeilao_AddProduto(int idLeilao_AddProduto) {
+		Main.idLeilao_AddProduto = idLeilao_AddProduto;
+	}
 	public static void setIdProduto_FormPesquisa(int IdProduto) {
 		IdProduto_Form = IdProduto;
 	}

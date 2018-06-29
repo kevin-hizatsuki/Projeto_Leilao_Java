@@ -80,9 +80,7 @@ public class Form_Pesquisa_ProdutoGeral extends JFrame {
 		button.setBounds(0, 0, 89, 23);
 		contentPane.add(button);
 		
-String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condominio", "garagem", "quarto","banheiro"}; 
-		
-
+		String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condominio", "garagem", "quarto","banheiro"}; 
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		table = new JTable(tabelaModelo);
 		table.setBounds(10, 64, 412, 312);

@@ -112,20 +112,6 @@ public class Form_Pesquisa_CadastroGeral extends JFrame {
 		});
 		button_6.setBounds(336, 0, 98, 26);
 		contentPane.add(button_6);
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				ModelProduto p = null;
-//				Casas produto1;
-//				Endereco endereco = new Endereco("Rua x", "SJC", "SP", "123456");
-//				produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
-//				p.AdicionarProduto(produto1);
-				
-			}
-		});
-		btnNewButton.setBounds(47, 46, 98, 26);
-		contentPane.add(btnNewButton);
 	}
 
 }
