@@ -30,6 +30,7 @@ import java.util.Observable;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 public class Form_Pesquisa_ProdutoGeral extends JFrame {
 
@@ -57,7 +58,7 @@ public class Form_Pesquisa_ProdutoGeral extends JFrame {
 	 */
 	public Form_Pesquisa_ProdutoGeral() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 427);
+		setBounds(100, 100, 450, 506);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -83,7 +84,7 @@ public class Form_Pesquisa_ProdutoGeral extends JFrame {
 		String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condominio", "garagem", "quarto","banheiro"}; 
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		table = new JTable(tabelaModelo);
-		table.setBounds(10, 64, 412, 312);
+		table.setBounds(10, 101, 412, 354);
 //		List<Produto> dados = s.getListaProduto();
 //		for (int i = 0; i < dados.size(); i++) {
 //			Integer id = dados.get(i).getIdLeilao();

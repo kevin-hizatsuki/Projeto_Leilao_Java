@@ -9,7 +9,9 @@ import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
+import edu.fatec.leilao.produto.Produto;
 import edu.fatec.model.ModelLeilao;
+import edu.fatec.model.ModelProduto;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -63,8 +65,13 @@ public class Form_Cadastro_Terreno extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Main.getIdLeilao_AddProduto();//Id do leilao que o produto sera cadastrado!!
-				ModelLeilao.AtualizarLeilao(id, atualizar);
+//				ModelProduto.AdicionarProduto(
+//						
+//						);
+				
+//				Main.getIdLeilao_AddProduto();//Id do leilao que o produto sera cadastrado!!
+//				ModelLeilao.AtualizarLeilao(id, atualizar);
+				
 			}
 		});
 		button.setBounds(202, 321, 99, 23);

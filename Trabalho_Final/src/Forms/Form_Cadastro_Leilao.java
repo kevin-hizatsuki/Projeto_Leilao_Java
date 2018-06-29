@@ -70,59 +70,59 @@ public class Form_Cadastro_Leilao extends JFrame {
 		contentPane.add(lblId);
 		
 		textField = new JTextField();
-		textField.setBounds(141, 36, 86, 20);
+		textField.setBounds(141, 36, 203, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(101, 70, 27, 14);
+		lblNome.setBounds(96, 70, 35, 14);
 		contentPane.add(lblNome);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(141, 67, 86, 20);
+		textField_1.setBounds(141, 67, 203, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblDataDeInicio = new JLabel("Data de Inicio");
-		lblDataDeInicio.setBounds(71, 307, 66, 14);
+		lblDataDeInicio.setBounds(52, 307, 79, 14);
 		contentPane.add(lblDataDeInicio);
 		
 		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setBounds(147, 305, 86, 17);
+		formattedTextField.setBounds(141, 305, 203, 17);
 		contentPane.add(formattedTextField);
 		
 		JLabel lblDataFim = new JLabel("Data Fim");
-		lblDataFim.setBounds(91, 335, 46, 14);
+		lblDataFim.setBounds(82, 335, 49, 14);
 		contentPane.add(lblDataFim);
 		
 		JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-		formattedTextField_1.setBounds(147, 333, 86, 17);
+		formattedTextField_1.setBounds(141, 333, 203, 17);
 		contentPane.add(formattedTextField_1);
 		
 		JLabel lblEnderecoCompleto = new JLabel("Endereco Completo");
-		lblEnderecoCompleto.setBounds(31, 98, 93, 14);
+		lblEnderecoCompleto.setBounds(19, 98, 112, 14);
 		contentPane.add(lblEnderecoCompleto);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(141, 95, 86, 20);
+		textField_2.setBounds(141, 95, 203, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblCidade = new JLabel("Cidade");
-		lblCidade.setBounds(101, 126, 46, 14);
+		lblCidade.setBounds(85, 126, 46, 14);
 		contentPane.add(lblCidade);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(141, 123, 86, 20);
+		textField_4.setBounds(141, 123, 203, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
 		JLabel lblEstado = new JLabel("Estado");
-		lblEstado.setBounds(93, 155, 38, 14);
+		lblEstado.setBounds(92, 155, 39, 14);
 		contentPane.add(lblEstado);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(141, 152, 86, 20);
+		textField_5.setBounds(141, 152, 203, 20);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		
@@ -131,7 +131,7 @@ public class Form_Cadastro_Leilao extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(141, 183, 86, 20);
+		textField_6.setBounds(141, 183, 203, 20);
 		contentPane.add(textField_6);
 		textField_6.setColumns(10);
 		
@@ -153,26 +153,27 @@ public class Form_Cadastro_Leilao extends JFrame {
 				
 			}
 		});
-		btnCadastrar.setBounds(31, 392, 89, 23);
+		btnCadastrar.setBounds(77, 363, 100, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				Form_Tela_CadastroGeral a = new Form_Tela_CadastroGeral();
+				a.setVisible(true);
 				dispose();
 			}
 		});
-		btnCancelar.setBounds(271, 392, 89, 23);
+		btnCancelar.setBounds(299, 363, 89, 23);
 		contentPane.add(btnCancelar);
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
-		textField_7.setBounds(139, 273, 89, 20);
+		textField_7.setBounds(141, 273, 203, 20);
 		contentPane.add(textField_7);
 		
 		JLabel label = new JLabel("Raz\u00E3o Social");
-		label.setBounds(71, 277, 60, 16);
+		label.setBounds(58, 277, 73, 14);
 		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel("Site");
@@ -181,12 +182,12 @@ public class Form_Cadastro_Leilao extends JFrame {
 		
 		textField_8 = new JTextField();
 		textField_8.setColumns(10);
-		textField_8.setBounds(139, 246, 89, 20);
+		textField_8.setBounds(141, 246, 203, 20);
 		contentPane.add(textField_8);
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
-		textField_9.setBounds(139, 219, 89, 20);
+		textField_9.setBounds(141, 219, 203, 20);
 		contentPane.add(textField_9);
 		
 		JLabel label_2 = new JLabel("CNPJ");

@@ -206,7 +206,7 @@ public class Form_Cadastro_Casa extends JFrame {
 				spinner_4.setValue(0);
 				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
 				c.setVisible(true);
-				dispose();
+				dispose();	
 			}
 		});
 		contentPane.setLayout(null);

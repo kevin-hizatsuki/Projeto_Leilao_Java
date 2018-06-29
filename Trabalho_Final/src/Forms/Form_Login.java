@@ -97,7 +97,7 @@ public class Form_Login extends JFrame {
 		JButton btnCriarConta = new JButton("Criar Conta");
 		btnCriarConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Form_Cadastro_Cliente a = new Form_Cadastro_Cliente();
+				Form_Cadastro_Administrador a = new Form_Cadastro_Administrador();
 				a.setVisible(true);
 				dispose();
 			}

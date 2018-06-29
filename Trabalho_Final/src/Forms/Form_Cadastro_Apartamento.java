@@ -53,7 +53,7 @@ public class Form_Cadastro_Apartamento extends JFrame {
 	 */
 	public Form_Cadastro_Apartamento() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 451);
+		setBounds(100, 100, 450, 487);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -201,7 +201,7 @@ public class Form_Cadastro_Apartamento extends JFrame {
 								(int)spinner_5.getValue()));
 			}
 		});
-		button.setBounds(210, 342, 91, 23);
+		button.setBounds(102, 413, 91, 23);
 		contentPane.add(button);
 		
 		JSpinner spinner_2 = new JSpinner();
@@ -209,7 +209,7 @@ public class Form_Cadastro_Apartamento extends JFrame {
 		contentPane.add(spinner_2);
 		
 		JButton button_1 = new JButton("Cancelar");
-		button_1.setBounds(317, 342, 86, 23);
+		button_1.setBounds(252, 413, 86, 23);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(null);

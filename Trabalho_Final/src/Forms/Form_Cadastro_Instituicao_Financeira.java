@@ -56,17 +56,6 @@ public class Form_Cadastro_Instituicao_Financeira extends JFrame {
 		lblNewLabel.setBounds(91, 0, 248, 14);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
-				c.setVisible(true);
-				dispose();
-			}
-		});
-		btnVoltar.setBounds(0, -2, 89, 23);
-		contentPane.add(btnVoltar);
-		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

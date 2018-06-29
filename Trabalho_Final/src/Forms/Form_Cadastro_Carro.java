@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import edu.fatec.leilao.produto.Carro;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.model.ModelLeilao;
+import edu.fatec.model.ModelProduto;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -63,16 +64,6 @@ public class Form_Cadastro_Carro extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		JButton btnNewButton = new JButton("Voltar");
-		btnNewButton.setBounds(5, 5, 81, 26);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
-				c.setVisible(true);
-				dispose();
-			}
-		});
 		
 		JLabel lblCadastroDeNovo = new JLabel("Cadastro de Novo Carro");
 		lblCadastroDeNovo.setBounds(96, 7, 293, 19);
@@ -174,35 +165,34 @@ public class Form_Cadastro_Carro extends JFrame {
 		btnNewButton_1.setBounds(37, 399, 91, 26);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				ModelLeilao.AdicionarProduto(new Carro( //Erro em AdicionarProduto
-//						Integer.valueOf(textField.getText()),
-//						Integer.valueOf(textField_1.getText()),
-//						textField_2.getText(),
-//						textField_3.getText(),
-//						textField_4.getText(),
-//						(double)spinner.getValue(),
-//						(int)spinner_1.getValue(),
-//						textField_5.getText(),
-//						(double)spinner_2.getValue(),
-//						textField.getText(),
-//						(double)spinner_3.getValue(),
-//						(int)spinner_4.getValue()
-//						));
-				
+				ModelProduto.AdicionarProduto(new Carro( 
+						Integer.valueOf(textField.getText()),
+						Integer.valueOf(textField_1.getText()),
+						textField_2.getText(),
+						textField_3.getText(),
+						textField_4.getText(),
+						(double)spinner.getValue(),
+						(int)spinner_1.getValue(),
+						textField_5.getText(),
+						(double)spinner_2.getValue(),
+						textField.getText(),
+						(double)spinner_3.getValue(),
+						(int)spinner_4.getValue()
+				));
 			}
 		});
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(337, 387, 85, 26);
+		btnCancelar.setBounds(337, 399, 85, 26);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				dispose();
+				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
+				c.setVisible(true);
+				dispose();	
 				
 			}
 		});
 		contentPane.setLayout(null);
-		contentPane.add(btnNewButton);
 		contentPane.add(lblCadastroDeNovo);
 		contentPane.add(lblIdProduto);
 		contentPane.add(lblIdLeilo);
