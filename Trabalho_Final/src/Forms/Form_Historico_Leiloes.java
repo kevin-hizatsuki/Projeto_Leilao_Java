@@ -68,7 +68,7 @@ public class Form_Historico_Leiloes extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblHistricoDeLeiles = new JLabel("Hist\u00F3rico de Leil\u00F5es");
-		lblHistricoDeLeiles.setBounds(5, 5, 424, 19);
+		lblHistricoDeLeiles.setBounds(120, 4, 424, 19);
 		lblHistricoDeLeiles.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHistricoDeLeiles.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblHistricoDeLeiles);
