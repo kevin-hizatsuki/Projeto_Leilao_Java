@@ -40,9 +40,16 @@ public class Main {
 	
 	static int idLeilao_AddProduto; //Captura o ID do leilao em que o produto sera inserido na tela de cadastro deproduto!!
 	
+	static String idUsuarioLogado;
 	
 	
 	
+	public static String getIdUsuarioLogado() {
+		return idUsuarioLogado;
+	}
+	public static void setIdUsuarioLogado(String idUsuarioLogado) {
+		Main.idUsuarioLogado = idUsuarioLogado;
+	}
 	public static int getIdLeilao_AddProduto() {
 		return idLeilao_AddProduto;
 	}

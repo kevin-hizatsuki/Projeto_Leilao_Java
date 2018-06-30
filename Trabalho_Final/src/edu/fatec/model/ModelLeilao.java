@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Carro;
 import edu.fatec.leilao.produto.Casas;
@@ -90,20 +91,42 @@ public class ModelLeilao {
 		return gerador.nextInt(100000);
 	}
 	
+	public static Leiloes getLeilao(int idLeilao) {
+		for(Leiloes p:getLisLeiloes()) {
+			if (p.id == idLeilao) {
+				return p;
+			}
+		}
+		return null;
+	}
 	
 	
-	public static String statusLeilao(Leiloes l) {
+//	public static String statusLeilao(Leiloes l) {
+//		
+//		LocalDate hoje = LocalDate.now();
+//		
+//		if((hoje.isAfter(l.dataInicio))&&(hoje.isBefore(l.dataFim))) {
+//			return "EM ANDAMENTO";
+//		}
+//		if(hoje.isAfter(l.dataFim)) {
+//			return "FINALIZADO";
+//		}
+//		else
+//			return "EM ABERTO";
+//	}
+	
+	public static Integer statusLeilao(Leiloes l) {
 		
 		LocalDate hoje = LocalDate.now();
 		
 		if((hoje.isAfter(l.dataInicio))&&(hoje.isBefore(l.dataFim))) {
-			return "EM ANDAMENTO";
+			return 1;
 		}
 		if(hoje.isAfter(l.dataFim)) {
-			return "FINALIZADO";
+			return 0;
 		}
 		else
-			return "EM ABERTO";
+			return 2;
 	}
 	
 	public static void gerarArquivo(List<Leiloes> list) throws IOException {

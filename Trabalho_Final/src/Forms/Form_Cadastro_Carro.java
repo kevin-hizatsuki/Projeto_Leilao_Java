@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Carro;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.model.ModelLeilao;
@@ -24,12 +25,11 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SpinnerDateModel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class Form_Cadastro_Carro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
@@ -73,16 +73,8 @@ public class Form_Cadastro_Carro extends JFrame {
 		JLabel lblIdLeilo = new JLabel("ID Leil\u00E3o");
 		lblIdLeilo.setBounds(80, 64, 48, 16);
 		
-		textField = new JTextField();
-		textField.setBounds(140, 62, 196, 20);
-		textField.setColumns(10);
-		
 		JLabel lblIdProduto = new JLabel("ID Produto");
 		lblIdProduto.setBounds(69, 90, 59, 16);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(140, 88, 196, 20);
-		textField_1.setColumns(10);
 		
 		JLabel lblTipo = new JLabel("Tipo");
 		lblTipo.setBounds(104, 115, 24, 16);
@@ -108,6 +100,7 @@ public class Form_Cadastro_Carro extends JFrame {
 		contentPane.add(lblCilindrada);
 		
 		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner.setBounds(140, 194, 38, 18);
 		contentPane.add(spinner);
 		
@@ -133,6 +126,7 @@ public class Form_Cadastro_Carro extends JFrame {
 		contentPane.add(lblKm);
 		
 		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner_2.setBounds(140, 277, 38, 18);
 		contentPane.add(spinner_2);
 		
@@ -146,6 +140,7 @@ public class Form_Cadastro_Carro extends JFrame {
 		contentPane.add(lblCombustivel);
 		
 		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner_3.setBounds(140, 337, 38, 18);
 		contentPane.add(spinner_3);
 		
@@ -161,24 +156,42 @@ public class Form_Cadastro_Carro extends JFrame {
 		lblNumeroPorta.setBounds(54, 371, 81, 16);
 		contentPane.add(lblNumeroPorta);
 		
+		JSpinner spinner_5 = new JSpinner();
+		spinner_5.setEnabled(false);
+		spinner_5.setBounds(140, 63, 66, 18);
+		spinner_5.setValue(Main.getIdLeilao_AddProduto());
+		contentPane.add(spinner_5);
+		
+		JSpinner spinner_6 = new JSpinner();
+		spinner_6.setEnabled(false);
+		spinner_6.setBounds(140, 88, 59, 18);
+		spinner_6.setValue(ModelProduto.geraId());
+		contentPane.add(spinner_6);
+		
 		JButton btnNewButton_1 = new JButton("Cadastrar");
 		btnNewButton_1.setBounds(37, 399, 91, 26);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ModelProduto.AdicionarProduto(new Carro( 
-						Integer.valueOf(textField.getText()),
-						Integer.valueOf(textField_1.getText()),
+				Carro a = new Carro( 
+						(int) spinner_5.getValue(),
+						(int) spinner_6.getValue(),
 						textField_2.getText(),
 						textField_3.getText(),
 						textField_4.getText(),
-						(double)spinner.getValue(),
+						(double) spinner.getValue(),
 						(int)spinner_1.getValue(),
 						textField_5.getText(),
 						(double)spinner_2.getValue(),
-						textField.getText(),
+						textField_6.getText(),
 						(double)spinner_3.getValue(),
 						(int)spinner_4.getValue()
-				));
+				);
+				
+				ModelProduto.AdicionarProduto(a);
+//				System.out.println(ModelProduto.getProdutosPorLeilao(Main.getIdLeilao_AddProduto()));
+				Form_Tela_CadastroGeral cadastro_produto = new Form_Tela_CadastroGeral();
+				cadastro_produto.setVisible(true);
+				dispose();
 			}
 		});
 		
@@ -199,8 +212,6 @@ public class Form_Cadastro_Carro extends JFrame {
 		contentPane.add(lblTipo);
 		contentPane.add(lblPreo);
 		contentPane.add(textField_2);
-		contentPane.add(textField_1);
-		contentPane.add(textField);
 		contentPane.add(textField_3);
 		contentPane.add(btnNewButton_1);
 		contentPane.add(btnCancelar);
@@ -208,6 +219,8 @@ public class Form_Cadastro_Carro extends JFrame {
 		JLabel lblModelo = new JLabel("Modelo");
 		lblModelo.setBounds(80, 167, 48, 16);
 		contentPane.add(lblModelo);
+		
+
 		
 		
 	}

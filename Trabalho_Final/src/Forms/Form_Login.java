@@ -2,6 +2,7 @@ package Forms;
 import edu.fatec.model.ModelCliente;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelUsuario;
+import edu.fatec.leilao.Main;
 import edu.fatec.leilao.usuario.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -87,6 +88,7 @@ public class Form_Login extends JFrame {
 //				if (ModelCliente.ifClientExists(textField.getText(), textField_1.getText())) {
 //					dispose();
 //					Controller a = new Controller();
+				Main.setIdUsuarioLogado(textField.getText());
 //					a.setVisible(true);
 //				}
 			}
@@ -97,7 +99,7 @@ public class Form_Login extends JFrame {
 		JButton btnCriarConta = new JButton("Criar Conta");
 		btnCriarConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Form_Cadastro_Administrador a = new Form_Cadastro_Administrador();
+				Form_Cadastro_Cliente a = new Form_Cadastro_Cliente();
 				a.setVisible(true);
 				dispose();
 			}

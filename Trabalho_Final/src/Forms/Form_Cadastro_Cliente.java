@@ -126,6 +126,17 @@ public class Form_Cadastro_Cliente extends JFrame {
 		btnNewButton.setBounds(10, 185, 92, 23);
 		contentPane.add(btnNewButton);
 		
+		JButton btnAdministrador = new JButton("Administrador");
+		btnAdministrador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Cadastro_Administrador a = new Form_Cadastro_Administrador();
+				a.setVisible(true);
+				dispose();
+			}
+		});
+		btnAdministrador.setBounds(119, 183, 119, 26);
+		contentPane.add(btnAdministrador);
+		
 		
 	}
 

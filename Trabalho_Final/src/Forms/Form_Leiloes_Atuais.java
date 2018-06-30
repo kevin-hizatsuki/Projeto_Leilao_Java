@@ -30,6 +30,7 @@ public class Form_Leiloes_Atuais extends JFrame {
 	private JTable table;
 	private JLabel lblLeilesAtivos;
 	private JButton button;
+	private JButton btnFazerLance;
 
 	/**
 	 * Launch the application.
@@ -67,7 +68,7 @@ public class Form_Leiloes_Atuais extends JFrame {
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		
 		table = new JTable(tabelaModelo);
-		table.setBounds(15, 41, 409, 331);
+		table.setBounds(15, 77, 409, 295);
 		List<Leiloes> dados = ModelLeilao.getLisLeiloes();
 		for (int i = 0; i < dados.size(); i++) {
 			Integer id = dados.get(i).getId();
@@ -106,16 +107,38 @@ public class Form_Leiloes_Atuais extends JFrame {
 		btnAdicionarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				System.out.println((int) table.getValueAt(table.getSelectedRow(), 0));
+				//System.out.println((int) table.getValueAt(table.getSelectedRow(), 0));
 				Main.setIdLeilao_AddProduto((int) table.getValueAt(table.getSelectedRow(), 0));// Aqui ele faz esquema X,Y - verifica qual a linha e qual a coluna para pegar o ID do produto listado
-
-				
+//				Main.getIdLeilao_AddProduto()
 				Form_Tela_CadastroGeral cadastro_produto = new Form_Tela_CadastroGeral();
 				cadastro_produto.setVisible(true);
 				dispose();
 			}
 		});
-		btnAdicionarProduto.setBounds(280, 16, 144, 26);
+		btnAdicionarProduto.setBounds(278, 42, 144, 26);
 		contentPane.add(btnAdicionarProduto);
+		
+		JButton btnNovoLeilao = new JButton("Novo Leilao");
+		btnNovoLeilao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Cadastro_Leilao a = new Form_Cadastro_Leilao();
+				a.setVisible(true);
+				dispose();
+			}
+		});
+		btnNovoLeilao.setBounds(15, 42, 115, 26);
+		contentPane.add(btnNovoLeilao);
+		
+		btnFazerLance = new JButton("Fazer Lance");
+		btnFazerLance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Main.setIdLeilao_AddProduto((int) table.getValueAt(table.getSelectedRow(), 0));
+				Form_Lances a = new Form_Lances();
+				a.setVisible(true);
+				dispose();
+			}
+		});
+		btnFazerLance.setBounds(153, 42, 113, 26);
+		contentPane.add(btnFazerLance);
 	}
 }

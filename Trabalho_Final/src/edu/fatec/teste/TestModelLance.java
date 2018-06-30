@@ -100,6 +100,7 @@ class TestModelLance {
 		produto.AdicionarProduto(produto5);
 		leilao.AdicionarLeilao(leilao1);
 		leilao.AdicionarLeilao(leilao2);
+		
 		usuario.adicionarCliente(usuario1);
 		usuario.adicionarCliente(usuario2);
 		InsFin.AdicionarInstituicaoFinanceira(banco);

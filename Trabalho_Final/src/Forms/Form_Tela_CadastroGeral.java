@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.EnumVeiculo;
 import edu.fatec.model.ModelInstituicaoFinanceira;
@@ -156,57 +157,22 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Controller janela_home = new Controller();
-				janela_home.setVisible(true);
+				Form_Leiloes_Atuais a = new Form_Leiloes_Atuais();
+				a.setVisible(true);
 				dispose();
 			}
 		});
 		btnVoltar.setBounds(0, 0, 89, 23);
 		contentPane.add(btnVoltar);
 		
-		JButton btnNewButton_2 = new JButton("Cliente");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Cadastro_Cliente c = new Form_Cadastro_Cliente();
-				c.setVisible(true);
-				dispose();
-			}
-		});
-		btnNewButton_2.setBounds(55, 243, 119, 51);
-		contentPane.add(btnNewButton_2);
+		JLabel lblLeiloNumero = new JLabel("Leil\u00E3o Numero: ");
+		lblLeiloNumero.setBounds(124, 31, 92, 16);
+		contentPane.add(lblLeiloNumero);
 		
-		JButton btnNewButton_3 = new JButton("Institui\u00E7\u00E3o Financeira");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Cadastro_Instituicao_Financeira c = new Form_Cadastro_Instituicao_Financeira();
-				c.setVisible(true);
-				dispose();
-			}
-		});
-		btnNewButton_3.setBounds(55, 306, 161, 51);
-		contentPane.add(btnNewButton_3);
-		
-		JButton btnNewButton_4 = new JButton("Leil\u00E3o");
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Cadastro_Leilao a = new Form_Cadastro_Leilao();
-				a.setVisible(true);
-				dispose();
-			}
-		});
-		btnNewButton_4.setBounds(55, 56, 116, 51);
-		contentPane.add(btnNewButton_4);
-		
-		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Pesquisa_CadastroGeral c = new Form_Pesquisa_CadastroGeral();
-				c.setVisible(true);
-				dispose();
-			}
-		});
-		btnPesquisar.setBounds(324, 12, 98, 26);
-		contentPane.add(btnPesquisar);
+		JLabel lblNa = new JLabel("N/A");
+		lblNa.setBounds(212, 31, 55, 16);
+		lblNa.setText(String.valueOf(Main.getIdLeilao_AddProduto()));
+		contentPane.add(lblNa);
 		
 		
 		

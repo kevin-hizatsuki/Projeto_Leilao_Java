@@ -70,7 +70,9 @@ public class Form_Cadastro_Leilao extends JFrame {
 		contentPane.add(lblId);
 		
 		textField = new JTextField();
+		textField.setEditable(false);
 		textField.setBounds(141, 36, 203, 20);
+		textField.setText(String.valueOf(ModelLeilao.getLisLeiloes().size()+1));
 		contentPane.add(textField);
 		textField.setColumns(10);
 		

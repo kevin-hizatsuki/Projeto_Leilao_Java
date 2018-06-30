@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.EdificiosComerciais;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
@@ -23,12 +24,11 @@ import javax.swing.JSpinner;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SpinnerNumberModel;
 
 public class Form_Cadastro_Edificio extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_5;
@@ -69,10 +69,6 @@ public class Form_Cadastro_Edificio extends JFrame {
 		JLabel label_1 = new JLabel("ID Leil\u00E3o");
 		label_1.setBounds(69, 57, 58, 14);
 		
-		textField = new JTextField();
-		textField.setBounds(129, 51, 86, 20);
-		textField.setColumns(10);
-		
 		JLabel label_2 = new JLabel("CEP");
 		label_2.setBounds(93, 291, 34, 14);
 		
@@ -93,10 +89,6 @@ public class Form_Cadastro_Edificio extends JFrame {
 		
 		JLabel label_9 = new JLabel("ID Produto");
 		label_9.setBounds(60, 83, 67, 14);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(129, 77, 86, 20);
-		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
 		textField_2.setBounds(129, 103, 86, 20);
@@ -126,12 +118,14 @@ public class Form_Cadastro_Edificio extends JFrame {
 		label.setBounds(94, 158, 33, 14);
 		
 		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner.setBounds(129, 152, 29, 20);
 		
 		JLabel label_6 = new JLabel("M\u00B2");
 		label_6.setBounds(170, 158, 19, 14);
 		
 		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner_1.setBounds(129, 178, 29, 20);
 		
 		JLabel label_10 = new JLabel("Condominio");
@@ -148,8 +142,6 @@ public class Form_Cadastro_Edificio extends JFrame {
 		button_1.setBounds(317, 357, 91, 23);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField.setText(null);
-				textField_1.setText(null);
 				textField_2.setText(null);
 				textField_3.setText(null);
 				textField_5.setText(null);
@@ -174,7 +166,6 @@ public class Form_Cadastro_Edificio extends JFrame {
 		
 		contentPane.add(lblCadastroDeEdificios);
 		contentPane.add(label_1);
-		contentPane.add(textField);
 		contentPane.add(label_2);
 		contentPane.add(label_3);
 		contentPane.add(label_4);
@@ -182,7 +173,6 @@ public class Form_Cadastro_Edificio extends JFrame {
 		contentPane.add(label_7);
 		contentPane.add(label_8);
 		contentPane.add(label_9);
-		contentPane.add(textField_1);
 		contentPane.add(textField_2);
 		contentPane.add(textField_3);
 		contentPane.add(textField_5);
@@ -222,15 +212,28 @@ public class Form_Cadastro_Edificio extends JFrame {
 		spinner_6.setBounds(393, 313, 29, 20);
 		contentPane.add(spinner_6);
 		
+		
+		JSpinner spinner_7 = new JSpinner();
+		spinner_7.setEnabled(false);
+		spinner_7.setBounds(129, 54, 58, 17);
+		spinner_7.setValue(Main.getIdLeilao_AddProduto());
+		contentPane.add(spinner_7);
+		
+		JSpinner spinner_8 = new JSpinner();
+		spinner_8.setEnabled(false);
+		spinner_8.setBounds(129, 77, 58, 20);
+		spinner_8.setValue(ModelProduto.geraId());
+		contentPane.add(spinner_8);
+		
 		JLabel lblGaragem = new JLabel("Garagem");
 		lblGaragem.setBounds(336, 316, 60, 14);
 		contentPane.add(lblGaragem);
 		JButton button = new JButton("Cadastrar");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ModelProduto.AdicionarProduto(new EdificiosComerciais(
-						Integer.valueOf(textField.getText()),
-						Integer.valueOf(textField.getText()),
+				EdificiosComerciais a = new EdificiosComerciais(
+						Main.getIdLeilao_AddProduto(),
+						(int) spinner_8.getValue(),
 						(double) spinner.getValue(),
 						new Endereco(
 								textField_5.getText(),
@@ -245,11 +248,18 @@ public class Form_Cadastro_Edificio extends JFrame {
 						 (int) spinner_6.getValue(),
 						 (int) spinner_4.getValue(),
 						 (int) spinner_5.getValue(), 
-						 (int) spinner_2.getValue()));
+						 (int) spinner_2.getValue());
+				
+				ModelProduto.AdicionarProduto(a);
+//				System.out.println(ModelProduto.getProdutosPorLeilao(Main.getIdLeilao_AddProduto()));
+				Form_Tela_CadastroGeral cadastro_produto = new Form_Tela_CadastroGeral();
+				cadastro_produto.setVisible(true);
+				dispose();
 			}
 		});
 		button.setBounds(216, 357, 91, 23);
 		contentPane.add(button);
+
 	}
 
 }

@@ -125,4 +125,13 @@ public class ModelProduto {
 		return produtosLeilao;
 	}
 	
+	public static Produto getProdutoDoLeilaoX(int idProduto, int IdLeilao) {
+		for (Produto p: getProdutosPorLeilao(IdLeilao)) {
+			if (p.getIdProduto()==idProduto) {
+				return p;
+			}
+		}
+		return null;
+	}
+	
 }
