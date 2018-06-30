@@ -154,6 +154,13 @@ public class Controller extends JFrame {
 		contentPane.add(btnHistricoDeLeiles);
 		
 		JButton btnLeiloesFinalizados = new JButton("Leiloes Finalizados");
+		btnLeiloesFinalizados.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Vencedores_Leilao a = new Form_Vencedores_Leilao();
+				a.setVisible(true);
+				dispose();
+			}
+		});
 		btnLeiloesFinalizados.setBounds(128, 36, 164, 71);
 		contentPane.add(btnLeiloesFinalizados);
 	}

@@ -72,7 +72,15 @@ public class Form_Leiloes_Atuais extends JFrame {
 		List<Leiloes> dados = ModelLeilao.getLisLeiloes();
 		for (int i = 0; i < dados.size(); i++) {
 			
-			if (ModelLeilao.statusLeilao(dados.get(i)) != 0) {
+			
+			
+			
+			//Fazer a ferificacao caso o ADMINISTRADOR esteja logado para poder exibir os leiloes em aberto
+			
+			
+			
+			
+			if (ModelLeilao.statusLeilao(dados.get(i)) == 1) {
 				
 				Integer id = dados.get(i).getId();
 				String nome = dados.get(i).getNome();
