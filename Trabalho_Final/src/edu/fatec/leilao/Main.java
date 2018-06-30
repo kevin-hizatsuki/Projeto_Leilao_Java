@@ -77,6 +77,7 @@ public class Main {
 		endereco = new Endereco("Rua x", "SJC", "SP", "123456");
 		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 6, 25));
 		produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
+
 		Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");
 		Cliente c = new Cliente(EnumUsuario.Cliente, "123", "as", "ab", "123");
 		//c.setVisible(true);
@@ -92,6 +93,7 @@ public class Main {
 		//produto.AdicionarProduto(produto1);
 		
 		
+		
 		//s.AdicionarLeilao(new Leiloes(1,"Leilao do ze",new Endereco("Rua Ma","SJC","SP","123457"),new InstituicaoFinanceira("456789","www.bradesco","Bradesco"),LocalDate.of(2018,11,20),LocalDate.of(2018,11,29)));
 //		/l.AdicionarProduto(new Casas(1,1,EnumImoveis.Casas.toString(),100,new Endereco("Rua M","SJC","SP","123456"),10.50,0,4,3,2));
 //		s.AdicionarProduto(new Casas(1,2,EnumImoveis.Casas.toString(),100,new Endereco("Rua Mas","SJC","SP","123455"),20.50,0,4,3,2));
@@ -102,5 +104,26 @@ public class Main {
 //		//s.listarTodosLeilao();
 //		s.listarTodosProdutos();
 //		System.out.println(s.getListaLeilao());
+		
+		
+		
+		ModelUsuario usuario = null;
+		Usuario admin;
+		Cliente usuario1;
+		Cliente usuario2;
+		Cliente usuario3;
+		Cliente usuario4;
+		Cliente usuario5;
+		Cliente atualizar;
+//		admin = new Usuario(EnumUsuario.Administrador, "Admin", "Admin");
+		usuario1 = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "123");
+//		usuario2 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "124");
+//		usuario3 = new Cliente(EnumUsuario.Cliente, "123458", "Karinao", "karinao", "125");
+//		usuario4 = new Cliente(EnumUsuario.Cliente, "123459", "Lusca", "lucasdlg", "126");
+//		usuario5 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "12426");
+//		atualizar = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "321");
+//		usuario.adicionarCliente(admin);
+		
+		System.out.println(ModelCliente.ifClientExists("JOJO", "123"));
 }
 }
