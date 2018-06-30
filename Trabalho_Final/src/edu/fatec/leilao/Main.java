@@ -66,7 +66,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		
 		
-		Form_Login c = new Form_Login();
+		//Form_Login c = new Form_Login();
 		ModelLeilao leilao = new ModelLeilao();
 		Leiloes l;
 		Endereco endereco;
@@ -77,9 +77,16 @@ public class Main {
 		endereco = new Endereco("Rua x", "SJC", "SP", "123456");
 		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 6, 25));
 		produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
-		//Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");
-		c.setVisible(true);
+
+		Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");
+		Cliente c = new Cliente(EnumUsuario.Cliente, "123", "as", "ab", "123");
+		//c.setVisible(true);
 		
+		ModelCliente.adicionarCliente(a);
+		ModelCliente.adicionarCliente(c);
+		
+		System.out.println(ModelCliente.ifClientExists("a", "a"));
+		System.out.println(ModelCliente.getLisCliente().size());
 		//SiteLeilao s = new SiteLeilao();
 		
 		leilao.AdicionarLeilao(l);
