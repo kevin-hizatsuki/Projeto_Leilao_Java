@@ -25,8 +25,10 @@ import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Usuario;
+import edu.fatec.model.ModelCliente;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
+import edu.fatec.model.ModelUsuario;
 
 public class Main {
 	
@@ -75,13 +77,14 @@ public class Main {
 		endereco = new Endereco("Rua x", "SJC", "SP", "123456");
 		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 6, 25));
 		produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
-		Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");
+		//Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");
 		c.setVisible(true);
 		
 		//SiteLeilao s = new SiteLeilao();
 		
 		leilao.AdicionarLeilao(l);
 		//produto.AdicionarProduto(produto1);
+		
 		
 		
 		//s.AdicionarLeilao(new Leiloes(1,"Leilao do ze",new Endereco("Rua Ma","SJC","SP","123457"),new InstituicaoFinanceira("456789","www.bradesco","Bradesco"),LocalDate.of(2018,11,20),LocalDate.of(2018,11,29)));
@@ -94,5 +97,26 @@ public class Main {
 //		//s.listarTodosLeilao();
 //		s.listarTodosProdutos();
 //		System.out.println(s.getListaLeilao());
+		
+		
+		
+		ModelUsuario usuario = null;
+		Usuario admin;
+		Cliente usuario1;
+		Cliente usuario2;
+		Cliente usuario3;
+		Cliente usuario4;
+		Cliente usuario5;
+		Cliente atualizar;
+//		admin = new Usuario(EnumUsuario.Administrador, "Admin", "Admin");
+		usuario1 = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "123");
+//		usuario2 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "124");
+//		usuario3 = new Cliente(EnumUsuario.Cliente, "123458", "Karinao", "karinao", "125");
+//		usuario4 = new Cliente(EnumUsuario.Cliente, "123459", "Lusca", "lucasdlg", "126");
+//		usuario5 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "12426");
+//		atualizar = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "321");
+//		usuario.adicionarCliente(admin);
+		
+		System.out.println(ModelCliente.ifClientExists("JOJO", "123"));
 }
 }

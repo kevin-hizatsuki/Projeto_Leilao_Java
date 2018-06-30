@@ -83,12 +83,12 @@ public class Form_Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(textField.getText());
 				System.out.println(textField_1.getText());
-				System.out.println(ModelCliente.ifClientExists(textField.getText(), textField_1.getText())+"\n");
-				if (ModelCliente.ifClientExists(textField.getText(), textField_1.getText())) {
-					dispose();
-					Controller a = new Controller();
-					a.setVisible(true);
-				}
+				
+//				if (ModelCliente.ifClientExists(textField.getText(), textField_1.getText())) {
+//					dispose();
+//					Controller a = new Controller();
+//					a.setVisible(true);
+//				}
 			}
 		});
 		btnNewButton.setBounds(191, 132, 89, 23);
