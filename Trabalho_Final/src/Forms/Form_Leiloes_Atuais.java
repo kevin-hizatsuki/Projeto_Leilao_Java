@@ -71,18 +71,22 @@ public class Form_Leiloes_Atuais extends JFrame {
 		table.setBounds(15, 77, 409, 295);
 		List<Leiloes> dados = ModelLeilao.getLisLeiloes();
 		for (int i = 0; i < dados.size(); i++) {
-			Integer id = dados.get(i).getId();
-			String nome = dados.get(i).getNome();
-			String cep = dados.get(i).getEndereco().cep;
-			String cidade =  dados.get(i).getEndereco().cidade;
-			String endereco = dados.get(i).getEndereco().enderecoCompleto; //ARRUMAR
-			String estado = dados.get(i).getEndereco().estado;
-			String cnpj = dados.get(i).getInstF().cnpj;
-			LocalDate data_inicio =  dados.get(i).getDataInicio();
-			LocalDate data_fim = dados.get(i).getDataFim();
 			
-			Object [] dados1 = {id, nome, cep, cidade, endereco, estado, cnpj, data_inicio, data_fim};
-			tabelaModelo.addRow(dados1);
+			if (ModelLeilao.statusLeilao(dados.get(i)) != 0) {
+				
+				Integer id = dados.get(i).getId();
+				String nome = dados.get(i).getNome();
+				String cep = dados.get(i).getEndereco().cep;
+				String cidade =  dados.get(i).getEndereco().cidade;
+				String endereco = dados.get(i).getEndereco().enderecoCompleto; //ARRUMAR
+				String estado = dados.get(i).getEndereco().estado;
+				String cnpj = dados.get(i).getInstF().cnpj;
+				LocalDate data_inicio =  dados.get(i).getDataInicio();
+				LocalDate data_fim = dados.get(i).getDataFim();
+				
+				Object [] dados1 = {id, nome, cep, cidade, endereco, estado, cnpj, data_inicio, data_fim};
+				tabelaModelo.addRow(dados1);
+			}
 		}
 		contentPane.add(table);
 		

@@ -138,7 +138,7 @@ class TestModelLance {
 		lance.adicionarLance(l4);
 		lance.adicionarLance(l5);
 		lance.adicionarLance(l6);
-		vencedor =  lance.getVenvedor(produto.getLisProduto());
+		vencedor =  lance.getVencedor(produto.getLisProduto());
 		Set chaves = vencedor.keySet(); 
 		for(Object i:chaves) {
 			System.out.println(vencedor.get(i));

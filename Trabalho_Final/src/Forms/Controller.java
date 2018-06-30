@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.Main;
 import edu.fatec.leilao.banco.InstituicaoFinanceira;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Carro;
@@ -92,6 +93,7 @@ public class Controller extends JFrame {
 		produto3 = new Imoveis(1, 3, "Terreno", 120, endereco3, 60, 0);
 		produto4 = new EdificiosComerciais(1, 4, 50, endereco4, 100, 0.6, "Edificios Comerciais", 2, 3, 3, 1, 30);
 		produto5 = new Carro(1, 5, "Carro", "Ford", "Fusion", 4.0, 2017, "Automatico", 50, "Gasolina", 70, 4);
+		
 		ModelLeilao.AdicionarLeilao(l);
 		ModelLeilao.AdicionarLeilao(l2);
 		ModelLeilao.AdicionarLeilao(l3);
@@ -150,6 +152,10 @@ public class Controller extends JFrame {
 		});
 		btnHistricoDeLeiles.setBounds(128, 202, 164, 71);
 		contentPane.add(btnHistricoDeLeiles);
+		
+		JButton btnLeiloesFinalizados = new JButton("Leiloes Finalizados");
+		btnLeiloesFinalizados.setBounds(128, 36, 164, 71);
+		contentPane.add(btnLeiloesFinalizados);
 	}
 
 

@@ -38,7 +38,7 @@ public class ModelLance {
 		return lan;
 	}
 	
-	public static Map<Integer,Cliente> getVenvedor(List<Produto>  produto){
+	public static Map<Integer,Cliente> getVencedor(List<Produto>  produto){
 		Map<Integer,Cliente> vencedor = new HashMap();
 		
 		for(Produto p: produto) {

@@ -3,7 +3,10 @@ package Forms;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -109,21 +112,54 @@ public class Form_Lances extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Usuario usuario1 = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "123");
-				ModelUsuario.adicionarCliente(usuario1);
+				ModelCliente.adicionarCliente(usuario1);
 				Main.setIdUsuarioLogado(usuario1.getUser());
+				
+//				System.out.println("Usuario: "+Main.getIdUsuarioLogado());
+//				System.out.println("Usuario logado?:"+ModelCliente.getObjClienteLogado(Main.getIdUsuarioLogado().toString()));
 				ModelLance.adicionarLance(
 						new Lance(
 								1,
 								ModelLeilao.getLeilao((int)Main.getIdLeilao_AddProduto()),
 								ModelProduto.getProdutoDoLeilaoX((int) table.getValueAt(table.getSelectedRow(), 0),Main.getIdLeilao_AddProduto()),
-								(Cliente) ModelCliente.getObjClienteLogado(Main.getIdUsuarioLogado()),
+								ModelCliente.getObjClienteLogado(Main.getIdUsuarioLogado()),
 								(double)spinner.getValue()
 						)
 				);
 //				System.out.println((int) table.getValueAt(table.getSelectedRow(), 0));
 //				System.out.println(ModelProduto.getProdutoDoLeilaoX((int) table.getValueAt(table.getSelectedRow(), 0),Main.getIdLeilao_AddProduto()));
+				
 //				System.out.println(ModelLance.getLisLance());
+				
+				tabelaModelo.setRowCount(0);
+				for (int i = 0; i < dados.size(); i++) {
+					Integer id = dados.get(i).getIdProduto();
+					String tipo = dados.get(i).getTipo();
+					double preco = dados.get(i).getPreco();
+					
+					
+					Object [] dados1 = {id,tipo, preco,};
+					tabelaModelo.addRow(dados1);
+				}
+				
+				spinner.setValue(0);
+				
+				
+				
+				//Teste de vencedores
+//				System.out.println(.toString());
+				
+				
+				Map<Integer,Cliente> vencedor = new HashMap();
+				vencedor = ModelLance.getVencedor(dados);
+				Set chaves = vencedor.keySet(); 
+				for(Object i:chaves) {
+					System.out.println(vencedor.get(i));
+					System.out.println(ModelProduto.retornarPorId(Integer.parseInt(i.toString())));
+				}
 			}
+			
+			
 		});
 		btnNewButton.setBounds(160, 46, 113, 26);
 		contentPane.add(btnNewButton);

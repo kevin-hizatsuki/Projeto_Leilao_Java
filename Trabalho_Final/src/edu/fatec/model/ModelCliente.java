@@ -47,10 +47,10 @@ public class ModelCliente {
 		
 	}
 	
-	public static Usuario getObjClienteLogado(String username) {
+	public static Cliente getObjClienteLogado(String username) {
 		for (Usuario p: getLisCliente()) {
 			if (p.getUser().equals(username)) {
-				return p;
+				return (Cliente) p;
 			}
 			
 		}
