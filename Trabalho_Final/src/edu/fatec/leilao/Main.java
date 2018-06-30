@@ -25,8 +25,10 @@ import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Usuario;
+import edu.fatec.model.ModelCliente;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
+import edu.fatec.model.ModelUsuario;
 
 public class Main {
 	
@@ -64,7 +66,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		
 		
-		Form_Login c = new Form_Login();
+		//Form_Login c = new Form_Login();
 		ModelLeilao leilao = new ModelLeilao();
 		Leiloes l;
 		Endereco endereco;
@@ -76,8 +78,14 @@ public class Main {
 		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 6, 25));
 		produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
 		Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");
-		c.setVisible(true);
+		Cliente c = new Cliente(EnumUsuario.Cliente, "123", "as", "ab", "123");
+		//c.setVisible(true);
 		
+		ModelCliente.adicionarCliente(a);
+		ModelCliente.adicionarCliente(c);
+		
+		System.out.println(ModelCliente.ifClientExists("a", "a"));
+		System.out.println(ModelCliente.getLisCliente().size());
 		//SiteLeilao s = new SiteLeilao();
 		
 		leilao.AdicionarLeilao(l);

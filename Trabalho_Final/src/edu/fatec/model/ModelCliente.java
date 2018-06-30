@@ -5,37 +5,38 @@ import java.util.List;
 
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
+import edu.fatec.leilao.usuario.Usuario;
 
 public class ModelCliente {
 	
-	static List<Cliente> cliente =new LinkedList();
+	static List<Usuario> cliente =new LinkedList();
 	
-	public static void adicionarCliente(Cliente c) {
+	public static void adicionarCliente(Usuario c) {
 		cliente.add(c);
 	}
 	
-	public static void atualizarCliente(Cliente atualizar) {
-		for (Cliente c : cliente) {
+	public static void atualizarCliente(Usuario atualizar) {
+		for (Usuario c : cliente) {
 			if (c.equals(atualizar)) {
 				cliente.set(cliente.indexOf(c), atualizar);
 			}
 		}
 	}
 	
-	public static void removerCliente(Cliente remover) {
-		for (Cliente c : cliente) {
+	public static void removerCliente(Usuario remover) {
+		for (Usuario c : cliente) {
 			if (c.equals(remover)) {
 				cliente.remove(cliente.indexOf(c));
 			}
 		}
 	}
 	 
-	public static List<Cliente> getLisCliente(){
+	public static List<Usuario> getLisCliente(){
 		return cliente;
 	}
 	 
 	public static Boolean ifClientExists(String username, String senha){
-		for (Cliente c : cliente) {
+		for (Usuario c : cliente) {
 			if (c.getUser().equals(username) && c.getSenha().equals(senha)) {
 				return true;
 			}

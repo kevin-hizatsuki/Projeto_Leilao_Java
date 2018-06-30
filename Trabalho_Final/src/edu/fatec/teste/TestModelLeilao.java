@@ -137,6 +137,29 @@ class TestModelLeilao {
 		
 	}
 	
+	@Test
+	void testInsercaoCarroIdLeilao() {
+		leilao.AdicionarLeilao(l);
+		leilao.AdicionarCarroLeilaoId(1, produto5);
+		assertEquals(ModelProduto.getLisProduto().size(),1);
+	}
+	
+	
+	@Test
+	void testInsercaoEdificioComercialIdLeilao() {
+		leilao.AdicionarLeilao(l);
+		leilao.AdicionarEdificiosComerciaisLeilaoId(1, produto4);
+		assertEquals(ModelProduto.getLisProduto().size(),1);
+	}
+	
+	@Test
+	void testInsercaoTerrenoIdLeilao() {
+		leilao.AdicionarLeilao(l);
+		leilao.AdicionarTerrenoLeilaoId(1, produto3);
+		assertEquals(ModelProduto.getLisProduto().size(),1);
+		
+	}
+	
 	@AfterEach
 	public void limpeza() {
 		leilao.getLisLeiloes().clear();
