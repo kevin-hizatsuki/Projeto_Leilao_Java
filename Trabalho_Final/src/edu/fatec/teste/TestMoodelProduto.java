@@ -9,6 +9,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Forms.Form_Altera_Automovel;
+import Forms.Form_Altera_Imovel;
+import Forms.Form_Cadastro_Administrador;
+import Forms.Form_Cadastro_Apartamento;
+import Forms.Form_Cadastro_Carro;
+import Forms.Form_Cadastro_Edificio;
+import Forms.Form_Cadastro_Instituicao_Financeira;
+import Forms.Form_Cadastro_Terreno;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Carro;
@@ -34,7 +42,15 @@ class TestMoodelProduto {
 	Endereco endereco2;
 	Endereco endereco3;
 	Endereco endereco4;
-		
+	Form_Cadastro_Carro c = new Form_Cadastro_Carro();
+	Form_Altera_Automovel iA = new Form_Altera_Automovel();
+	Form_Altera_Imovel iaI = new Form_Altera_Imovel();
+	Form_Cadastro_Administrador iCA = new Form_Cadastro_Administrador();
+	Form_Cadastro_Apartamento iCap = new Form_Cadastro_Apartamento();
+	Form_Cadastro_Edificio iCed= new Form_Cadastro_Edificio();
+	Form_Cadastro_Instituicao_Financeira iCif = new Form_Cadastro_Instituicao_Financeira();
+	Form_Cadastro_Terreno iCt = new Form_Cadastro_Terreno();
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		endereco = new Endereco("Rua x", "SJC", "SP", "123456");
@@ -112,6 +128,54 @@ class TestMoodelProduto {
 		produto.AdicionarProduto(produto5);
 		produto.AdicionarProduto(produto6);
 		produto.gerarArquivo(produto.getLisProduto());
+	}
+	
+	@Test
+	void testInterfaceCadastroCarro() {
+		c.setVisible(true);
+		c.dispose();
+	}
+	
+	@Test
+	void testInterfaceAlteraAuto() {
+		iA.setVisible(true);
+		iA.dispose();
+	}
+	
+	@Test
+	void testInterfaceAlteraImovel() {
+		iaI.setVisible(true);
+		iaI.dispose();
+	}
+	
+	@Test
+	void testInterfaceCadastroAdmin() {
+		iCA.setVisible(true);
+		iCA.dispose();
+	}
+		
+	@Test
+	void testInterfaceCadastroAp() {
+		iCap.setVisible(true);
+		iCap.dispose();
+	}
+	
+	@Test
+	void testInterfaceCadastroEd() {
+		iCed.setVisible(true);
+		iCed.dispose();
+	}
+	
+	@Test
+	void testInterfaceCadastroIf() {
+		iCif.setVisible(true);
+		iCif.dispose();
+	}
+	
+	@Test
+	void testInterfaceCadastroTer() {
+		iCt.setVisible(true);
+		iCt.dispose();
 	}
 	
 	@AfterEach
