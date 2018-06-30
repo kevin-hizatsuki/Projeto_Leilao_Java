@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Usuario;
-import edu.fatec.model.ModelUsuario;
+import edu.fatec.model.ModelCliente;
 
 class TestModelUsuario {
 	
-	ModelUsuario usuario;
+	ModelCliente usuario;
 	Usuario admin;
 	Cliente usuario1;
 	Cliente usuario2;
@@ -37,14 +37,14 @@ class TestModelUsuario {
 	@Test
 	void testInsercao() {
 		usuario.adicionarCliente(admin);
-		assertEquals(usuario.getLisUsuario().size(),1);
+		assertEquals(usuario.getLisCliente().size(),1);
 	}
 	
 	@Test
 	void testAtualizar() {
 		usuario.adicionarCliente(usuario1);
 		usuario.atualizarCliente(atualizar);
-		assertEquals(usuario.getLisUsuario().get(usuario.getLisUsuario().indexOf(atualizar)).getSenha(),"321");
+		assertEquals(usuario.getLisCliente().get(usuario.getLisCliente().indexOf(atualizar)).getSenha(),"321");
 	}
 	
 	@Test
@@ -54,11 +54,11 @@ class TestModelUsuario {
 		usuario.adicionarCliente(usuario2);
 		usuario.adicionarCliente(usuario3);
 		usuario.adicionarCliente(usuario4);
-		assertEquals(usuario.getLisUsuario().size(),5);
+		assertEquals(usuario.getLisCliente().size(),5);
 		//usuario.ListarTodos();
 		usuario.removerCliente(usuario2);
-		usuario.ListarTodos();
-		assertEquals(usuario.getLisUsuario().size(),4);
+		usuario.getLisCliente();
+		assertEquals(usuario.getLisCliente().size(),4);
 		
 	}
 	
@@ -66,13 +66,13 @@ class TestModelUsuario {
 	void testUsuarioRepetido() {
 		usuario.adicionarCliente(usuario2);
 		usuario.adicionarCliente(usuario5);
-		assertEquals(usuario.getLisUsuario().size(),1);
+		assertEquals(usuario.getLisCliente().size(),1);
 		
 	}
 	
 
 	@AfterEach
 	public void limpeza() {
-		usuario.getLisUsuario().clear();
+		usuario.getLisCliente().clear();
 	}
 }

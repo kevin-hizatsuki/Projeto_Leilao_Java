@@ -27,18 +27,18 @@ import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Lance;
+import edu.fatec.model.ModelCliente;
 import edu.fatec.model.ModelInstituicaoFinanceira;
 import edu.fatec.model.ModelLance;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
-import edu.fatec.model.ModelUsuario;
 
 class TestModelLance {
 
 	Identificador id;
 	ModelLeilao leilao;
 	ModelProduto produto;
-	ModelUsuario usuario;
+	ModelCliente usuario;
 	ModelLance lance;
 	ModelInstituicaoFinanceira InsFin;
 	Lance l1;
@@ -156,7 +156,7 @@ class TestModelLance {
 		lance.getLisLance().clear();
 		leilao.getLisLeiloes().clear();
 		produto.getLisProduto().clear();
-		usuario.getLisUsuario().clear();
+		usuario.getLisCliente().clear();
 		InsFin.getListInstituicaoFinanceira().clear();
 	}
 

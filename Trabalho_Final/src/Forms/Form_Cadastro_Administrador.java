@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Usuario;
-import edu.fatec.model.ModelUsuario;
+import edu.fatec.model.ModelCliente;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -77,7 +77,7 @@ public class Form_Cadastro_Administrador extends JFrame {
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ModelUsuario.adicionarCliente(new Usuario (EnumUsuario.Administrador,textField.getText(),textField_1.getText()));
+				ModelCliente.adicionarCliente(new Usuario (EnumUsuario.Administrador,textField.getText(),textField_1.getText()));
 				Form_Login a = new Form_Login();
 				a.setVisible(true);
 				dispose();

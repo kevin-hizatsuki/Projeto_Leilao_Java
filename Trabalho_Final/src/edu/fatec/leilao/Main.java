@@ -28,7 +28,6 @@ import edu.fatec.leilao.usuario.Usuario;
 import edu.fatec.model.ModelCliente;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
-import edu.fatec.model.ModelUsuario;
 
 public class Main {
 	
@@ -114,7 +113,7 @@ public class Main {
 		
 		
 		
-		ModelUsuario usuario = null;
+		ModelCliente usuario = null;
 		Usuario admin;
 		Cliente usuario1;
 		Cliente usuario2;
