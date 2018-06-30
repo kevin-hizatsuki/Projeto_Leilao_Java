@@ -187,6 +187,13 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Leil\u00E3o");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Cadastro_Leilao a = new Form_Cadastro_Leilao();
+				a.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_4.setBounds(55, 56, 116, 51);
 		contentPane.add(btnNewButton_4);
 		

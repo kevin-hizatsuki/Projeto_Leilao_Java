@@ -97,7 +97,7 @@ public class Form_Login extends JFrame {
 		JButton btnCriarConta = new JButton("Criar Conta");
 		btnCriarConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Form_Cadastro_Cliente a = new Form_Cadastro_Cliente();
+				Form_Cadastro_Administrador a = new Form_Cadastro_Administrador();
 				a.setVisible(true);
 				dispose();
 			}
@@ -120,15 +120,5 @@ public class Form_Login extends JFrame {
 		});
 		btnSair.setBounds(30, 223, 98, 26);
 		contentPane.add(btnSair);
-		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				ModelLeilao.listarTodosLeilao();
-			}
-		});
-		btnNewButton_1.setBounds(12, 130, 98, 26);
-		contentPane.add(btnNewButton_1);
 	}
 }

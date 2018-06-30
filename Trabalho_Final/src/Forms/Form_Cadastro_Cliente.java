@@ -107,32 +107,17 @@ public class Form_Cadastro_Cliente extends JFrame {
 				textField_1.setText(null);
 				textField_2.setText(null);
 				textField_3.setText(null);
-				Form_Login c = new Form_Login();
+				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
 				c.setVisible(true);
 				dispose();
 			}
 		});
 		btnNewButton_1.setBounds(250, 185, 89, 23);
 		contentPane.add(btnNewButton_1);
-		
-		JLabel lblTipo = new JLabel("Tipo");
-		lblTipo.setBounds(78, 31, 24, 16);
-		contentPane.add(lblTipo);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(106, 27, 194, 20);
-		for (EnumUsuario c : EnumUsuario.values()) {
-			if (c.toString() != "Nenhum") {
-				comboBox.addItem(c);
-			}
-		}
-		contentPane.add(comboBox);
-		
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Ver o porque o cadastro nao consegue fazer o login!!
-				ModelCliente.adicionarCliente(new Cliente((EnumUsuario)comboBox.getSelectedItem(),textField.getText(),textField_1.getText(),textField_2.getText(),textField_3.getText()));
+				ModelCliente.adicionarCliente(new Cliente(EnumUsuario.Cliente,textField.getText(),textField_1.getText(),textField_2.getText(),textField_3.getText()));
 				dispose();
 				Form_Login a = new Form_Login();
 				a.setVisible(true);

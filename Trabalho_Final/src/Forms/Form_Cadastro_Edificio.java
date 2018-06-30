@@ -6,6 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.produto.EdificiosComerciais;
+import edu.fatec.model.ModelLeilao;
+import edu.fatec.model.ModelProduto;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -55,13 +61,6 @@ public class Form_Cadastro_Edificio extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		JButton button = new JButton("Cadastrar");
-		button.setBounds(216, 357, 91, 23);
-		
-		
-		
-		
 		JLabel lblCadastroDeEdificios = new JLabel("Cadastro de Edificios Comerciais");
 		lblCadastroDeEdificios.setBounds(98, 5, 281, 21);
 		lblCadastroDeEdificios.setHorizontalAlignment(SwingConstants.CENTER);
@@ -172,7 +171,7 @@ public class Form_Cadastro_Edificio extends JFrame {
 		
 		
 		contentPane.setLayout(null);
-		contentPane.add(button);
+		
 		contentPane.add(lblCadastroDeEdificios);
 		contentPane.add(label_1);
 		contentPane.add(textField);
@@ -203,7 +202,54 @@ public class Form_Cadastro_Edificio extends JFrame {
 		lblAndar.setBounds(90, 319, 37, 14);
 		contentPane.add(lblAndar);
 		
+		JSpinner spinner_4 = new JSpinner();
+		spinner_4.setBounds(210, 313, 29, 20);
+		contentPane.add(spinner_4);
 		
+		JLabel lblQuarto = new JLabel("Quarto");
+		lblQuarto.setBounds(167, 316, 48, 14);
+		contentPane.add(lblQuarto);
+		
+		JSpinner spinner_5 = new JSpinner();
+		spinner_5.setBounds(302, 313, 29, 20);
+		contentPane.add(spinner_5);
+		
+		JLabel lblBanheiro = new JLabel("Banheiro");
+		lblBanheiro.setBounds(249, 316, 58, 14);
+		contentPane.add(lblBanheiro);
+		
+		JSpinner spinner_6 = new JSpinner();
+		spinner_6.setBounds(393, 313, 29, 20);
+		contentPane.add(spinner_6);
+		
+		JLabel lblGaragem = new JLabel("Garagem");
+		lblGaragem.setBounds(336, 316, 60, 14);
+		contentPane.add(lblGaragem);
+		JButton button = new JButton("Cadastrar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModelProduto.AdicionarProduto(new EdificiosComerciais(
+						Integer.valueOf(textField.getText()),
+						Integer.valueOf(textField.getText()),
+						(double) spinner.getValue(),
+						new Endereco(
+								textField_5.getText(),
+								textField_6.getText(),
+								textField_7.getText(),
+								textField_8.getText()
+								), 
+						Double.valueOf(textField_3.getText()), 
+						(double) spinner_1.getValue(),
+						textField_2.getText(),
+						 (int) spinner_3.getValue(), 
+						 (int) spinner_6.getValue(),
+						 (int) spinner_4.getValue(),
+						 (int) spinner_5.getValue(), 
+						 (int) spinner_2.getValue()));
+			}
+		});
+		button.setBounds(216, 357, 91, 23);
+		contentPane.add(button);
 	}
 
 }

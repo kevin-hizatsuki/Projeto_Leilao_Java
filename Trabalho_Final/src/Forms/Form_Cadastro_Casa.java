@@ -162,23 +162,23 @@ public class Form_Cadastro_Casa extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ModelProduto c = new ModelProduto();
-//				c.AdicionarProduto(new Casas(
-//						textField.getText(), //Id
-//						textField_IdProduto.getText(), //IdImovel
-//						txtTipo.getText(), //Tipo do produto
-//						txtPreo.getText(), //Preço 
-//						spinner_3.getValue(),
-//						spinner_4.getValue(),
-//						textField_1.getText(),
-//						txtCidade.getText(),
-//						
-//						txtCep.getText(),
-//						spinner.getValue(),
-//						spinner_1.getValue(),
-//						spinner_2.getValue()
-//											)
-//				);
+				ModelProduto.AdicionarProduto(new Casas(
+						Integer.valueOf(textField.getText()), //Id
+						Integer.valueOf(textField_IdProduto.getText()),//IdImovel
+						txtTipo.getText(),
+						(double)spinner_3.getValue(), //Tipo do produto
+						new Endereco(
+								textField_1.getText(),
+								txtCidade.getText(),
+								txtEstado.getText(),
+								txtCep.getText()
+								),
+						Double.valueOf(txtPreo.getText()),
+						(double) spinner_4.getValue(),
+						(int) spinner.getValue(),
+						(int) spinner_1.getValue(),
+						(int) spinner_2.getValue()
+						));
 				dispose();
 			}
 		});
@@ -206,7 +206,7 @@ public class Form_Cadastro_Casa extends JFrame {
 				spinner_4.setValue(0);
 				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
 				c.setVisible(true);
-				dispose();
+				dispose();	
 			}
 		});
 		contentPane.setLayout(null);

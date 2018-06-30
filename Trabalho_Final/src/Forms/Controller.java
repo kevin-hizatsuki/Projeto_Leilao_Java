@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import edu.fatec.model.ModelCliente;
+import edu.fatec.model.ModelLeilao;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -64,9 +65,18 @@ public class Controller extends JFrame {
 		JButton btnChecarLeilesAtuais = new JButton("Area de Leil\u00F5es");
 		btnChecarLeilesAtuais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+//				ModelLeilao leilao = new ModelLeilao();
+				System.out.println(ModelLeilao.getLisLeiloes());
+				if (ModelLeilao.getLisLeiloes().size()<1) {
+					Form_Cadastro_Leilao a = new Form_Cadastro_Leilao();
+					a.setVisible(true);
+					dispose();
+				}
+				else {
 				Form_Leiloes_Atuais janela_leiloes_atuais = new Form_Leiloes_Atuais();
 				janela_leiloes_atuais.setVisible(true);
 				dispose();
+				}
 			}
 		});
 		btnChecarLeilesAtuais.setBounds(128, 119, 164, 71);
@@ -83,17 +93,6 @@ public class Controller extends JFrame {
 		});
 		btnHistricoDeLeiles.setBounds(128, 202, 164, 71);
 		contentPane.add(btnHistricoDeLeiles);
-		
-		JButton btnCriarUmLeilo = new JButton("Area de Cadastros");
-		btnCriarUmLeilo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Form_Tela_CadastroGeral janela_novo_leilao = new Form_Tela_CadastroGeral();
-				janela_novo_leilao.setVisible(true);
-				dispose();
-			}
-		});
-		btnCriarUmLeilo.setBounds(128, 36, 164, 71);
-		contentPane.add(btnCriarUmLeilo);
 	}
 
 

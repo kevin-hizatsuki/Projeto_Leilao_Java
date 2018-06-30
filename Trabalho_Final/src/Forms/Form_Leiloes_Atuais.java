@@ -10,9 +10,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
+
+import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.Main;
+import edu.fatec.model.ModelLeilao;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class Form_Leiloes_Atuais extends JFrame {
@@ -43,7 +52,7 @@ public class Form_Leiloes_Atuais extends JFrame {
 	 */
 	public Form_Leiloes_Atuais() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 422);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -53,8 +62,27 @@ public class Form_Leiloes_Atuais extends JFrame {
 		label.setBounds(5, 5, 424, 0);
 		contentPane.add(label);
 		
-		table = new JTable();
-		table.setBounds(15, 41, 409, 215);
+		
+		String [] colunas = {"ID","NOME","CEP","CIDADE","ENDERECO COMPLETO","ESTADO","CNPJ", "DATA INICIO", "DATA FIM"}; 
+		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
+		
+		table = new JTable(tabelaModelo);
+		table.setBounds(15, 41, 409, 331);
+		List<Leiloes> dados = ModelLeilao.getLisLeiloes();
+		for (int i = 0; i < dados.size(); i++) {
+			Integer id = dados.get(i).getId();
+			String nome = dados.get(i).getNome();
+			String cep = dados.get(i).getEndereco().cep;
+			String cidade =  dados.get(i).getEndereco().cidade;
+			String endereco = dados.get(i).getEndereco().enderecoCompleto; //ARRUMAR
+			String estado = dados.get(i).getEndereco().estado;
+			String cnpj = dados.get(i).getInstF().cnpj;
+			LocalDate data_inicio =  dados.get(i).getDataInicio();
+			LocalDate data_fim = dados.get(i).getDataFim();
+			
+			Object [] dados1 = {id, nome, cep, cidade, endereco, estado, cnpj, data_inicio, data_fim};
+			tabelaModelo.addRow(dados1);
+		}
 		contentPane.add(table);
 		
 		lblLeilesAtivos = new JLabel("Leil\u00F5es Ativos");
@@ -73,5 +101,21 @@ public class Form_Leiloes_Atuais extends JFrame {
 		});
 		button.setBounds(0, 0, 89, 23);
 		contentPane.add(button);
+		
+		JButton btnAdicionarProduto = new JButton("Adicionar Produto");
+		btnAdicionarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println((int) table.getValueAt(table.getSelectedRow(), 0));
+				Main.setIdLeilao_AddProduto((int) table.getValueAt(table.getSelectedRow(), 0));// Aqui ele faz esquema X,Y - verifica qual a linha e qual a coluna para pegar o ID do produto listado
+
+				
+				Form_Tela_CadastroGeral cadastro_produto = new Form_Tela_CadastroGeral();
+				cadastro_produto.setVisible(true);
+				dispose();
+			}
+		});
+		btnAdicionarProduto.setBounds(280, 16, 144, 26);
+		contentPane.add(btnAdicionarProduto);
 	}
 }

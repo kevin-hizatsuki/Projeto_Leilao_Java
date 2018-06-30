@@ -36,6 +36,14 @@ public class ModelLeilao {
 		}
 	}
 	
+	public static void AdicionaProdutoLeilaoId(int id, Produto produto) {
+		for (Leiloes l: leilao) {
+			if(l.getId()==id) {
+				
+				
+			}
+		}
+	}
 	
 	public static void RemoverLeilao(Leiloes remover) {
 		for (Leiloes l : leilao) {
