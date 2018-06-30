@@ -104,4 +104,14 @@ public class ModelProduto {
 		escritor.close();
 	}
 
+	public static Produto retornarPorId(int id) {
+		for(Produto p:produto) {
+			if(p.idProduto==id) {
+				return p;
+			}
+		}
+		return null;
+		
+	}
+	
 }

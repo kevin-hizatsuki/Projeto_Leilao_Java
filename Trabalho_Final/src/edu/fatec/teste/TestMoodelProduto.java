@@ -67,10 +67,9 @@ class TestMoodelProduto {
 	@Test
 	void testRemover() {
 		produto.AdicionarProduto(produto3);
-		produto.AdicionarProduto(produto4);
-		assertEquals(produto.getLisProduto().size(),2);
-		produto.removerProduto(produto3);
 		assertEquals(produto.getLisProduto().size(),1);
+		produto.removerProduto(produto3);
+		assertEquals(produto.getLisProduto().size(),0);
 	}
 	
 	@Test

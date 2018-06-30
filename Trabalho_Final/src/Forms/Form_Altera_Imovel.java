@@ -267,7 +267,7 @@ public class Form_Altera_Imovel extends JFrame {
 		contentPane.setLayout(null);
 		//Main.getIdProduto_FormPesquisa() //Puxa o ID do produto escolhido na planilha anterior
 //		Main.getTipoProduto_FormPesquisa() //Puxa o tipo do produto escolhido anteriormente
-		System.out.println("Id do produto escolhido - "+Main.getIdProduto_FormPesquisa());
+		/*System.out.println("Id do produto escolhido - "+Main.getIdProduto_FormPesquisa());
 		System.out.println("Tipo do produto escolhido - "+Main.getTipoProduto_FormPesquisa());
 		ModelProduto t = new ModelProduto();
 		switch (Main.getTipoProduto_FormPesquisa().toLowerCase()) {
@@ -311,6 +311,7 @@ public class Form_Altera_Imovel extends JFrame {
 		default:
 			break;
 		}
+	*/
 	}
 
 }

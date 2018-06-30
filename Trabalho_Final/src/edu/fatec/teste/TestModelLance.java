@@ -1,10 +1,14 @@
 package edu.fatec.teste;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,6 +23,7 @@ import edu.fatec.leilao.produto.Carro;
 import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EdificiosComerciais;
 import edu.fatec.leilao.produto.Imoveis;
+import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Lance;
@@ -40,8 +45,19 @@ class TestModelLance {
 	Lance l2;
 	Lance l3;
 	Lance l4;
+	Lance l5;
+	Lance l6;
+	Lance l7;
+	Lance l8;
+	Lance l9;
+	Lance l10;
+	Lance l11;
+	Lance l12;
 	Cliente usuario1;
 	Cliente usuario2;
+	Cliente usuario3;
+	Cliente usuario4;
+	Cliente usuario5;
 	Leiloes leilao1;
 	Leiloes leilao2;
 	Casas produto1;
@@ -67,11 +83,17 @@ class TestModelLance {
 		produto5 = new Carro(1, 5, "Carro", "Ford", "Fusion", 4.0, 2017, "Automatico", 50, "Gasolina", 70, 4);
 		usuario1 = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "123");
 		usuario2 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "124");
+		usuario3 = new Cliente(EnumUsuario.Cliente, "123458", "Julio", "JULIO", "125");
+		usuario4 = new Cliente(EnumUsuario.Cliente, "123459", "Lucas", "lusca", "125");
+		usuario5 = new Cliente(EnumUsuario.Cliente, "123410", "Maria", "Ma", "125");
+		
 		l1 = new Lance(15, leilao1, produto1, usuario1, 155.5);
-		l2 = new Lance(8, leilao1, produto2, usuario1, 200.5);
+		l2 = new Lance(8, leilao1, produto1, usuario1, 200.5);
 		l3 = new Lance(1, leilao1, produto2, usuario2, 210.5);
 		l4 = new Lance(5, leilao1, produto2, usuario1, 260.5);
-
+		l5 = new Lance(6, leilao1, produto1, usuario3, 201.5);
+		l6 = new Lance(7, leilao1, produto5, usuario4, 201.5);
+		
 		produto.AdicionarProduto(produto1);
 		produto.AdicionarProduto(produto2);
 		produto.AdicionarProduto(produto3);
@@ -100,12 +122,34 @@ class TestModelLance {
 		lance.adicionarLance(l4);
 		List<Lance> lest = new LinkedList();
 		lest = lance.lanceOrdenado();
-		for(Lance la:lest) {
+		/*for(Lance la:lest) {
 			System.out.println(la);
-		}
+		}*/
 		
 	}
 
+	@Test
+	void testVencedor() {
+		Map<Integer,Cliente> vencedor = new HashMap();
+		lance.adicionarLance(l1);
+		lance.adicionarLance(l2);
+		lance.adicionarLance(l3);
+		lance.adicionarLance(l4);
+		lance.adicionarLance(l5);
+		lance.adicionarLance(l6);
+		vencedor =  lance.getVenvedor(produto.getLisProduto());
+		Set chaves = vencedor.keySet(); 
+		for(Object i:chaves) {
+			System.out.println(vencedor.get(i));
+			System.out.println(produto.retornarPorId(Integer.parseInt(i.toString())));
+		}
+		assertEquals(vencedor.get(1).getUser(),"JULIO");
+		/*
+		for(Produto c:produto.getLisProduto()) {
+			System.out.println(c);
+		}*/
+	}
+	
 	@AfterEach
 	public void limpeza() {
 		lance.getLisLance().clear();

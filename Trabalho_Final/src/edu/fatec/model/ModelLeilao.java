@@ -10,6 +10,11 @@ import java.util.List;
 import java.util.Random;
 
 import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.produto.Apartamento;
+import edu.fatec.leilao.produto.Carro;
+import edu.fatec.leilao.produto.Casas;
+import edu.fatec.leilao.produto.EdificiosComerciais;
+import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
 
@@ -94,12 +99,54 @@ public class ModelLeilao {
 	}
 	
 	public static void gerarArquivo(List<Leiloes> list) throws IOException {
-		PrintWriter escritor = new PrintWriter( new FileWriter("C:\\temp\\leiloes_"+LocalDate.now().toString()+".txt"));
+		PrintWriter escritor = new PrintWriter( new FileWriter("C:\\temp\\leiloes_"+LocalDate.now().toString()+".det"));
 		for(Leiloes l:list) {
 			escritor.println(l.toString());
 			escritor.println("-----------------------------------");
 		}
 		escritor.close();
 	}
-
+	
+	public static void AdicionaCasaLeilaoId(int id, Casas produto) {
+		for (Leiloes l: leilao) {
+			if(l.getId()==produto.getIdLeilao()) {
+				ModelProduto.AdicionarProduto(produto);
+			}
+		}
+	}
+	
+	public static void AdicionarApartamentoLeilaoId(int id, Apartamento produto) {
+		for (Leiloes l: leilao) {
+			if(l.getId()==produto.getIdLeilao()) {
+				ModelProduto.AdicionarProduto(produto);
+			}
+		}
+	}
+	
+	public static void AdicionarCarroLeilaoId(int id, Carro produto) {
+		for (Leiloes l: leilao) {
+			if(l.getId()==produto.getIdLeilao()) {
+				ModelProduto.AdicionarProduto(produto);
+			}
+		}
+	}
+	
+	public static void AdicionarEdificiosComerciaisLeilaoId(int id, EdificiosComerciais produto) {
+		for (Leiloes l: leilao) {
+			if(l.getId()==produto.getIdLeilao()) {
+				ModelProduto.AdicionarProduto(produto);
+			}
+		}
+	}
+	
+	public static void AdicionarTerrenoLeilaoId(int id, Imoveis produto) {
+		for (Leiloes l: leilao) {
+			if(l.getId()==produto.getIdLeilao()) {
+				ModelProduto.AdicionarProduto(produto);
+			}
+		}
+	}
+	
+	
+	
 }

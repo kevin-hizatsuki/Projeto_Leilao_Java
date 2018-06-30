@@ -2,8 +2,10 @@ package edu.fatec.model;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
@@ -34,6 +36,22 @@ public class ModelLance {
 		lance.stream().sorted((o1, o2)-> o1.getIdLance().compareTo(o2.getIdLance())).forEach(p->lan.add(p));
 		
 		return lan;
+	}
+	
+	public static Map<Integer,Cliente> getVenvedor(List<Produto>  produto){
+		Map<Integer,Cliente> vencedor = new HashMap();
+		
+		for(Produto p: produto) {
+			Cliente c=null;
+				for(Lance l: lance) {
+				if((p.getIdLeilao()==l.getProduto().getIdLeilao())&&(p.getIdProduto()==l.getProduto().getIdProduto())&&(p.getPreco()==l.getProduto().getPreco())) {
+				c=l.getCliente();
+				}
+			}
+			 vencedor.put(p.getIdProduto(),c);
+		}
+		
+		return vencedor;
 	}
 	
 

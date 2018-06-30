@@ -86,25 +86,26 @@ String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condomini
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		table = new JTable(tabelaModelo);
 		table.setBounds(10, 64, 412, 312);
-//		List<Produto> dados = s.getListaProduto();
-//		for (int i = 0; i < dados.size(); i++) {
-//			Integer id = dados.get(i).getIdLeilao();
-//			Integer idImovel = dados.get(i).getIdProduto();
-//			String tipo = dados.get(i).getTipo();
-//			double area = ((Imoveis) dados.get(i)).getArea();
-//			Endereco endereco = ((Imoveis) dados.get(i)).getEndereco(); //ARRUMAR
-//			double preco = dados.get(i).getPreco();
-//			double condominio = ((Imoveis) dados.get(i)).getCondominio();
-//			int garagem = ((Casas) dados.get(i)).getGaragem();
-//			int quarto = ((Casas) dados.get(i)).getQuarto();
-//			int banheiro = ((Casas) dados.get(i)).getBanheiro();
-//			
-//			Object [] dados1 = {id, idImovel, tipo, area, endereco, preco, condominio, garagem, quarto, banheiro};
-//			tabelaModelo.addRow(dados1);
-//		}
+		SiteLeilao s = new SiteLeilao();
+		List<Produto> dados = s.getListaProduto();
+		for (int i = 0; i < dados.size(); i++) {
+			Integer id = dados.get(i).getIdLeilao();
+			Integer idImovel = dados.get(i).getIdProduto();
+			String tipo = dados.get(i).getTipo();
+			double area = ((Imoveis) dados.get(i)).getArea();
+			Endereco endereco = ((Imoveis) dados.get(i)).getEndereco(); //ARRUMAR
+			double preco = dados.get(i).getPreco();
+			double condominio = ((Imoveis) dados.get(i)).getCondominio();
+			int garagem = ((Casas) dados.get(i)).getGaragem();
+			int quarto = ((Casas) dados.get(i)).getQuarto();
+			int banheiro = ((Casas) dados.get(i)).getBanheiro();
+			
+			Object [] dados1 = {id, idImovel, tipo, area, endereco, preco, condominio, garagem, quarto, banheiro};
+			tabelaModelo.addRow(dados1);
+		}
 		contentPane.add(table);
 		
-		SiteLeilao s = new SiteLeilao();
+		
 		//Arrumar uma forma de trazer a lista de produtos cadastrados
 		//s.AdicionarLeilao(new Leiloes(1,"Leilao do ze",new Endereco("Rua Ma","SJC","SP","123457"),new InstituicaoFinanceira("456789","www.bradesco","Bradesco"),LocalDate.of(2018,11,20),LocalDate.of(2018,11,29)));
 	
@@ -178,9 +179,9 @@ String [] colunas = {"id","idImovel","tipo","area","endereco","preco","condomini
 				
 				//Aqui sera necessario enviar dois paramentros para a proxima tela: ID do Produto e Tipo de produto selecionado para que os campos possam mudar de status de setVisible de FALSE para TRUE de acordo com os parametros enviados
 				//Usar Observable
-				Main.setIdProduto_FormPesquisa((int) table.getValueAt(table.getSelectedRow(), 1)); // Aqui ele faz esquema X,Y - verifica qual a linha e qual a coluna para pegar o ID do produto listado
+				/*Main.setIdProduto_FormPesquisa((int) table.getValueAt(table.getSelectedRow(), 1)); // Aqui ele faz esquema X,Y - verifica qual a linha e qual a coluna para pegar o ID do produto listado
 				Main.setTipoProduto_FormPesquisa(comboBox.getSelectedItem().toString()); //Tipo selecionado
-				
+				*/
 				Form_Altera_Imovel c = new Form_Altera_Imovel();
 				c.setVisible(true);
 				dispose();

@@ -146,7 +146,6 @@ public class Form_Cadastro_Leilao extends JFrame {
 				new Endereco(textField_2.getText(),textField_4.getText(),textField_5.getText(),textField_6.getText()),
 				new InstituicaoFinanceira(textField_9.getText(), textField_8.getText(), textField_7.getText()),LocalDate.parse(formattedTextField.getText(), formatter), LocalDate.parse(formattedTextField_1.getText(), formatter)));
 			
-				ModelLeilao.listarTodosLeilao();
 			}
 		});
 		btnCadastrar.setBounds(31, 392, 89, 23);
@@ -155,8 +154,7 @@ public class Form_Cadastro_Leilao extends JFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Form_Login c = new Form_Login();
-				c.setVisible(true);
+				
 				dispose();
 			}
 		});

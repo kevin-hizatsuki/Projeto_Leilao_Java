@@ -1,9 +1,6 @@
 package Forms;
 import edu.fatec.model.ModelCliente;
-<<<<<<< HEAD
-=======
 import edu.fatec.model.ModelLeilao;
->>>>>>> e3a4dea7a4bb66ff730bafdfd073a27cb5216684
 import edu.fatec.model.ModelUsuario;
 import edu.fatec.leilao.usuario.*;
 import java.awt.BorderLayout;
