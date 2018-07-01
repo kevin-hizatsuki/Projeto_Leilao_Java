@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
+import edu.fatec.leilao.produto.EnumImoveis;
+import edu.fatec.leilao.produto.EnumVeiculo;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
@@ -32,6 +34,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.JList;
+import javax.swing.JComboBox;
+import java.awt.Font;
 
 public class Form_Lances extends JFrame {
 
@@ -59,18 +64,20 @@ public class Form_Lances extends JFrame {
 	 */
 	public Form_Lances() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 403);
+		setBounds(100, 100, 501, 445);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblLeiloNumero = new JLabel("Leil\u00E3o Numero: ");
-		lblLeiloNumero.setBounds(126, 11, 92, 14);
+		lblLeiloNumero.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblLeiloNumero.setBounds(133, 31, 134, 14);
 		contentPane.add(lblLeiloNumero);
 		
 		JLabel lblNa = new JLabel("N/A");
-		lblNa.setBounds(218, 10, 55, 16);
+		lblNa.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNa.setBounds(244, 31, 55, 16);
 		lblNa.setText(String.valueOf(Main.getIdLeilao_AddProduto()));
 		contentPane.add(lblNa);
 		
@@ -78,7 +85,7 @@ public class Form_Lances extends JFrame {
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		
 		table = new JTable(tabelaModelo);
-		table.setBounds(12, 77, 410, 275);
+		table.setBounds(12, 161, 467, 233);
 		List<Produto> dados = ModelProduto.getProdutosPorLeilao(Main.getIdLeilao_AddProduto());
 		for (int i = 0; i < dados.size(); i++) {
 			Integer id = dados.get(i).getIdProduto();
@@ -104,7 +111,7 @@ public class Form_Lances extends JFrame {
 		
 		JSpinner spinner = new JSpinner();
 		spinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
-		spinner.setBounds(41, 45, 107, 29);
+		spinner.setBounds(133, 57, 107, 29);
 		contentPane.add(spinner);
 		
 		JButton btnNewButton = new JButton("Fazer Lance!");
@@ -160,8 +167,193 @@ public class Form_Lances extends JFrame {
 			
 			
 		});
-		btnNewButton.setBounds(160, 46, 113, 26);
+		btnNewButton.setBounds(244, 58, 113, 26);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblBuscar = new JLabel("Buscar");
+		lblBuscar.setBounds(212, 98, 55, 16);
+		contentPane.add(lblBuscar);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
+		spinner_1.setBounds(12, 129, 55, 20);
+		contentPane.add(spinner_1);
+		
+		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
+		spinner_2.setBounds(71, 129, 60, 20);
+		contentPane.add(spinner_2);
+		
+		JLabel lblFaixa = new JLabel("Pesquisa por Faixa");
+		lblFaixa.setBounds(18, 108, 113, 16);
+		contentPane.add(lblFaixa);
+		
+		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				List<Produto> pesquisaFaixaProduto = ModelProduto.buscaPorFaixa((double) spinner_1.getValue(), (double) spinner_2.getValue());
+				tabelaModelo.setRowCount(0);
+				for (int i = 0; i < pesquisaFaixaProduto.size(); i++) {
+					Integer id = pesquisaFaixaProduto.get(i).getIdProduto();
+					String tipo = pesquisaFaixaProduto.get(i).getTipo();
+					double preco = pesquisaFaixaProduto.get(i).getPreco();
+					
+					Object [] dados1 = {id,tipo, preco,};
+					tabelaModelo.addRow(dados1);
+				}
+			}
+		});
+		btnPesquisar.setBounds(134, 126, 98, 26);
+		contentPane.add(btnPesquisar);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(236, 126, 121, 26);
+		for (EnumImoveis c : EnumImoveis.values()) {
+			if (c.toString() != "Nenhum") {
+				comboBox.addItem(c);
+			}
+		}
+		for (EnumVeiculo c : EnumVeiculo.values()) {
+			if (c.toString() != "Nenhum") {
+				comboBox.addItem(c);
+			}
+		}
+		contentPane.add(comboBox);
+		
+		
+		JButton btnPesquisar_1 = new JButton("Pesquisar");
+		btnPesquisar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				List<Produto> pesquisaCategoria = ModelProduto.getLisProduto();
+				if ( comboBox.getSelectedIndex() <= 3) {
+					switch (comboBox.getSelectedItem().toString().toLowerCase()) {
+					case "apartamentos":
+						
+						tabelaModelo.setRowCount(0);
+						
+						for (Produto produto : pesquisaCategoria) {
+							if(produto.getTipo().toString().equals(comboBox.getSelectedItem().toString())) {
+								
+								Integer id = produto.getIdProduto();
+								String tipo = produto.getTipo();
+								double preco = produto.getPreco();
+								
+								Object [] dados1 = {id,tipo, preco,};
+								tabelaModelo.addRow(dados1);
+							}
+						}
+						
+						
+						break;
+					case "terrenos":
+						
+						tabelaModelo.setRowCount(0);
+						
+						for (Produto produto : pesquisaCategoria) {
+							System.out.println("Categoria Produto: "+produto.getTipo().toString());
+							System.out.println("Selecionado ComboBox: "+comboBox.getSelectedItem().toString()+"\n");
+							if(produto.getTipo().toString().equals(comboBox.getSelectedItem().toString())) {
+								
+								Integer id = produto.getIdProduto();
+								String tipo = produto.getTipo();
+								double preco = produto.getPreco();
+								
+								Object [] dados1 = {id,tipo, preco,};
+								tabelaModelo.addRow(dados1);
+							}
+						}
+						
+						
+						break;
+					case "casas":
+						
+						tabelaModelo.setRowCount(0);
+						
+						for (Produto produto : pesquisaCategoria) {
+							System.out.println("Categoria Produto: "+produto.getTipo().toString());
+							System.out.println("Selecionado ComboBox: "+comboBox.getSelectedItem().toString()+"\n");
+							if(produto.getTipo().toString().equals(comboBox.getSelectedItem().toString())) {
+								
+								Integer id = produto.getIdProduto();
+								String tipo = produto.getTipo();
+								double preco = produto.getPreco();
+								
+								Object [] dados1 = {id,tipo, preco,};
+								tabelaModelo.addRow(dados1);
+							}
+						}
+						
+						break;
+					case "edificios_comerciais":
+						
+						tabelaModelo.setRowCount(0);
+						
+						for (Produto produto : pesquisaCategoria) {
+							System.out.println("Categoria Produto: "+produto.getTipo().toString());
+							System.out.println("Selecionado ComboBox: "+comboBox.getSelectedItem().toString()+"\n");
+							if(produto.getTipo().toString().equals(comboBox.getSelectedItem().toString())) {
+								
+								Integer id = produto.getIdProduto();
+								String tipo = produto.getTipo();
+								double preco = produto.getPreco();
+								
+								Object [] dados1 = {id,tipo, preco,};
+								tabelaModelo.addRow(dados1);
+							}
+						}
+						
+						break;
+					}
+				}else {
+					switch (comboBox.getSelectedItem().toString().toLowerCase()) {
+					case "carros":
+						
+						tabelaModelo.setRowCount(0);
+						
+						for (Produto produto : pesquisaCategoria) {
+							System.out.println("Categoria Produto: "+produto.getTipo().toString());
+							System.out.println("Selecionado ComboBox: "+comboBox.getSelectedItem().toString()+"\n");
+							if(produto.getTipo().toString().equals(comboBox.getSelectedItem().toString())) {
+								
+								Integer id = produto.getIdProduto();
+								String tipo = produto.getTipo();
+								double preco = produto.getPreco();
+								
+								Object [] dados1 = {id,tipo, preco,};
+								tabelaModelo.addRow(dados1);
+							}
+						}
+						
+						break;
+					case "motocicletas":
+						
+						tabelaModelo.setRowCount(0);
+						
+						for (Produto produto : pesquisaCategoria) {
+							System.out.println("Categoria Produto: "+produto.getTipo().toString());
+							System.out.println("Selecionado ComboBox: "+comboBox.getSelectedItem().toString()+"\n");
+							if(produto.getTipo().toString().equals(comboBox.getSelectedItem().toString())) {
+								
+								Integer id = produto.getIdProduto();
+								String tipo = produto.getTipo();
+								double preco = produto.getPreco();
+								
+								Object [] dados1 = {id,tipo, preco,};
+								tabelaModelo.addRow(dados1);
+							}
+						}
+						
+						break;
+					}
+				}
+			}
+		});
+		btnPesquisar_1.setBounds(369, 126, 98, 26);
+		contentPane.add(btnPesquisar_1);
+		
+		JLabel lblPesquisaPorCategoria = new JLabel("Pesquisa por categoria");
+		lblPesquisaPorCategoria.setBounds(307, 108, 140, 16);
+		contentPane.add(lblPesquisaPorCategoria);
 		
 		
 	}

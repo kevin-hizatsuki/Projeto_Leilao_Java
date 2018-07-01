@@ -15,6 +15,7 @@ import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Carro;
 import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EdificiosComerciais;
+import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Veiculos;
 import edu.fatec.model.ModelCliente;
@@ -79,6 +80,7 @@ public class Controller extends JFrame {
 		Endereco endereco4;
 		InstituicaoFinanceira banco; 
 		
+		
 		banco = new InstituicaoFinanceira("123456","www.itau.com","Itau");
 		endereco = new Endereco("Rua x", "SJC", "SP", "123456");
 		endereco2 = new Endereco("Rua y", "SJC", "SP", "123457");
@@ -86,14 +88,16 @@ public class Controller extends JFrame {
 		endereco4 = new Endereco("Rua h", "SJC", "SP", "123459");
 		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 7, 25));
 		l2 = new Leiloes(2, "Leilao do ze 2", endereco, banco, LocalDate.of(2018, 6, 1), LocalDate.of(2018, 6, 18));	
-		l3 = new Leiloes(3, "Leilao do ze 3", endereco, banco, LocalDate.of(2018, 8, 21), LocalDate.of(2018, 9, 25));
+		l3 = new Leiloes(3, "Leilao do ze 3", endereco, banco, LocalDate.of(2018, 6, 21), LocalDate.of(2018, 9, 25));
 		l4 = new Leiloes(4, "Leilao do ze 4", endereco, banco, LocalDate.of(2018, 6, 21), LocalDate.of(2018, 6, 25));
 		l5 = new Leiloes(5, "Leilao do ze 5", endereco, banco, LocalDate.of(2018, 6, 21), LocalDate.of(2018, 6, 25));
-		produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
-		produto2 = new Apartamento(1, 2, 100, endereco2, 200, 0.5, "Apartamento", 15, 1, 2, 2);
-		produto3 = new Imoveis(1, 3, "Terreno", 120, endereco3, 60, 0);
-		produto4 = new EdificiosComerciais(1, 4, 50, endereco4, 100, 0.6, "Edificios Comerciais", 2, 3, 3, 1, 30);
-		produto5 = new Carro(1, 5, "Carro", "Ford", "Fusion", 4.0, 2017, "Automatico", 50, "Gasolina", 70, 4);
+		produto1 = new Casas(1, 1, "Casas", 150, endereco, 150, 0, 2, 2, 1);
+		produto2 = new Apartamento(1, 2, 100, endereco2, 200, 0.5, "Apartamentos", 15, 1, 2, 2);
+		produto3 = new Imoveis(1, 3, "Terrenos", 120, endereco3, 60, 0);
+		produto4 = new EdificiosComerciais(1, 4, 50, endereco4, 100, 0.6, EnumImoveis.Edificios_Comerciais.toString(), 2, 3, 3, 1, 30);
+		produto5 = new Carro(1, 5, "Carros", "Ford", "Fusion", 4.0, 2017, "Automatico", 50, "Gasolina", 70, 4);
+		
+		
 		
 		ModelLeilao.AdicionarLeilao(l);
 		ModelLeilao.AdicionarLeilao(l2);

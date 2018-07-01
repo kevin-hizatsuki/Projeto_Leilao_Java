@@ -74,15 +74,13 @@ public class Main {
 		
 		//Form_Login c = new Form_Login();
 		ModelLeilao leilao = new ModelLeilao();
-		Leiloes l;
+		Leiloes l, l2, l3, l4;
 		Endereco endereco;
 		InstituicaoFinanceira banco; 
 		ModelProduto produto;
 		Casas produto1;
 		banco = new InstituicaoFinanceira("123456","www.itau.com","Itau");
 		endereco = new Endereco("Rua x", "SJC", "SP", "123456");
-		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 6, 25));
-		produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
 
 		Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");
 		Cliente c = new Cliente(EnumUsuario.Cliente, "123", "as", "ab", "123");
@@ -91,7 +89,6 @@ public class Main {
 		ModelCliente.adicionarCliente(c);
 		
 		
-		leilao.AdicionarLeilao(l);
 		 
 		
 		
