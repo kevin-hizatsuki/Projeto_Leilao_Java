@@ -181,9 +181,9 @@ public class Form_Pesquisa_ProdutoGeral extends JFrame {
 				/*Main.setIdProduto_FormPesquisa((int) table.getValueAt(table.getSelectedRow(), 1)); // Aqui ele faz esquema X,Y - verifica qual a linha e qual a coluna para pegar o ID do produto listado
 				Main.setTipoProduto_FormPesquisa(comboBox.getSelectedItem().toString()); //Tipo selecionado
 				*/
-				Form_Altera_Imovel c = new Form_Altera_Imovel();
-				c.setVisible(true);
-				dispose();
+//				Form_Altera_Imovel c = new Form_Altera_Imovel(); //Deletado /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//				c.setVisible(true);
+//				dispose();
 				
 			}
 		});

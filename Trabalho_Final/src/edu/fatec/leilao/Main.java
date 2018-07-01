@@ -22,6 +22,7 @@ import edu.fatec.leilao.banco.InstituicaoFinanceira;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EnumImoveis;
+import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Usuario;
@@ -36,7 +37,14 @@ public class Main {
 
 	static int IdProduto_Form; //Utilizado para passar status para outra janela
 	static String tipoProduto_Form; //Utilizado para passar status para outra janela
-	
+	static Produto produtoTelas;
+	public static Produto getProdutoTelas() {
+		return produtoTelas;
+	}
+	public static void setProdutoTelas(Produto produtoTelas) {
+		Main.produtoTelas = produtoTelas;
+	}
+
 	static int idLeilao_AddProduto; //Captura o ID do leilao em que o produto sera inserido na tela de cadastro deproduto!!
 	
 	static String idUsuarioLogado;

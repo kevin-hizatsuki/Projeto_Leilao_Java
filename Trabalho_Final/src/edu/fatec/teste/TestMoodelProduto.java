@@ -9,8 +9,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Forms.Form_Altera_Automovel;
-import Forms.Form_Altera_Imovel;
 import Forms.Form_Cadastro_Administrador;
 import Forms.Form_Cadastro_Apartamento;
 import Forms.Form_Cadastro_Carro;
@@ -45,8 +43,6 @@ class TestMoodelProduto {
 	Endereco endereco3;
 	Endereco endereco4;
 	Form_Cadastro_Carro c = new Form_Cadastro_Carro();
-	Form_Altera_Automovel iA = new Form_Altera_Automovel();
-	Form_Altera_Imovel iaI = new Form_Altera_Imovel();
 	Form_Cadastro_Administrador iCA = new Form_Cadastro_Administrador();
 	Form_Cadastro_Apartamento iCap = new Form_Cadastro_Apartamento();
 	Form_Cadastro_Edificio iCed= new Form_Cadastro_Edificio();
@@ -155,17 +151,6 @@ class TestMoodelProduto {
 		c.dispose();
 	}
 	
-	@Test
-	void testInterfaceAlteraAuto() {
-		iA.setVisible(true);
-		iA.dispose();
-	}
-	
-	@Test
-	void testInterfaceAlteraImovel() {
-		iaI.setVisible(true);
-		iaI.dispose();
-	}
 	
 	@Test
 	void testInterfaceCadastroAdmin() {

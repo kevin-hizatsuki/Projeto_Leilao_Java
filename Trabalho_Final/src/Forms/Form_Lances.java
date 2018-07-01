@@ -37,6 +37,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import java.awt.Font;
+import javax.swing.JSeparator;
 
 public class Form_Lances extends JFrame {
 
@@ -64,7 +65,7 @@ public class Form_Lances extends JFrame {
 	 */
 	public Form_Lances() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 501, 445);
+		setBounds(100, 100, 501, 476);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,12 +73,12 @@ public class Form_Lances extends JFrame {
 		
 		JLabel lblLeiloNumero = new JLabel("Leil\u00E3o Numero: ");
 		lblLeiloNumero.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblLeiloNumero.setBounds(133, 31, 134, 14);
+		lblLeiloNumero.setBounds(157, 9, 134, 14);
 		contentPane.add(lblLeiloNumero);
 		
 		JLabel lblNa = new JLabel("N/A");
 		lblNa.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblNa.setBounds(244, 31, 55, 16);
+		lblNa.setBounds(268, 9, 55, 16);
 		lblNa.setText(String.valueOf(Main.getIdLeilao_AddProduto()));
 		contentPane.add(lblNa);
 		
@@ -85,7 +86,7 @@ public class Form_Lances extends JFrame {
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		
 		table = new JTable(tabelaModelo);
-		table.setBounds(12, 161, 467, 233);
+		table.setBounds(12, 192, 461, 233);
 		List<Produto> dados = ModelProduto.getProdutosPorLeilao(Main.getIdLeilao_AddProduto());
 		for (int i = 0; i < dados.size(); i++) {
 			Integer id = dados.get(i).getIdProduto();
@@ -111,7 +112,7 @@ public class Form_Lances extends JFrame {
 		
 		JSpinner spinner = new JSpinner();
 		spinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
-		spinner.setBounds(133, 57, 107, 29);
+		spinner.setBounds(37, 53, 107, 29);
 		contentPane.add(spinner);
 		
 		JButton btnNewButton = new JButton("Fazer Lance!");
@@ -167,25 +168,25 @@ public class Form_Lances extends JFrame {
 			
 			
 		});
-		btnNewButton.setBounds(244, 58, 113, 26);
+		btnNewButton.setBounds(148, 54, 113, 26);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblBuscar = new JLabel("Buscar");
-		lblBuscar.setBounds(212, 98, 55, 16);
+		lblBuscar.setBounds(218, 109, 55, 16);
 		contentPane.add(lblBuscar);
 		
 		JSpinner spinner_1 = new JSpinner();
 		spinner_1.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
-		spinner_1.setBounds(12, 129, 55, 20);
+		spinner_1.setBounds(12, 140, 55, 20);
 		contentPane.add(spinner_1);
 		
 		JSpinner spinner_2 = new JSpinner();
 		spinner_2.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
-		spinner_2.setBounds(71, 129, 60, 20);
+		spinner_2.setBounds(71, 140, 60, 20);
 		contentPane.add(spinner_2);
 		
 		JLabel lblFaixa = new JLabel("Pesquisa por Faixa");
-		lblFaixa.setBounds(18, 108, 113, 16);
+		lblFaixa.setBounds(18, 119, 113, 16);
 		contentPane.add(lblFaixa);
 		
 		JButton btnPesquisar = new JButton("Pesquisar");
@@ -203,11 +204,11 @@ public class Form_Lances extends JFrame {
 				}
 			}
 		});
-		btnPesquisar.setBounds(134, 126, 98, 26);
+		btnPesquisar.setBounds(134, 137, 98, 26);
 		contentPane.add(btnPesquisar);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(236, 126, 121, 26);
+		comboBox.setBounds(236, 137, 121, 26);
 		for (EnumImoveis c : EnumImoveis.values()) {
 			if (c.toString() != "Nenhum") {
 				comboBox.addItem(c);
@@ -348,12 +349,82 @@ public class Form_Lances extends JFrame {
 				}
 			}
 		});
-		btnPesquisar_1.setBounds(369, 126, 98, 26);
+		btnPesquisar_1.setBounds(369, 137, 98, 26);
 		contentPane.add(btnPesquisar_1);
 		
 		JLabel lblPesquisaPorCategoria = new JLabel("Pesquisa por categoria");
-		lblPesquisaPorCategoria.setBounds(307, 108, 140, 16);
+		lblPesquisaPorCategoria.setBounds(307, 119, 140, 16);
 		contentPane.add(lblPesquisaPorCategoria);
+		
+		JButton btnDeletarProduto = new JButton("Deletar Produto");
+		btnDeletarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				List<Produto> produto = ModelProduto.getLisProduto();
+				System.out.println("QHat?: "+(int) table.getValueAt(table.getSelectedRow(), 0));
+				for (Produto p : produto) {
+					if (p.idProduto==(int) table.getValueAt(table.getSelectedRow(), 0)) {
+						
+//						for (int i = 0; i < dados.size(); i++) {
+//							if (p.idProduto!=(int) table.getValueAt(table.getSelectedRow(), 0)) {
+//								
+//							Integer id = dados.get(i).getIdProduto();
+//							String tipo = dados.get(i).getTipo();
+//							double preco = dados.get(i).getPreco();
+//							
+//							
+//							Object [] dados1 = {id,tipo, preco};
+//							tabelaModelo.addRow(dados1);
+//							}
+//						}
+						
+						ModelProduto.removerProduto(p); //Dando erro, o kewao disse que ia concertar porque estava dando problema nos testes também
+					}
+				}
+			}
+		});
+		btnDeletarProduto.setBounds(339, 12, 134, 26);
+		contentPane.add(btnDeletarProduto);
+		
+		JButton btnAlterarProduto = new JButton("Alterar Produto");
+		btnAlterarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				List<Produto> produto = ModelProduto.getLisProduto();
+				for (Produto p : produto) {
+					if (p.idProduto==(int) table.getValueAt(table.getSelectedRow(), 0)) {
+//						Main.setProdutoTelas(p);
+						
+						switch (p.tipo.toString()) {
+						case "Apartamentos":
+							
+							break;
+						case "Terrenos":
+							
+							break;
+						case "Casas":
+							
+							break;
+						case "Edificios_Comerciais":
+							
+							break;
+						case "Carros":
+							
+							break;
+						case "Motocicletas":
+							
+							break;
+
+						}
+					}
+				}
+				
+			}
+		});
+		btnAlterarProduto.setBounds(339, 39, 134, 26);
+		contentPane.add(btnAlterarProduto);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(12, 98, 461, 71);
+		contentPane.add(separator);
 		
 		
 	}
