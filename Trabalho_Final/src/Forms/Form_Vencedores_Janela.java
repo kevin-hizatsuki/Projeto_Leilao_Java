@@ -72,9 +72,10 @@ public class Form_Vencedores_Janela extends JFrame {
 		vencedor =  ModelLance.getVencedor(ModelProduto.getLisProduto());
 		Set chaves = vencedor.keySet(); 
 		
-//			System.out.println(vencedor.get(i));
-//			System.out.println(ModelProduto.retornarPorId(Integer.parseInt(i.toString())));
-		
+		/*for(Object i:chaves) {
+			System.out.println(vencedor.get(i));
+			System.out.println(ModelProduto.retornarPorId(Integer.parseInt(i.toString())));
+		}*/
 		
 		
 		

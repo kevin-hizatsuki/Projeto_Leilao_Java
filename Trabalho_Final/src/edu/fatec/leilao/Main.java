@@ -81,7 +81,7 @@ public class Main {
 		Casas produto1;
 		banco = new InstituicaoFinanceira("123456","www.itau.com","Itau");
 		endereco = new Endereco("Rua x", "SJC", "SP", "123456");
-		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 6, 25));
+		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 12, 25));
 		produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
 
 		Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");

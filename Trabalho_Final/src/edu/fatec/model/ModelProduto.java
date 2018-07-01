@@ -34,13 +34,17 @@ public class ModelProduto {
 	}
 	
 	public static void removerProduto(Produto remover) {
+		produto.remove(produto.indexOf(remover));
+	}
+	
+	/*public static void removerProduto(Produto remover) {
 		for(Produto p:produto) {
 			if(p.equals(remover)) {
 				produto.remove(produto.indexOf(p));
 			}
 		}
 	}
-	
+	*/
 	public static List<Produto> getLisProduto(){
 		return produto;
 	}
@@ -152,5 +156,14 @@ public class ModelProduto {
 		}
 		return lstProdPalavraChave;
 	}
+	/*
+	public static String produtoAseuLeilao(Produto p,List<Leiloes> leil) {
+		for(Leiloes l:leil) {
+			if(p.getIdLeilao()==l.getId()) 
+				return 
+			
+		}
+		
+	}*/
 	
 }

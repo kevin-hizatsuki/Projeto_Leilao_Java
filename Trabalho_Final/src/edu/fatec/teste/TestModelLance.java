@@ -139,11 +139,14 @@ class TestModelLance {
 		lance.adicionarLance(l5);
 		lance.adicionarLance(l6);
 		vencedor =  lance.getVencedor(produto.getLisProduto());
-		Set chaves = vencedor.keySet(); 
-		for(Object i:chaves) {
-			System.out.println(vencedor.get(i));
-			System.out.println(produto.retornarPorId(Integer.parseInt(i.toString())));
+		Set chaves = vencedor.keySet();
+		/*for(Leiloes l:leilao.getLisLeiloes()) {
+			for(Object i:chaves) {
+				if(l.getId()==produto)
+				System.out.println(vencedor.get(i));
+				System.out.println(produto.retornarPorId(Integer.parseInt(i.toString())));
 		}
+		}*/
 		assertEquals(vencedor.get(1).getUser(),"JULIO");
 		/*
 		for(Produto c:produto.getLisProduto()) {
