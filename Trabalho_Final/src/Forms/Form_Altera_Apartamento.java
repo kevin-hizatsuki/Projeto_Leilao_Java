@@ -112,7 +112,7 @@ public class Form_Altera_Apartamento extends JFrame {
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(123, 263, 86, 20);
-		textField_3.setText(((Apartamento) Main.getProdutoTelas()).getEndereco().cep);
+		textField.setText(((Apartamento) Main.getProdutoTelas()).getEndereco().cep);
 		contentPane.add(textField);
 		
 		JLabel label_4 = new JLabel("CEP");
