@@ -156,14 +156,16 @@ public class ModelProduto {
 		}
 		return lstProdPalavraChave;
 	}
-	/*
+	
 	public static String produtoAseuLeilao(Produto p,List<Leiloes> leil) {
+		String resposta = null;
 		for(Leiloes l:leil) {
 			if(p.getIdLeilao()==l.getId()) 
-				return 
+				resposta= "Id:"+l.getId()+" Leilao: "+l.getNome();
 			
 		}
+		return resposta;
 		
-	}*/
+	}
 	
 }

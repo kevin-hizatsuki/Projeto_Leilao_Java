@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +17,8 @@ import Forms.Form_Cadastro_Edificio;
 import Forms.Form_Cadastro_Instituicao_Financeira;
 import Forms.Form_Cadastro_Terreno;
 import edu.fatec.leilao.Endereco;
+import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.banco.InstituicaoFinanceira;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Carro;
 import edu.fatec.leilao.produto.Casas;
@@ -23,11 +26,15 @@ import edu.fatec.leilao.produto.EdificiosComerciais;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Veiculos;
+import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
 
 class TestMoodelProduto {
 
 	ModelProduto produto;
+	ModelLeilao leilao;
+	Leiloes l;
+	Leiloes l2;
 	Casas produto1;
 	Apartamento produto2;	
 	Imoveis produto3;
@@ -48,13 +55,17 @@ class TestMoodelProduto {
 	Form_Cadastro_Edificio iCed= new Form_Cadastro_Edificio();
 	Form_Cadastro_Instituicao_Financeira iCif = new Form_Cadastro_Instituicao_Financeira();
 	Form_Cadastro_Terreno iCt = new Form_Cadastro_Terreno();
+	InstituicaoFinanceira banco;
 	
 	@BeforeEach
 	void setUp() throws Exception {
+		banco = new InstituicaoFinanceira("123456","www.itau.com","Itau");
 		endereco = new Endereco("Rua x", "SJC", "SP", "123456");
 		endereco2 = new Endereco("Rua y", "SJC", "SP", "123457");
 		endereco3 = new Endereco("Rua z", "SJC", "SP", "123458");
 		endereco4 = new Endereco("Rua h", "SJC", "SP", "123459");
+		l = new Leiloes(1, "Leilao do ze", endereco, banco, LocalDate.of(2018, 6, 16), LocalDate.of(2018, 7, 25));
+		l2 = new Leiloes(2, "Leilao do ze 2", endereco, banco, LocalDate.of(2018, 6, 1), LocalDate.of(2018, 6, 18));	
 		produto1 = new Casas(1, 1, "Casa", 150, endereco, 150, 0, 2, 2, 1);
 		produto2 = new Apartamento(1, 2, 100, endereco2, 200, 0.5, "Apartamento", 15, 1, 2, 2);
 		produto3 = new Imoveis(1, 3, "Terreno", 120, endereco3, 60, 0);
@@ -116,7 +127,7 @@ class TestMoodelProduto {
 		produto.AdicionarProduto(produto6);
 		produto.AdicionarProduto(produto7);
 		assertEquals(produto.getLisProduto().size(),1);
-		produto.listarTodosProdutos();
+		//produto.listarTodosProdutos();
 		
 	}
 	@Test
@@ -143,6 +154,21 @@ class TestMoodelProduto {
 		assertEquals(produto.getProdutosPorLeilao(1).size(),6);
 		assertEquals(produto.getProdutosPorLeilao(2).size(),2);
 		
+	}
+	
+	@Test
+	void testBuscaPalavraChave() {
+		leilao.AdicionarLeilao(l);
+		leilao.AdicionarLeilao(l2);
+		produto.AdicionarProduto(produto1);
+		produto.AdicionarProduto(produto2);
+		produto.AdicionarProduto(produto3);
+		produto.AdicionarProduto(produto4);
+		produto.AdicionarProduto(produto5);
+		produto.AdicionarProduto(produto6);
+		produto.AdicionarProduto(produto8);
+		produto.AdicionarProduto(produto9);
+		System.out.println(produto.produtoAseuLeilao(produto2, leilao.getLisLeiloes()));
 	}
 	
 	@Test
