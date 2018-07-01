@@ -98,6 +98,7 @@ public class Form_Vencedores_Janela extends JFrame {
 					
 					
 					tabelaModelo.addRow(dados1);
+					lblNoHouveGanhadores.setVisible(false);
 				}
 						} catch (NullPointerException e) {
 							lblNoHouveGanhadores.setVisible(true);
