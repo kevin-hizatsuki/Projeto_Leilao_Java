@@ -15,6 +15,7 @@ public class Imoveis extends Produto{
 		this.endereco=endereco;
 		this.condominio=condominio;
 	}
+ 
 
 	public double getArea() {
 		return area;

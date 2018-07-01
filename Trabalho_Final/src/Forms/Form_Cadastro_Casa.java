@@ -50,7 +50,7 @@ public class Form_Cadastro_Casa extends JFrame {
 			}
 		});
 	}
-
+ 
 	/**
 	 * Create the frame.
 	 */

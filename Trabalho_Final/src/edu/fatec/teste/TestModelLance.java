@@ -105,7 +105,7 @@ class TestModelLance {
 		usuario.adicionarCliente(usuario2);
 		InsFin.AdicionarInstituicaoFinanceira(banco);
 	}
-
+ 
 	@Test
 	void testInsercao() {
 		lance.adicionarLance(l1);

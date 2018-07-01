@@ -29,6 +29,7 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.time.LocalDate;
 
 public class Controller extends JFrame {
@@ -105,7 +106,7 @@ public class Controller extends JFrame {
 		ModelProduto.AdicionarProduto(produto4);
 		ModelProduto.AdicionarProduto(produto5);
 		
-		
+		 
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -120,17 +121,23 @@ public class Controller extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblNewLabel);
-		
+		 
 		JButton btnChecarLeilesAtuais = new JButton("Area de Leil\u00F5es");
 		btnChecarLeilesAtuais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				ModelLeilao leilao = new ModelLeilao();
 				//System.out.println(ModelLeilao.getLisLeiloes());
 				if (ModelLeilao.getLisLeiloes().size()<1) {
-					Form_Cadastro_Leilao a = new Form_Cadastro_Leilao();
+					Form_Cadastro_Leilao a = null;
+					try {
+						a = new Form_Cadastro_Leilao();
+					} catch (ParseException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					a.setVisible(true);
 					dispose();
-				}
+				} 
 				else {
 				Form_Leiloes_Atuais janela_leiloes_atuais = new Form_Leiloes_Atuais();
 				janela_leiloes_atuais.setVisible(true);
@@ -138,7 +145,7 @@ public class Controller extends JFrame {
 				}
 			}
 		});
-		btnChecarLeilesAtuais.setBounds(128, 119, 164, 71);
+		btnChecarLeilesAtuais.setBounds(128, 36, 164, 71);
 		contentPane.add(btnChecarLeilesAtuais);
 		
 		JButton btnHistricoDeLeiles = new JButton("Hist\u00F3rico de\r\n Leil\u00F5es");
@@ -161,10 +168,10 @@ public class Controller extends JFrame {
 				dispose();
 			}
 		});
-		btnLeiloesFinalizados.setBounds(128, 36, 164, 71);
+		btnLeiloesFinalizados.setBounds(128, 119, 164, 71);
 		contentPane.add(btnLeiloesFinalizados);
 	}
-
+ 
 
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {

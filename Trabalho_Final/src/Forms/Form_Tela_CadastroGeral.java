@@ -130,7 +130,8 @@ public class Form_Tela_CadastroGeral extends JFrame {
 		JButton btnNewButton_1 = new JButton("Automovel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (comboBox_1.getSelectedIndex() == 1 || comboBox.getSelectedIndex() == 2) {
+				System.out.println(comboBox_1.getSelectedIndex());
+				if (comboBox_1.getSelectedIndex() == 1 || comboBox_1.getSelectedIndex() == 2) {
 					comboBox.setSelectedIndex(0);
 				switch(comboBox_1.getSelectedIndex()) {
 						case 1:{ 
@@ -146,9 +147,10 @@ public class Form_Tela_CadastroGeral extends JFrame {
 							break;
 						}
 					}
-				}else {
-					lblMessageSelect.setVisible(true);
 				}
+//				else {
+//					lblMessageSelect.setVisible(true);
+//				}
 			}
 		});
 		btnNewButton_1.setBounds(55, 119, 116, 51);

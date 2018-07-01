@@ -2,10 +2,12 @@ package Forms;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
@@ -17,9 +19,12 @@ import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import javax.swing.DropMode;
 
 public class Form_Cadastro_Leilao extends JFrame {
 
@@ -33,7 +38,7 @@ public class Form_Cadastro_Leilao extends JFrame {
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
-
+ 
 	/**
 	 * Launch the application.
 	 */
@@ -52,8 +57,9 @@ public class Form_Cadastro_Leilao extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws ParseException 
 	 */
-	public Form_Cadastro_Leilao() {
+	public Form_Cadastro_Leilao() throws ParseException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 460);
 		contentPane = new JPanel();
@@ -89,17 +95,36 @@ public class Form_Cadastro_Leilao extends JFrame {
 		lblDataDeInicio.setBounds(52, 307, 79, 14);
 		contentPane.add(lblDataDeInicio);
 		
-		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setBounds(141, 305, 203, 17);
+		
+		
+		//teste
+	    MaskFormatter mf1 = null;
+		mf1 = new MaskFormatter("##/##/####");
+	    mf1.setPlaceholderCharacter('_');
+		JFormattedTextField formattedTextField = new JFormattedTextField(mf1);
+		formattedTextField.setBounds(141, 302, 89, 25);
 		contentPane.add(formattedTextField);
 		
+	
+	    //teste
+	    
+	    
+	    
+	    
 		JLabel lblDataFim = new JLabel("Data Fim");
 		lblDataFim.setBounds(82, 335, 49, 14);
 		contentPane.add(lblDataFim);
 		
-		JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-		formattedTextField_1.setBounds(141, 333, 203, 17);
+		
+	    MaskFormatter mf2 = null;
+		mf2 = new MaskFormatter("##/##/####");
+		mf2.setPlaceholderCharacter('_');
+		JFormattedTextField formattedTextField_1 = new JFormattedTextField(mf2);
+		formattedTextField_1.setBounds(141, 333, 89, 23);
 		contentPane.add(formattedTextField_1);
+		
+		
+		
 		
 		JLabel lblEnderecoCompleto = new JLabel("Endereco Completo");
 		lblEnderecoCompleto.setBounds(19, 98, 112, 14);
@@ -132,6 +157,7 @@ public class Form_Cadastro_Leilao extends JFrame {
 		lblNewLabel.setBounds(104, 180, 27, 14);
 		contentPane.add(lblNewLabel);
 		
+		
 		textField_6 = new JTextField();
 		textField_6.setBounds(141, 183, 203, 20);
 		contentPane.add(textField_6);
@@ -147,6 +173,9 @@ public class Form_Cadastro_Leilao extends JFrame {
 				new Leiloes(Integer.valueOf(textField.getText()),textField_1.getText(),
 				new Endereco(textField_2.getText(),textField_4.getText(),textField_5.getText(),textField_6.getText()),
 				new InstituicaoFinanceira(textField_9.getText(), textField_8.getText(), textField_7.getText()),LocalDate.parse(formattedTextField.getText(), formatter), LocalDate.parse(formattedTextField_1.getText(), formatter)));
+				
+				System.out.println("Saida data inicio: "+formattedTextField.getText()+" - "+formattedTextField.getClass());
+				System.out.println("Saida data Fim: "+formattedTextField_1.getText()+" - "+formattedTextField_1.getClass());
 				
 				Form_Leiloes_Atuais janela_leiloes_atuais = new Form_Leiloes_Atuais();
 				janela_leiloes_atuais.setVisible(true);
@@ -164,9 +193,8 @@ public class Form_Cadastro_Leilao extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				
-
-				//Form_Tela_CadastroGeral a = new Form_Tela_CadastroGeral();
-				//a.setVisible(true);
+				Controller a = new Controller();
+				a.setVisible(true);
 
 				dispose();
 			}

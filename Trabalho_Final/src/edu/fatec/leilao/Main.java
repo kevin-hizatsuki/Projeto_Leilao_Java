@@ -40,7 +40,7 @@ public class Main {
 	static int idLeilao_AddProduto; //Captura o ID do leilao em que o produto sera inserido na tela de cadastro deproduto!!
 	
 	static String idUsuarioLogado;
-	
+	 
 	
 	
 	public static String getIdUsuarioLogado() {
@@ -86,31 +86,13 @@ public class Main {
 
 		Usuario a = new Usuario(EnumUsuario.Administrador, "a", "a");
 		Cliente c = new Cliente(EnumUsuario.Cliente, "123", "as", "ab", "123");
-		//c.setVisible(true);
 		
 		ModelCliente.adicionarCliente(a);
 		ModelCliente.adicionarCliente(c);
 		
-		System.out.println(ModelCliente.ifClientExists("a", "a"));
-		System.out.println(ModelCliente.getLisCliente().size());
-		//SiteLeilao s = new SiteLeilao();
 		
 		leilao.AdicionarLeilao(l);
-		//produto.AdicionarProduto(produto1);
-		
-		
-		
-		//s.AdicionarLeilao(new Leiloes(1,"Leilao do ze",new Endereco("Rua Ma","SJC","SP","123457"),new InstituicaoFinanceira("456789","www.bradesco","Bradesco"),LocalDate.of(2018,11,20),LocalDate.of(2018,11,29)));
-//		/l.AdicionarProduto(new Casas(1,1,EnumImoveis.Casas.toString(),100,new Endereco("Rua M","SJC","SP","123456"),10.50,0,4,3,2));
-//		s.AdicionarProduto(new Casas(1,2,EnumImoveis.Casas.toString(),100,new Endereco("Rua Mas","SJC","SP","123455"),20.50,0,4,3,2));
-//		s.AdicionarProduto(new Casas(1,3,EnumImoveis.Casas.toString(),100,new Endereco("Rua Mdas","SJC","SP","123454"),30.50,0,4,3,2));
-//		s.AdicionarProduto(new Casas(1,4,EnumImoveis.Casas.toString(),100,new Endereco("Rua Masdasd","SJC","SP","143456"),40.50,0,4,3,2));
-//		s.AdicionarProduto(new Casas(1,5,EnumImoveis.Casas.toString(),100,new Endereco("Rua aadsM","SJC","SP","123856"),60.50,0,4,3,2));
-//		s.AdicionarProduto(new Apartamento(1,6,50,new Endereco("Rua aadsM","SJC","SP","1238599"),39,5,EnumImoveis.Apartamentos.toString(),15,1,2,1));
-//		//s.listarTodosLeilao();
-//		s.listarTodosProdutos();
-//		System.out.println(s.getListaLeilao());
-		
+		 
 		
 		
 		ModelCliente usuario = null;
@@ -128,8 +110,10 @@ public class Main {
 //		usuario4 = new Cliente(EnumUsuario.Cliente, "123459", "Lusca", "lucasdlg", "126");
 //		usuario5 = new Cliente(EnumUsuario.Cliente, "123457", "Julia", "JULIA", "12426");
 //		atualizar = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "321");
-//		usuario.adicionarCliente(admin);
 		
-		System.out.println(ModelCliente.ifClientExists("JOJO", "123"));
+		
+		
+		Form_Login b = new Form_Login();
+		b.setVisible(true);
 }
 }

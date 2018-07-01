@@ -25,7 +25,7 @@ public class Form_Altera_Automovel extends JFrame {
 				}
 			}
 		});
-	}
+	} 
 
 	/**
 	 * Create the frame.

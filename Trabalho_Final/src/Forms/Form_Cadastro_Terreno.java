@@ -7,8 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
+import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
@@ -21,14 +23,12 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class Form_Cadastro_Terreno extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
@@ -61,21 +61,7 @@ public class Form_Cadastro_Terreno extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton button = new JButton("Cadastrar");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-//				ModelProduto.AdicionarProduto(
-//						
-//						);
-				
-//				Main.getIdLeilao_AddProduto();//Id do leilao que o produto sera cadastrado!!
-//				ModelLeilao.AtualizarLeilao(id, atualizar);
-				
-			}
-		});
-		button.setBounds(202, 321, 99, 23);
-		contentPane.add(button);
+		
 		
 		
 		
@@ -90,11 +76,6 @@ public class Form_Cadastro_Terreno extends JFrame {
 		JLabel label_1 = new JLabel("ID Leil\u00E3o");
 		label_1.setBounds(35, 52, 58, 14);
 		contentPane.add(label_1);
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(93, 52, 86, 20);
-		contentPane.add(textField);
 		
 		JLabel label_2 = new JLabel("CEP");
 		label_2.setBounds(66, 295, 27, 14);
@@ -124,20 +105,10 @@ public class Form_Cadastro_Terreno extends JFrame {
 		label_9.setBounds(26, 78, 67, 14);
 		contentPane.add(label_9);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(93, 78, 86, 20);
-		contentPane.add(textField_1);
-		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(93, 104, 86, 20);
 		contentPane.add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(93, 130, 86, 20);
-		contentPane.add(textField_3);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
@@ -164,6 +135,7 @@ public class Form_Cadastro_Terreno extends JFrame {
 		contentPane.add(label);
 		
 		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner.setBounds(93, 158, 29, 20);
 		contentPane.add(spinner);
 		
@@ -172,6 +144,7 @@ public class Form_Cadastro_Terreno extends JFrame {
 		contentPane.add(label_6);
 		
 		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner_1.setBounds(93, 184, 29, 20);
 		contentPane.add(spinner_1);
 		
@@ -179,13 +152,27 @@ public class Form_Cadastro_Terreno extends JFrame {
 		label_10.setBounds(18, 184, 75, 14);
 		contentPane.add(label_10);
 		
+		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setEnabled(false);
+		spinner_2.setBounds(93, 49, 42, 20);
+		spinner_2.setValue(Main.getIdLeilao_AddProduto());
+		contentPane.add(spinner_2);
+		
+		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setEnabled(false);
+		spinner_3.setBounds(93, 75, 42, 20);
+		spinner_3.setValue(ModelProduto.geraId());
+		contentPane.add(spinner_3);
+		
+		JSpinner spinner_4 = new JSpinner();
+		spinner_4.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
+		spinner_4.setBounds(93, 127, 42, 20);
+		contentPane.add(spinner_4);
+		
 		JButton button_1 = new JButton("Cancelar");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField.setText(null);
-				textField_1.setText(null);
 				textField_2.setText(null);
-				textField_3.setText(null);
 				textField_5.setText(null);
 				textField_6.setText(null);
 				textField_7.setText(null);
@@ -199,6 +186,36 @@ public class Form_Cadastro_Terreno extends JFrame {
 		});
 		button_1.setBounds(311, 321, 92, 23);
 		contentPane.add(button_1);
+		
+		JButton button = new JButton("Cadastrar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				ModelProduto.AdicionarProduto(new Imoveis(
+						(int) spinner_2.getValue(),
+						(int) spinner_3.getValue(),
+						textField_2.getText(),
+						(double) spinner.getValue(),
+						new Endereco(
+								textField_5.getText(),
+								textField_6.getText(),
+								textField_7.getText(),
+								textField_8.getText()
+						),
+						(double) spinner_4.getValue(),
+						(double) spinner_1.getValue()
+						
+						)
+				);
+				
+				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
+				c.setVisible(true);
+				dispose();	
+			}
+		});
+		button.setBounds(202, 321, 99, 23);
+		contentPane.add(button);
+
 	}
 
 }

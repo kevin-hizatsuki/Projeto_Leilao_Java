@@ -21,7 +21,7 @@ public class Leiloes {
 		this.dataInicio=dataInicio;
 		this.dataFim=dataFim;
 	}
-
+ 
 	public int getId() {
 		return id;
 	}

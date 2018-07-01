@@ -52,7 +52,7 @@ public class Form_Lances extends JFrame {
 				}
 			}
 		});
-	}
+	}  
 
 	/**
 	 * Create the frame.
@@ -78,7 +78,7 @@ public class Form_Lances extends JFrame {
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		
 		table = new JTable(tabelaModelo);
-		table.setBounds(41, 77, 358, 256);
+		table.setBounds(12, 77, 410, 275);
 		List<Produto> dados = ModelProduto.getProdutosPorLeilao(Main.getIdLeilao_AddProduto());
 		for (int i = 0; i < dados.size(); i++) {
 			Integer id = dados.get(i).getIdProduto();
@@ -86,7 +86,7 @@ public class Form_Lances extends JFrame {
 			double preco = dados.get(i).getPreco();
 			
 			
-			Object [] dados1 = {id,tipo, preco,};
+			Object [] dados1 = {id,tipo, preco};
 			tabelaModelo.addRow(dados1);
 		}
 		contentPane.add(table);
@@ -144,7 +144,7 @@ public class Form_Lances extends JFrame {
 				spinner.setValue(0);
 				
 				
-				
+				 
 				//Teste de vencedores
 //				System.out.println(.toString());
 				

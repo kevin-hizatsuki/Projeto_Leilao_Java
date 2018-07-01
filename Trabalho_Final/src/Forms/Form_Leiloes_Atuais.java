@@ -20,6 +20,7 @@ import edu.fatec.model.ModelLeilao;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -32,7 +33,7 @@ public class Form_Leiloes_Atuais extends JFrame {
 	private JButton button;
 	private JButton btnFazerLance;
 
-	/**
+	/** 
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -44,7 +45,7 @@ public class Form_Leiloes_Atuais extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
+			} 
 		});
 	}
 
@@ -66,7 +67,6 @@ public class Form_Leiloes_Atuais extends JFrame {
 		
 		String [] colunas = {"ID","NOME","CEP","CIDADE","ENDERECO COMPLETO","ESTADO","CNPJ", "DATA INICIO", "DATA FIM"}; 
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
-		
 		table = new JTable(tabelaModelo);
 		table.setBounds(15, 77, 409, 295);
 		List<Leiloes> dados = ModelLeilao.getLisLeiloes();
@@ -79,7 +79,7 @@ public class Form_Leiloes_Atuais extends JFrame {
 			
 			
 			
-			
+			 
 			if (ModelLeilao.statusLeilao(dados.get(i)) == 1) {
 				
 				Integer id = dados.get(i).getId();
@@ -133,7 +133,13 @@ public class Form_Leiloes_Atuais extends JFrame {
 		JButton btnNovoLeilao = new JButton("Novo Leilao");
 		btnNovoLeilao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Form_Cadastro_Leilao a = new Form_Cadastro_Leilao();
+				Form_Cadastro_Leilao a = null;
+				try {
+					a = new Form_Cadastro_Leilao();
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				a.setVisible(true);
 				dispose();
 			}

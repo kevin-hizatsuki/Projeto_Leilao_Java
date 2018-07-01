@@ -17,12 +17,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class Form_Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -39,14 +40,14 @@ public class Form_Login extends JFrame {
 			}
 		});
 	}
-
+ 
 	/**
 	 * Create the frame.
 	 */
 	public Form_Login() {
 		
 		
-		
+		 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -73,23 +74,20 @@ public class Form_Login extends JFrame {
 		lblNewLabel_1.setBounds(115, 98, 36, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(158, 97, 151, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(158, 95, 151, 20);
+		contentPane.add(passwordField);
 		
 		JButton btnNewButton = new JButton("Entrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(textField.getText());
-				System.out.println(textField_1.getText());
 				
-//				if (ModelCliente.ifClientExists(textField.getText(), textField_1.getText())) {
-//					dispose();
-//					Controller a = new Controller();
+				if (ModelCliente.ifClientExists(textField.getText(), String.valueOf(passwordField.getPassword()))) {
+					dispose();
+					Controller a = new Controller();
 				Main.setIdUsuarioLogado(textField.getText());
-//					a.setVisible(true);
-//				}
+					a.setVisible(true);
+				}
 			}
 		});
 		btnNewButton.setBounds(191, 132, 89, 23);
@@ -121,5 +119,7 @@ public class Form_Login extends JFrame {
 		});
 		btnSair.setBounds(30, 223, 98, 26);
 		contentPane.add(btnSair);
+		
+	
 	}
 }

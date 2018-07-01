@@ -112,7 +112,7 @@ public class ModelProduto {
 			}
 		}
 		return null;
-		
+		 
 	}
 	
 	public static List<Produto> getProdutosPorLeilao(int id){

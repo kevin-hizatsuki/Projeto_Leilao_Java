@@ -44,7 +44,7 @@ public class ModelCliente {
 		}
 		return null;
 		
-		
+		 
 	}
 	
 	public static Cliente getObjClienteLogado(String username) {

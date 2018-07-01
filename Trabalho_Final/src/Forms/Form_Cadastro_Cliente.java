@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
 
 public class Form_Cadastro_Cliente extends JFrame {
 
@@ -27,7 +28,7 @@ public class Form_Cadastro_Cliente extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -93,21 +94,17 @@ public class Form_Cadastro_Cliente extends JFrame {
 		lblSenha.setBounds(66, 136, 36, 14);
 		contentPane.add(lblSenha);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(105, 135, 195, 20);
-		contentPane.add(textField_3);
-		
-		
-		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(105, 133, 195, 19);
+		contentPane.add(passwordField);
+		 
 		JButton btnNewButton_1 = new JButton("Cancelar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(null);
 				textField_1.setText(null);
 				textField_2.setText(null);
-				textField_3.setText(null);
-				Form_Tela_CadastroGeral c = new Form_Tela_CadastroGeral();
+				Form_Login c = new Form_Login();
 				c.setVisible(true);
 				dispose();
 			}
@@ -117,7 +114,7 @@ public class Form_Cadastro_Cliente extends JFrame {
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ModelCliente.adicionarCliente(new Cliente(EnumUsuario.Cliente,textField.getText(),textField_1.getText(),textField_2.getText(),textField_3.getText()));
+				ModelCliente.adicionarCliente(new Cliente(EnumUsuario.Cliente,textField.getText(),textField_1.getText(),textField_2.getText(),String.valueOf(passwordField.getPassword())));
 				dispose();
 				Form_Login a = new Form_Login();
 				a.setVisible(true);
@@ -136,6 +133,8 @@ public class Form_Cadastro_Cliente extends JFrame {
 		});
 		btnAdministrador.setBounds(119, 183, 119, 26);
 		contentPane.add(btnAdministrador);
+		
+
 		
 		
 	}
