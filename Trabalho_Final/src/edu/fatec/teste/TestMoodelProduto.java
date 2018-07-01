@@ -10,11 +10,19 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Forms.Form_Altera_Apartamento;
+import Forms.Form_Altera_Carro;
+import Forms.Form_Altera_Casa;
+import Forms.Form_Altera_Edificio_Comercial;
+import Forms.Form_Altera_Motocicleta;
+import Forms.Form_Altera_Terreno;
 import Forms.Form_Cadastro_Administrador;
 import Forms.Form_Cadastro_Apartamento;
 import Forms.Form_Cadastro_Carro;
+import Forms.Form_Cadastro_Casa;
 import Forms.Form_Cadastro_Edificio;
 import Forms.Form_Cadastro_Instituicao_Financeira;
+import Forms.Form_Cadastro_Motocicleta;
 import Forms.Form_Cadastro_Terreno;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
@@ -55,6 +63,14 @@ class TestMoodelProduto {
 	Form_Cadastro_Edificio iCed= new Form_Cadastro_Edificio();
 	Form_Cadastro_Instituicao_Financeira iCif = new Form_Cadastro_Instituicao_Financeira();
 	Form_Cadastro_Terreno iCt = new Form_Cadastro_Terreno();
+	Form_Cadastro_Casa iCc = new Form_Cadastro_Casa(); 
+	Form_Altera_Carro aCar = new Form_Altera_Carro();
+	Form_Altera_Casa aCas = new Form_Altera_Casa();
+	//Form_Altera_Terreno aTr = Form_Altera_Terreno();
+	//Form_Altera_Edificio_Comercial aEc = new Form_Altera_Edificio_Comercial();
+	//Form_Altera_Apartamento aAp = new Form_Altera_Apartamento();
+	Form_Altera_Motocicleta aMc = new Form_Altera_Motocicleta();
+	//Form_Cadastro_Motocicleta iCm = Form_Cadastro_Motocicleta();
 	InstituicaoFinanceira banco;
 	
 	@BeforeEach
@@ -206,6 +222,48 @@ class TestMoodelProduto {
 	void testInterfaceCadastroTer() {
 		iCt.setVisible(true);
 		iCt.dispose();
+	}
+	
+	@Test
+	void testInterfaceAlteraAp() {
+		//aAp.setVisible(true);
+		//aAp.dispose();
+	}
+	
+	@Test
+	void testInterfaceAlteraCar() {
+		aCar.setVisible(true);
+		aCar.dispose();
+	}
+		
+	@Test
+	void testInterfaceAlteraCas() {
+		aCas.setVisible(true);
+		aCas.dispose();
+	}
+	
+	@Test
+	void testInterfaceAlteraEd() {
+		//aEc.setVisible(true);
+		//aEc.dispose();
+	}
+	
+	@Test
+	void testInterfaceAlteraMc() {
+		aMc.setVisible(true);
+		aMc.dispose();
+	}
+	
+	@Test
+	void testInterfaceAlteraTr() {
+		//aTr.setVisible(true);
+		//aTr.dispose();
+	}
+	
+	@Test
+	void testInterfaceCadCas() {
+		iCc.setVisible(true);
+		iCc.dispose();
 	}
 	
 	@AfterEach

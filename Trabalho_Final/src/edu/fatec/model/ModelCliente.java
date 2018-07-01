@@ -12,24 +12,30 @@ public class ModelCliente {
 	static List<Usuario> cliente =new LinkedList();
 	
 	public static void adicionarCliente(Usuario c) {
+		if (usuarioRepetido(c.getUser()))
 		cliente.add(c);
 	}
 	
 	public static void atualizarCliente(Usuario atualizar) {
 		for (Usuario c : cliente) {
-			if (c.equals(atualizar)) {
+			if (c.getUser().equals(atualizar.getUser())) {
 				cliente.set(cliente.indexOf(c), atualizar);
 			}
 		}
 	}
 	
+	
+	public static void removerCliente(Usuario remover) {
+		cliente.remove(cliente.indexOf(remover));
+	}
+	/*
 	public static void removerCliente(Usuario remover) {
 		for (Usuario c : cliente) {
 			if (c.equals(remover)) {
 				cliente.remove(cliente.indexOf(c));
 			}
 		}
-	}
+	}*/
 	 
 	public static List<Usuario> getLisCliente(){
 		return cliente;
@@ -45,6 +51,15 @@ public class ModelCliente {
 		return null;
 		
 		 
+	}
+	
+	public static boolean usuarioRepetido(String user) {
+		for (Usuario u : cliente) {
+			if (u.getUser().equals(user)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public static Cliente getObjClienteLogado(String username) {

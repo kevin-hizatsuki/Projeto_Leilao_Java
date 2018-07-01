@@ -14,6 +14,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Forms.Form_Lances;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Identificador;
 import edu.fatec.leilao.Leiloes;
@@ -68,7 +69,8 @@ class TestModelLance {
 	Endereco endereco2;
 	Endereco endereco3;
 	InstituicaoFinanceira banco;
-
+	//Form_Lances iL = Form_Lances();
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		banco = new InstituicaoFinanceira("123456", "www.itau.com", "Itau");

@@ -10,6 +10,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Forms.Form_Cadastro_Leilao;
+import Forms.Form_Historico_Leiloes;
+import Forms.Form_Leiloes_Atuais;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.banco.InstituicaoFinanceira;
@@ -42,7 +45,11 @@ class TestModelLeilao {
 	Endereco endereco2;
 	Endereco endereco3;
 	Endereco endereco4;
-	InstituicaoFinanceira banco; 
+	InstituicaoFinanceira banco;
+	Form_Leiloes_Atuais iLa = new Form_Leiloes_Atuais(); 
+	Form_Historico_Leiloes iHl = new Form_Historico_Leiloes();
+	//Form_Cadastro_Leilao iCl = new Form_Cadastro_Leilao();
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		banco = new InstituicaoFinanceira("123456","www.itau.com","Itau");
@@ -86,19 +93,19 @@ class TestModelLeilao {
 	@Test
 	void testStatusEmAndamento() {
 		leilao.AdicionarLeilao(l);
-		assertEquals(leilao.statusLeilao(leilao.getLisLeiloes().get(leilao.getLisLeiloes().indexOf(l))),"EM ANDAMENTO");
+		assertEquals(leilao.statusLeilao(leilao.getLisLeiloes().get(leilao.getLisLeiloes().indexOf(l))),new Integer(1));
 	}
 	
 	@Test
 	void testStatusFinalizado() {
 		leilao.AdicionarLeilao(l2);
-		assertEquals(leilao.statusLeilao(leilao.getLisLeiloes().get(leilao.getLisLeiloes().indexOf(l2))),"FINALIZADO");
+		assertEquals(leilao.statusLeilao(leilao.getLisLeiloes().get(leilao.getLisLeiloes().indexOf(l2))),new Integer(0));
 	}
 	
 	@Test
 	void testStatusEmAberto() {
 		leilao.AdicionarLeilao(l3);
-		assertEquals(leilao.statusLeilao(leilao.getLisLeiloes().get(leilao.getLisLeiloes().indexOf(l3))),"EM ABERTO");
+		assertEquals(leilao.statusLeilao(leilao.getLisLeiloes().get(leilao.getLisLeiloes().indexOf(l3))),new Integer(2));
 	}
 	
 	@Test
@@ -158,6 +165,18 @@ class TestModelLeilao {
 		leilao.AdicionarTerrenoLeilaoId(1, produto3);
 		assertEquals(ModelProduto.getLisProduto().size(),1);
 		
+	}
+	
+	@Test
+	void testInterfaceHistoricoLeil() {
+		iHl.setVisible(true);
+		iHl.dispose();
+	}
+	
+	@Test
+	void testInterfaceLeilAt() {
+		iLa.setVisible(true);
+		iLa.dispose();
 	}
 	
 	@AfterEach

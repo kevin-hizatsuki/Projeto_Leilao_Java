@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Forms.Form_Cadastro_Cliente;
+import Forms.Form_Login;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Usuario;
@@ -21,7 +23,8 @@ class TestModelUsuario {
 	Cliente usuario4;
 	Cliente usuario5;
 	Cliente atualizar;
-	
+	Form_Cadastro_Cliente iCc =new Form_Cadastro_Cliente();
+	Form_Login iLg = new Form_Login();
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -70,7 +73,18 @@ class TestModelUsuario {
 		
 	}
 	
- 
+	@Test
+	void testInterfaceCadCl() {
+		iCc.setVisible(true);
+		iCc.dispose();
+	}
+	
+	@Test
+	void testInterfaceLg() {
+		iLg.setVisible(true);
+		iLg.dispose();
+	}
+	
 	@AfterEach
 	public void limpeza() {
 		usuario.getLisCliente().clear();
