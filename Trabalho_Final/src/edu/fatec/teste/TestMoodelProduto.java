@@ -24,6 +24,7 @@ import Forms.Form_Cadastro_Edificio;
 import Forms.Form_Cadastro_Instituicao_Financeira;
 import Forms.Form_Cadastro_Motocicleta;
 import Forms.Form_Cadastro_Terreno;
+import Forms.Form_Pesquisa_CadastroGeral;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.banco.InstituicaoFinanceira;
@@ -64,13 +65,17 @@ class TestMoodelProduto {
 	Form_Cadastro_Instituicao_Financeira iCif = new Form_Cadastro_Instituicao_Financeira();
 	Form_Cadastro_Terreno iCt = new Form_Cadastro_Terreno();
 	Form_Cadastro_Casa iCc = new Form_Cadastro_Casa();
-	Form_Altera_Carro aCar = new Form_Altera_Carro();
+	Form_Pesquisa_CadastroGeral iPc = new Form_Pesquisa_CadastroGeral();
+	/*Form_Altera_Carro aCar = new Form_Altera_Carro();
 	Form_Altera_Casa aCas = new Form_Altera_Casa();
 	Form_Altera_Terreno aTr = new Form_Altera_Terreno();
 	Form_Altera_Edificio_Comercial aEc = new Form_Altera_Edificio_Comercial();
+	*/
 	Form_Altera_Apartamento aAp = new Form_Altera_Apartamento();
-	Form_Altera_Motocicleta aMc = new Form_Altera_Motocicleta();
+	//Form_Altera_Motocicleta aMc = new Form_Altera_Motocicleta();
+
 	Form_Cadastro_Motocicleta iCm = new Form_Cadastro_Motocicleta();
+
 	InstituicaoFinanceira banco;
 
 	@BeforeEach
@@ -107,90 +112,172 @@ class TestMoodelProduto {
 		assertEquals(produto.getLisProduto().get(produto.getLisProduto().indexOf(atualizacao)).getPreco(), 210);
 	}
 
-	/*
-	 * @Test void testRemover() { produto.AdicionarProduto(produto3);
-	 * assertEquals(produto.getLisProduto().size(),1);
-	 * produto.removerProduto(produto3);
-	 * assertEquals(produto.getLisProduto().size(),0); }
-	 * 
-	 * @Test void testBuscarPorFatura() { produto.AdicionarProduto(produto4);
-	 * assertEquals(produto.buscaPorFaixa(99, 101).get(0),produto4); }
-	 * 
-	 * @Test void testBuscarPorTipo() { produto.AdicionarProduto(produto5);
-	 * assertEquals(produto.buscaPorTipo("Carro").get(0),produto5); }
-	 * 
-	 * @Test void testGeraQuantidade() { produto.AdicionarProduto(produto1);
-	 * produto.AdicionarProduto(produto2); produto.AdicionarProduto(produto3);
-	 * produto.AdicionarProduto(produto4); produto.AdicionarProduto(produto5);
-	 * produto.AdicionarProduto(produto6);
-	 * assertEquals(produto.gerarQuantidadeProdutoPorLeilao(1),6); }
-	 * 
-	 * @Test void testIdRepetido() { produto.AdicionarProduto(produto6);
-	 * produto.AdicionarProduto(produto7);
-	 * assertEquals(produto.getLisProduto().size(),1);
-	 * //produto.listarTodosProdutos();
-	 * 
-	 * }
-	 * 
-	 * @Test void testArquivo() throws IOException {
-	 * produto.AdicionarProduto(produto1); produto.AdicionarProduto(produto2);
-	 * produto.AdicionarProduto(produto3); produto.AdicionarProduto(produto4);
-	 * produto.AdicionarProduto(produto5); produto.AdicionarProduto(produto6);
-	 * produto.gerarArquivo(produto.getLisProduto()); }
-	 * 
-	 * @Test void testRetornoListaProdutoPorLeilao() {
-	 * produto.AdicionarProduto(produto1); produto.AdicionarProduto(produto2);
-	 * produto.AdicionarProduto(produto3); produto.AdicionarProduto(produto4);
-	 * produto.AdicionarProduto(produto5); produto.AdicionarProduto(produto6);
-	 * produto.AdicionarProduto(produto8); produto.AdicionarProduto(produto9);
-	 * assertEquals(produto.getProdutosPorLeilao(1).size(),6);
-	 * assertEquals(produto.getProdutosPorLeilao(2).size(),2);
-	 * 
-	 * } /*
-	 * 
-	 * @Test void testBuscaPalavraChave() { leilao.AdicionarLeilao(l);
-	 * leilao.AdicionarLeilao(l2); produto.AdicionarProduto(produto1);
-	 * produto.AdicionarProduto(produto2); produto.AdicionarProduto(produto3);
-	 * produto.AdicionarProduto(produto4); produto.AdicionarProduto(produto5);
-	 * produto.AdicionarProduto(produto6); produto.AdicionarProduto(produto8);
-	 * produto.AdicionarProduto(produto9);
-	 * System.out.println(produto.produtoAseuLeilao(produto2,
-	 * leilao.getLisLeiloes())); } /*
-	 * 
-	 * @Test void testInterfaceCadastroCarro() { c.setVisible(true); c.dispose(); }
-	 * 
-	 * 
-	 * @Test void testInterfaceCadastroAdmin() { iCA.setVisible(true);
-	 * iCA.dispose(); }
-	 * 
-	 * @Test void testInterfaceCadastroAp() { iCap.setVisible(true); iCap.dispose();
-	 * }
-	 * 
-	 * @Test void testInterfaceCadastroEd() { iCed.setVisible(true); iCed.dispose();
-	 * }
-	 * 
-	 * @Test void testInterfaceCadastroIf() { iCif.setVisible(true); iCif.dispose();
-	 * }
-	 * 
-	 * @Test void testInterfaceCadastroTer() { iCt.setVisible(true); iCt.dispose();
-	 * }
-	 * 
-	 * @Test void testInterfaceAlteraAp() { aAp.setVisible(true); aAp.dispose(); }
-	 * 
-	 * @Test void testInterfaceAlteraCar() { aCar.setVisible(true); aCar.dispose();
-	 * }
-	 * 
-	 * @Test void testInterfaceAlteraCas() { aCas.setVisible(true); aCas.dispose();
-	 * }
-	 * 
-	 * @Test void testInterfaceAlteraEd() { aEc.setVisible(true); aEc.dispose(); }
-	 * 
-	 * @Test void testInterfaceAlteraMc() { aMc.setVisible(true); aMc.dispose(); }
-	 * 
-	 * @Test void testInterfaceAlteraTr() { aTr.setVisible(true); aTr.dispose(); }
-	 * 
-	 * @Test void testInterfaceCadCas() { iCc.setVisible(true); iCc.dispose(); }
-	 */
+	@Test
+	void testRemover() {
+		produto.AdicionarProduto(produto3);
+		assertEquals(produto.getLisProduto().size(), 1);
+		produto.removerProduto(produto3);
+		assertEquals(produto.getLisProduto().size(), 0);
+	}
+
+	@Test
+	void testBuscarPorFatura() {
+		produto.AdicionarProduto(produto4);
+		assertEquals(produto.buscaPorFaixa(99, 101).get(0), produto4);
+	}
+
+	@Test
+	void testBuscarPorTipo() {
+		produto.AdicionarProduto(produto5);
+		assertEquals(produto.buscaPorTipo("Carro").get(0), produto5);
+	}
+
+	@Test
+	void testGeraQuantidade() {
+		produto.AdicionarProduto(produto1);
+		produto.AdicionarProduto(produto2);
+		produto.AdicionarProduto(produto3);
+		produto.AdicionarProduto(produto4);
+		produto.AdicionarProduto(produto5);
+		produto.AdicionarProduto(produto6);
+		assertEquals(produto.gerarQuantidadeProdutoPorLeilao(1), 6);
+	}
+
+	@Test
+	void testIdRepetido() {
+		produto.AdicionarProduto(produto6);
+		produto.AdicionarProduto(produto7);
+		assertEquals(produto.getLisProduto().size(), 1);
+		// produto.listarTodosProdutos();
+
+	}
+
+	@Test
+	void testArquivo() throws IOException {
+		produto.AdicionarProduto(produto1);
+		produto.AdicionarProduto(produto2);
+		produto.AdicionarProduto(produto3);
+		produto.AdicionarProduto(produto4);
+		produto.AdicionarProduto(produto5);
+		produto.AdicionarProduto(produto6);
+		produto.gerarArquivo(produto.getLisProduto());
+	}
+
+	@Test
+	void testRetornoListaProdutoPorLeilao() {
+		produto.AdicionarProduto(produto1);
+		produto.AdicionarProduto(produto2);
+		produto.AdicionarProduto(produto3);
+		produto.AdicionarProduto(produto4);
+		produto.AdicionarProduto(produto5);
+		produto.AdicionarProduto(produto6);
+		produto.AdicionarProduto(produto8);
+		produto.AdicionarProduto(produto9);
+		assertEquals(produto.getProdutosPorLeilao(1).size(), 6);
+		assertEquals(produto.getProdutosPorLeilao(2).size(), 2);
+
+	}
+
+	@Test
+	void testBuscaPalavraChave() {
+		leilao.AdicionarLeilao(l);
+		leilao.AdicionarLeilao(l2);
+		produto.AdicionarProduto(produto1);
+		produto.AdicionarProduto(produto2);
+		produto.AdicionarProduto(produto3);
+		produto.AdicionarProduto(produto4);
+		produto.AdicionarProduto(produto5);
+		produto.AdicionarProduto(produto6);
+		produto.AdicionarProduto(produto8);
+		produto.AdicionarProduto(produto9);
+		System.out.println(produto.produtoAseuLeilao(produto2, leilao.getLisLeiloes()));
+	}
+
+	@Test
+	void testInterfaceCadastroCarro() {
+		c.setVisible(true);
+		c.dispose();
+	}
+
+	@Test
+	void testInterfaceCadastroAdmin() {
+		iCA.setVisible(true);
+		iCA.dispose();
+	}
+
+	@Test
+	void testInterfaceCadastroAp() {
+		iCap.setVisible(true);
+		iCap.dispose();
+	}
+
+	@Test
+	void testInterfaceCadastroEd() {
+		iCed.setVisible(true);
+		iCed.dispose();
+	}
+
+	@Test
+	void testInterfaceCadastroIf() {
+		iCif.setVisible(true);
+		iCif.dispose();
+	}
+
+	@Test
+	void testInterfaceCadastroTer() {
+		iCt.setVisible(true);
+		iCt.dispose();
+	}
+	
+	@Test
+	void testInterfacePesquisaCad() {
+		iPc.setVisible(true);
+		iPc.dispose();
+	}
+
+	@Test
+	void testInterfaceAlteraAp() {
+		produto.AdicionarProduto(produto2);
+		aAp.setVisible(true);
+		aAp.dispose();
+	}
+/*
+	@Test
+	void testInterfaceAlteraCar() {
+		aCar.setVisible(true);
+		aCar.dispose();
+	}
+
+	@Test
+	void testInterfaceAlteraCas() {
+		aCas.setVisible(true);
+		aCas.dispose();
+	}
+
+	@Test
+	void testInterfaceAlteraEd() {
+		aEc.setVisible(true);
+		aEc.dispose();
+	}
+
+	@Test
+	void testInterfaceAlteraMc() {
+		aMc.setVisible(true);
+		aMc.dispose();
+	}
+
+	@Test
+	void testInterfaceAlteraTr() {
+		aTr.setVisible(true);
+		aTr.dispose();
+	}
+
+	@Test
+	void testInterfaceCadCas() {
+		iCc.setVisible(true);
+		iCc.dispose();
+	}
+*/
 	@AfterEach
 	public void limpeza() {
 		produto.getLisProduto().clear();
