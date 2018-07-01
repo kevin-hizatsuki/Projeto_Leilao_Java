@@ -10,7 +10,10 @@ import java.util.List;
 import java.util.Random;
 
 import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.produto.EnumVeiculo;
+import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
+import edu.fatec.leilao.produto.Veiculos;
 
 public class ModelProduto {
 	
@@ -132,6 +135,22 @@ public class ModelProduto {
 			}
 		}
 		return null;
+	}
+	
+	public static List<Produto> pesquisaporPalavraChaveProdutoLeilao(List<Produto> lstProd, String palavraChave){
+		List<Produto> lstProdPalavraChave = new ArrayList<>();
+		for(Produto p:lstProd) {
+			if(p.getTipo().equals(EnumVeiculo.Motocicletas) || p.getTipo().equals(EnumVeiculo.Carros)){
+				if(((Veiculos)p).getModelo().contains(palavraChave))
+					lstProdPalavraChave.add(p);
+				
+			}else {
+				if(((Imoveis)p).getEndereco().getEnderecoCompleto().contains(palavraChave))
+					lstProdPalavraChave.add(p);
+			}
+			
+		}
+		return lstProdPalavraChave;
 	}
 	
 }
