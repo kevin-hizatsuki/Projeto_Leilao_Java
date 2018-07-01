@@ -37,6 +37,8 @@ class TestMoodelProduto {
 	Carro produto5;
 	Veiculos produto6;
 	Veiculos produto7;
+	Casas produto8;
+	Apartamento produto9;
 	Apartamento atualizacao;
 	Endereco endereco;
 	Endereco endereco2;
@@ -64,6 +66,8 @@ class TestMoodelProduto {
 		produto5 = new Carro(1, 5, "Carro", "Ford", "Fusion", 4.0, 2017, "Automatico", 50, "Gasolina", 70, 4);
 		produto6 = new Veiculos(1, 6, "Moto", "Honda", "CG", 160, 2008, "Manual", 30, "Alcool", 8);
 		produto7 = new Veiculos(1, 6, "Moto", "Honda", "CG", 160, 2008, "Manual", 30, "Alcool", 8);
+		produto8 = new Casas(2, 56, "Casa", 150, endereco, 150, 0, 2, 2, 1);
+		produto9 = new Apartamento(2, 564, 100, endereco2, 200, 0.5, "Apartamento", 15, 1, 2, 2);
 	}
 
 	@Test
@@ -128,6 +132,21 @@ class TestMoodelProduto {
 		produto.AdicionarProduto(produto5);
 		produto.AdicionarProduto(produto6);
 		produto.gerarArquivo(produto.getLisProduto());
+	}
+	
+	@Test
+	void testRetornoListaProdutoPorLeilao() {
+		produto.AdicionarProduto(produto1);
+		produto.AdicionarProduto(produto2);
+		produto.AdicionarProduto(produto3);
+		produto.AdicionarProduto(produto4);
+		produto.AdicionarProduto(produto5);
+		produto.AdicionarProduto(produto6);
+		produto.AdicionarProduto(produto8);
+		produto.AdicionarProduto(produto9);
+		assertEquals(produto.getProdutosPorLeilao(1).size(),6);
+		assertEquals(produto.getProdutosPorLeilao(2).size(),2);
+		
 	}
 	
 	@Test
