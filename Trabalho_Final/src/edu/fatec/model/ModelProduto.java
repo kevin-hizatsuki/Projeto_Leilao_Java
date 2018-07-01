@@ -25,7 +25,7 @@ public class ModelProduto {
 		}
 	}
 	
-	public static void atualizarProduto(int id,Produto atualizar) {
+	public static void atualizarProduto(Produto atualizar) {
 		for(Produto p:produto) {
 			if(p.getIdProduto()==(atualizar.getIdProduto())) {
 				produto.set(produto.indexOf(p), atualizar);

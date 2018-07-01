@@ -15,9 +15,15 @@ import javax.swing.table.DefaultTableModel;
 
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
+import edu.fatec.leilao.produto.Apartamento;
+import edu.fatec.leilao.produto.Carro;
+import edu.fatec.leilao.produto.Casas;
+import edu.fatec.leilao.produto.EdificiosComerciais;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.EnumVeiculo;
+import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
+import edu.fatec.leilao.produto.Veiculos;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Lance;
@@ -39,6 +45,7 @@ import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 
 public class Form_Lances extends JFrame {
 
@@ -88,6 +95,7 @@ public class Form_Lances extends JFrame {
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		
 		table = new JTable(tabelaModelo);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setBounds(12, 202, 461, 223);
 		List<Produto> dados = ModelProduto.getProdutosPorLeilao(Main.getIdLeilao_AddProduto());
 		for (int i = 0; i < dados.size(); i++) {
@@ -398,28 +406,25 @@ public class Form_Lances extends JFrame {
 						
 						switch (p.tipo.toString()) {
 						case "Apartamentos":
-							System.out.println(p.tipo);
-							Main.setProdutoTelas(p);
+							Main.setProdutoTelas((Apartamento)p);
+							Form_Altera_Apartamento a = new Form_Altera_Apartamento();
+							a.setVisible(true);
+							dispose();
 							break;
 						case "Terrenos":
-							System.out.println(p.tipo);
-							Main.setProdutoTelas(p);
+							Main.setProdutoTelas((Imoveis)p);
 							break;
 						case "Casas":
-							System.out.println(p.tipo);
-							Main.setProdutoTelas(p);
+							Main.setProdutoTelas((Casas)p);
 							break;
 						case "Edificios_Comerciais":
-							System.out.println(p.tipo);
-							Main.setProdutoTelas(p);
+							Main.setProdutoTelas((EdificiosComerciais)p);
 							break;
 						case "Carros":
-							System.out.println(p.tipo);
-							Main.setProdutoTelas(p);
+							Main.setProdutoTelas((Carro)p);
 							break;
 						case "Motocicletas":
-							System.out.println(p.tipo);
-							Main.setProdutoTelas(p);
+							Main.setProdutoTelas((Veiculos)p);
 							break;
 
 						}

@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.Main;
+import edu.fatec.leilao.produto.EnumVeiculo;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.produto.Veiculos;
 import edu.fatec.model.ModelProduto;
@@ -90,8 +91,10 @@ public class Form_Cadastro_Motocicleta extends JFrame {
 		contentPane.add(lblTipo);
 		
 		textField = new JTextField();
+		textField.setEnabled(false);
 		textField.setBounds(205, 88, 139, 20);
 		contentPane.add(textField);
+		textField.setText(EnumVeiculo.Motocicletas.toString());
 		textField.setColumns(10);
 		
 		JLabel lblMarca = new JLabel("Marca");

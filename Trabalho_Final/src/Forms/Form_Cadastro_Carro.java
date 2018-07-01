@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Carro;
+import edu.fatec.leilao.produto.EnumVeiculo;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
@@ -80,7 +81,9 @@ public class Form_Cadastro_Carro extends JFrame {
 		lblTipo.setBounds(104, 115, 24, 16);
 		
 		textField_2 = new JTextField();
+		textField_2.setEnabled(false);
 		textField_2.setBounds(140, 114, 196, 17);
+		textField_2.setText(EnumVeiculo.Carros.toString());
 		textField_2.setColumns(10);
 		
 		JLabel lblPreo = new JLabel("Marca");

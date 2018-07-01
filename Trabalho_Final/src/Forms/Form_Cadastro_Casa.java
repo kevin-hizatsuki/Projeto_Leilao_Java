@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Casas;
+import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.model.ModelProduto;
 
 import javax.swing.JButton;
@@ -71,7 +72,9 @@ public class Form_Cadastro_Casa extends JFrame {
 		lblTipo.setBounds(60, 112, 24, 16);
 		
 		txtTipo = new JTextField();
+		txtTipo.setEnabled(false);
 		txtTipo.setBounds(88, 112, 114, 20);
+		txtTipo.setText(EnumImoveis.Casas.toString());
 		txtTipo.setColumns(10);
 		
 		JLabel lblPreo = new JLabel("Pre\u00E7o");

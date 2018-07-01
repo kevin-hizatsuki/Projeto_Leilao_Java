@@ -76,7 +76,7 @@ class TestMoodelProduto {
 	void testAtualizacaoProduto() {
 		produto.AdicionarProduto(produto2);
 		atualizacao = new Apartamento(1, 2, 100, endereco2, 210, 0.5, "Apartamento", 15, 1, 2, 2);
-		produto.atualizarProduto(2, atualizacao);
+		produto.atualizarProduto(atualizacao);
 		assertEquals(produto.getLisProduto().get(produto.getLisProduto().indexOf(atualizacao)).getPreco(),210);
 	}
 	

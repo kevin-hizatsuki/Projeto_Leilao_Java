@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.EdificiosComerciais;
+import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
 
@@ -91,7 +92,9 @@ public class Form_Cadastro_Edificio extends JFrame {
 		label_9.setBounds(60, 83, 67, 14);
 		
 		textField_2 = new JTextField();
+		textField_2.setEnabled(false);
 		textField_2.setBounds(129, 103, 86, 20);
+		textField_2.setText(EnumImoveis.Edificios_Comerciais.toString());
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();

@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
+import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.model.ModelLeilao;
@@ -106,8 +107,10 @@ public class Form_Cadastro_Terreno extends JFrame {
 		contentPane.add(label_9);
 		
 		textField_2 = new JTextField();
+		textField_2.setEnabled(false);
 		textField_2.setColumns(10);
 		textField_2.setBounds(93, 104, 86, 20);
+		textField_2.setText(EnumImoveis.Terrenos.toString());
 		contentPane.add(textField_2);
 		
 		textField_5 = new JTextField();

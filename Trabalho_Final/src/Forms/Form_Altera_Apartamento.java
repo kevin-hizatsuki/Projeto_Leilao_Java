@@ -7,14 +7,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Apartamento;
+import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
+import edu.fatec.model.ModelProduto;
 
 import javax.swing.JButton;
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.SpinnerNumberModel;
 
 public class Form_Altera_Apartamento extends JFrame {
 
@@ -47,22 +53,29 @@ public class Form_Altera_Apartamento extends JFrame {
 	public Form_Altera_Apartamento() {
 		Produto p = Main.getProdutoTelas();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 590);
+		setBounds(100, 100, 450, 487);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JButton button = new JButton("Cancelar");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Form_Lances a = new Form_Lances();
+				a.setVisible(true);
+				dispose();
+			}
+		});
 		button.setBounds(283, 405, 86, 23);
 		contentPane.add(button);
 		
-		JButton button_1 = new JButton("Cadastrar");
-		button_1.setBounds(133, 405, 91, 23);
-		contentPane.add(button_1);
+		
+	
 		
 		JSpinner spinner = new JSpinner();
 		spinner.setBounds(123, 372, 29, 20);
+		spinner.setValue(((Apartamento) Main.getProdutoTelas()).getBanheiro());
 		contentPane.add(spinner);
 		
 		JLabel label = new JLabel("Banheiro");
@@ -75,10 +88,12 @@ public class Form_Altera_Apartamento extends JFrame {
 		
 		JSpinner spinner_1 = new JSpinner();
 		spinner_1.setBounds(123, 347, 29, 20);
+		spinner_1.setValue(((Apartamento) Main.getProdutoTelas()).getQuarto());
 		contentPane.add(spinner_1);
 		
 		JSpinner spinner_2 = new JSpinner();
 		spinner_2.setBounds(123, 326, 29, 20);
+		spinner_2.setValue(((Apartamento) Main.getProdutoTelas()).getGaragem());
 		contentPane.add(spinner_2);
 		
 		JLabel label_2 = new JLabel("Garagem");
@@ -91,11 +106,13 @@ public class Form_Altera_Apartamento extends JFrame {
 		
 		JSpinner spinner_3 = new JSpinner();
 		spinner_3.setBounds(123, 294, 29, 20);
+		spinner_3.setValue(((Apartamento) Main.getProdutoTelas()).getAndar());
 		contentPane.add(spinner_3);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(123, 263, 86, 20);
+		textField_3.setText(((Apartamento) Main.getProdutoTelas()).getEndereco().cep);
 		contentPane.add(textField);
 		
 		JLabel label_4 = new JLabel("CEP");
@@ -109,11 +126,13 @@ public class Form_Altera_Apartamento extends JFrame {
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(123, 237, 86, 20);
+		textField_1.setText(((Apartamento) Main.getProdutoTelas()).getEndereco().estado);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(123, 211, 86, 20);
+		textField_2.setText(((Apartamento) Main.getProdutoTelas()).getEndereco().cidade);
 		contentPane.add(textField_2);
 		
 		JLabel label_6 = new JLabel("Cidade");
@@ -127,10 +146,12 @@ public class Form_Altera_Apartamento extends JFrame {
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(123, 185, 86, 20);
+		textField_3.setText(((Apartamento) Main.getProdutoTelas()).getEndereco().enderecoCompleto);
 		contentPane.add(textField_3);
 		
 		JSpinner spinner_4 = new JSpinner();
 		spinner_4.setBounds(123, 157, 29, 20);
+		spinner_4.setValue(((Apartamento) Main.getProdutoTelas()).getCondominio());
 		contentPane.add(spinner_4);
 		
 		JLabel label_8 = new JLabel("Condominio");
@@ -143,7 +164,7 @@ public class Form_Altera_Apartamento extends JFrame {
 		
 		JSpinner spinner_5 = new JSpinner();
 		spinner_5.setBounds(123, 131, 29, 20);
-//		spinner_5.setValue();////////////////////////////////////////////////////////
+		spinner_5.setValue(((Apartamento) Main.getProdutoTelas()).getArea());
 		contentPane.add(spinner_5);
 		
 		JLabel label_10 = new JLabel("M\u00B2");
@@ -151,6 +172,7 @@ public class Form_Altera_Apartamento extends JFrame {
 		contentPane.add(label_10);
 		
 		JSpinner spinner_6 = new JSpinner();
+		spinner_6.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner_6.setBounds(123, 108, 52, 17);
 		spinner_6.setValue(Main.getProdutoTelas().preco);
 		contentPane.add(spinner_6);
@@ -164,6 +186,7 @@ public class Form_Altera_Apartamento extends JFrame {
 		contentPane.add(label_12);
 		
 		textField_4 = new JTextField();
+		textField_4.setEnabled(false);
 		textField_4.setColumns(10);
 		textField_4.setText(Main.getProdutoTelas().getTipo());
 		textField_4.setBounds(123, 79, 86, 20);
@@ -188,6 +211,38 @@ public class Form_Altera_Apartamento extends JFrame {
 		spinner_8.setBounds(123, 30, 39, 17);
 		spinner_8.setValue(Main.getProdutoTelas().idLeilao);
 		contentPane.add(spinner_8);
+		
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Apartamento a = new Apartamento(
+						(int) spinner_8.getValue(),
+						 (int) spinner_7.getValue(),
+						 (double) spinner_5.getValue(),
+						 new Endereco(textField_3.getText(),
+									textField_2.getText(),
+									textField_1.getText(),
+									textField.getText()),
+						(double) spinner_6.getValue(),
+						(double) spinner_4.getValue(),
+						textField_4.getText(),
+						(int) spinner_3.getValue(),
+						(int) spinner_2.getValue(),
+						(int) spinner_1.getValue(),
+						(int) spinner.getValue()
+						);
+				
+				ModelProduto.atualizarProduto(a);
+				
+				
+				Form_Lances b = new Form_Lances();
+				b.setVisible(true);
+				dispose();
+			}
+		});
+		btnAlterar.setBounds(112, 405, 91, 23);
+		contentPane.add(btnAlterar);
 		
 		JLabel lblAlterarCadastroApartamento = new JLabel("Alterar Cadastro Apartamento");
 		lblAlterarCadastroApartamento.setBounds(133, 5, 199, 14);
