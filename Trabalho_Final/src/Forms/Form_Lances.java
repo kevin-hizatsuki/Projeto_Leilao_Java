@@ -38,11 +38,13 @@ import javax.swing.JList;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.JSeparator;
+import javax.swing.JTextField;
 
 public class Form_Lances extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -86,7 +88,7 @@ public class Form_Lances extends JFrame {
 		DefaultTableModel tabelaModelo = new DefaultTableModel(colunas, 0);
 		
 		table = new JTable(tabelaModelo);
-		table.setBounds(12, 192, 461, 233);
+		table.setBounds(12, 202, 461, 223);
 		List<Produto> dados = ModelProduto.getProdutosPorLeilao(Main.getIdLeilao_AddProduto());
 		for (int i = 0; i < dados.size(); i++) {
 			Integer id = dados.get(i).getIdProduto();
@@ -373,7 +375,7 @@ public class Form_Lances extends JFrame {
 					
 											
 					}
-					}
+				}
 				
 				for (Produto p : produto) {
 					if (p.idProduto==v) {
@@ -432,6 +434,33 @@ public class Form_Lances extends JFrame {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(12, 98, 461, 71);
 		contentPane.add(separator);
+		
+		textField = new JTextField();
+		textField.setBounds(81, 170, 242, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("Pesquisar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				List<Produto> produto = ModelProduto.pesquisaporPalavraChaveProdutoLeilao(textField.getText());
+				tabelaModelo.setRowCount(0);
+				
+				for (Produto p : produto) {
+						
+						Integer id = p.getIdProduto();
+						String tipo = p.getTipo();
+						double preco = p.getPreco();
+						Object [] dados1 = {id,tipo, preco};
+						tabelaModelo.addRow(dados1);
+					
+											
+				}
+			}
+		});
+		btnNewButton_1.setBounds(333, 167, 114, 26);
+		contentPane.add(btnNewButton_1);
 		
 		
 	}
