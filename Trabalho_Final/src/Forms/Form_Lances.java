@@ -359,25 +359,26 @@ public class Form_Lances extends JFrame {
 		JButton btnDeletarProduto = new JButton("Deletar Produto");
 		btnDeletarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int v = (int) table.getValueAt(table.getSelectedRow(), 0);
+				tabelaModelo.setRowCount(0);
 				List<Produto> produto = ModelProduto.getLisProduto();
-				System.out.println("QHat?: "+(int) table.getValueAt(table.getSelectedRow(), 0));
 				for (Produto p : produto) {
-					if (p.idProduto==(int) table.getValueAt(table.getSelectedRow(), 0)) {
+					if (p.idProduto!=v) {
 						
-//						for (int i = 0; i < dados.size(); i++) {
-//							if (p.idProduto!=(int) table.getValueAt(table.getSelectedRow(), 0)) {
-//								
-//							Integer id = dados.get(i).getIdProduto();
-//							String tipo = dados.get(i).getTipo();
-//							double preco = dados.get(i).getPreco();
-//							
-//							
-//							Object [] dados1 = {id,tipo, preco};
-//							tabelaModelo.addRow(dados1);
-//							}
-//						}
-						
+						Integer id = p.getIdProduto();
+						String tipo = p.getTipo();
+						double preco = p.getPreco();
+						Object [] dados1 = {id,tipo, preco};
+						tabelaModelo.addRow(dados1);
+					
+											
+					}
+					}
+				
+				for (Produto p : produto) {
+					if (p.idProduto==v) {
 						ModelProduto.removerProduto(p); //Dando erro, o kewao disse que ia concertar porque estava dando problema nos testes também
+						break;
 					}
 				}
 			}
@@ -395,22 +396,28 @@ public class Form_Lances extends JFrame {
 						
 						switch (p.tipo.toString()) {
 						case "Apartamentos":
-							
+							System.out.println(p.tipo);
+							Main.setProdutoTelas(p);
 							break;
 						case "Terrenos":
-							
+							System.out.println(p.tipo);
+							Main.setProdutoTelas(p);
 							break;
 						case "Casas":
-							
+							System.out.println(p.tipo);
+							Main.setProdutoTelas(p);
 							break;
 						case "Edificios_Comerciais":
-							
+							System.out.println(p.tipo);
+							Main.setProdutoTelas(p);
 							break;
 						case "Carros":
-							
+							System.out.println(p.tipo);
+							Main.setProdutoTelas(p);
 							break;
 						case "Motocicletas":
-							
+							System.out.println(p.tipo);
+							Main.setProdutoTelas(p);
 							break;
 
 						}
