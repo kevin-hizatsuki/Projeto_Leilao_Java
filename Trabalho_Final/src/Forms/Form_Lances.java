@@ -413,18 +413,33 @@ public class Form_Lances extends JFrame {
 							break;
 						case "Terrenos":
 							Main.setProdutoTelas((Imoveis)p);
+							Form_Altera_Terreno b = new Form_Altera_Terreno();
+							b.setVisible(true);
+							dispose();
 							break;
 						case "Casas":
 							Main.setProdutoTelas((Casas)p);
+							Form_Altera_Casa c = new Form_Altera_Casa();
+							c.setVisible(true);
+							dispose();
 							break;
 						case "Edificios_Comerciais":
 							Main.setProdutoTelas((EdificiosComerciais)p);
+							Form_Altera_Edificio_Comercial d = new Form_Altera_Edificio_Comercial();
+							d.setVisible(true);
+							dispose();
 							break;
 						case "Carros":
 							Main.setProdutoTelas((Carro)p);
+							Form_Altera_Carro e1 = new Form_Altera_Carro();
+							e1.setVisible(true);
+							dispose();
 							break;
 						case "Motocicletas":
 							Main.setProdutoTelas((Veiculos)p);
+							Form_Altera_Motocicleta f = new Form_Altera_Motocicleta();
+							f.setVisible(true);
+							dispose();
 							break;
 
 						}
