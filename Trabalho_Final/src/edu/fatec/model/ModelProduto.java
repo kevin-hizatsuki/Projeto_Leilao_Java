@@ -141,9 +141,9 @@ public class ModelProduto {
 		return null;
 	}
 	
-	public static List<Produto> pesquisaporPalavraChaveProdutoLeilao(List<Produto> lstProd, String palavraChave){
+	public static List<Produto> pesquisaporPalavraChaveProdutoLeilao( String palavraChave){
 		List<Produto> lstProdPalavraChave = new ArrayList<>();
-		for(Produto p:lstProd) {
+		for(Produto p:produto) {
 			if(p.getTipo().equals(EnumVeiculo.Motocicletas) || p.getTipo().equals(EnumVeiculo.Carros)){
 				if(((Veiculos)p).getModelo().contains(palavraChave))
 					lstProdPalavraChave.add(p);
