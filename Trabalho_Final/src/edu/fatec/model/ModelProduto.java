@@ -26,9 +26,14 @@ public class ModelProduto {
 	}
 	
 	public static void atualizarProduto(Produto atualizar) {
+		System.out.println("Produto em questao: \n"+atualizar.toString());
 		for(Produto p:produto) {
-			if(p.getIdProduto()==(atualizar.getIdProduto())) {
-				produto.set(produto.indexOf(p), atualizar);
+			System.out.println("Ele entra??: ");
+			System.out.println(p.getIdProduto()==(atualizar.getIdProduto()));
+			System.out.println("Id de P: "+p.getIdProduto()+"\nID do produto alterando: "+atualizar.getIdProduto());
+			if(Integer.valueOf(p.getIdProduto()).equals(Integer.valueOf(atualizar.getIdProduto()))) {
+				System.out.println("Entrou!!");
+				produto.set(produto.indexOf(p), atualizar); 
 			}
 		}
 	}

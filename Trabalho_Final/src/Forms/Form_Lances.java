@@ -58,7 +58,7 @@ public class Form_Lances extends JFrame {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
-				}
+				} 
 			}
 		});
 	}  
@@ -128,7 +128,7 @@ public class Form_Lances extends JFrame {
 				
 //				System.out.println("Usuario: "+Main.getIdUsuarioLogado());
 //				System.out.println("Usuario logado?:"+ModelCliente.getObjClienteLogado(Main.getIdUsuarioLogado().toString()));
-				ModelLance.adicionarLance(
+				ModelLance.adicionarLance( 
 						new Lance(
 								1,
 								ModelLeilao.getLeilao((int)Main.getIdLeilao_AddProduto()),

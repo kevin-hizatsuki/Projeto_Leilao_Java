@@ -41,7 +41,7 @@ public class Form_Altera_Apartamento extends JFrame {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
-				}
+				} 
 			}
 		});
 	}

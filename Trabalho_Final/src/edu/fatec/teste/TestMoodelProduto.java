@@ -251,7 +251,7 @@ class TestMoodelProduto {
 	void testInterfaceAlteraAp() {
 		produto.AdicionarProduto(produto2);
 		Form_Altera_Apartamento aAp = new Form_Altera_Apartamento();		
-		aAp.setVisible(true); 
+		aAp.setVisible(true);  
 		aAp.dispose(); 
 	} 
 

@@ -37,7 +37,7 @@ public class Form_Login extends JFrame {
 				}
 			} 
 		});
-	}
+	} 
  
 	/**
 	 * Create the frame.

@@ -226,7 +226,6 @@ public class Form_Altera_Casa extends JFrame {
 						(int) spinner_4.getValue()
 						);
 				ModelProduto.atualizarProduto(a);
-				
 				Form_Lances b = new Form_Lances();
 				b.setVisible(true);
 				dispose();
@@ -234,7 +233,7 @@ public class Form_Altera_Casa extends JFrame {
 		});
 		button.setBounds(150, 371, 91, 26);
 		contentPane.add(button);
-		
+		 
 		
 		
 		JButton button_1 = new JButton("Cancelar");
