@@ -104,7 +104,7 @@ public class ModelProduto {
 	}
 	
 	public static void gerarArquivo(List<Produto> list) throws IOException {
-		PrintWriter escritor = new PrintWriter( new FileWriter("C:\\temp\\produtos_"+LocalDate.now().toString()+".txt"));
+		PrintWriter escritor = new PrintWriter( new FileWriter("C:\\temp\\produtos_"+LocalDate.now().toString()+".det"));
 		for(Produto p:list) {
 			escritor.println(p.toString());
 			escritor.println("-----------------------------------");

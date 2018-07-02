@@ -3,6 +3,7 @@ package edu.fatec.teste;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -131,6 +132,15 @@ class TestModelLance {
 		
 	}
 
+	@Test
+	void geraArquivo() throws IOException {
+		lance.adicionarLance(l1);
+		lance.adicionarLance(l2);
+		lance.adicionarLance(l3);
+		lance.adicionarLance(l4);
+		lance.gerarArquivo(lance.getLisLance());
+	}
+	
 	@Test
 	void testVencedor() {
 		Map<Integer,Cliente> vencedor = new HashMap();

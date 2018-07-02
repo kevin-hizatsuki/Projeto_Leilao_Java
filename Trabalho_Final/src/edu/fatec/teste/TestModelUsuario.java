@@ -2,6 +2,8 @@ package edu.fatec.teste;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.IOException;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -74,6 +76,15 @@ class TestModelUsuario {
 	}
 	
 	@Test
+	void testArquivo() throws IOException {
+		usuario.adicionarCliente(usuario1);
+		usuario.adicionarCliente(usuario2);
+		usuario.adicionarCliente(usuario3);
+		usuario.adicionarCliente(usuario4);
+		usuario.gerarArquivo(usuario.getLisCliente());
+	}
+	
+	@Test
 	void testInterfaceCadCl() {
 		iCc.setVisible(true);
 		iCc.dispose();
@@ -84,6 +95,8 @@ class TestModelUsuario {
 		iLg.setVisible(true);
 		iLg.dispose();
 	}
+	
+	
 	
 	@AfterEach
 	public void limpeza() {

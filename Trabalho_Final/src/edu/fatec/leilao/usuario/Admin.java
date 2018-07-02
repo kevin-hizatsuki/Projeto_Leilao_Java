@@ -26,6 +26,11 @@ public class Admin {
 		this.senha = senha;
 	}
 
-	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("User: "+this.user).append("\n");
+		sb.append("Senha: "+this.senha).append("\n");
+		return sb.toString();
+	}
 	
 }
