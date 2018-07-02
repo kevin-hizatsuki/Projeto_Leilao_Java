@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,8 +9,6 @@ import javax.swing.border.EmptyBorder;
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Carro;
 import edu.fatec.leilao.produto.EnumVeiculo;
-import edu.fatec.leilao.produto.Produto;
-import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
 
 import javax.swing.JLabel;
@@ -20,11 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.SpinnerDateModel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 

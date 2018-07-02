@@ -1,8 +1,6 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,8 +21,6 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
-import javax.swing.DropMode;
 
 public class Form_Cadastro_Leilao extends JFrame {
 

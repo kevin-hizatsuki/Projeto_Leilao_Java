@@ -2,8 +2,6 @@ package Forms;
 import edu.fatec.model.ModelCliente;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.leilao.Main;
-import edu.fatec.leilao.usuario.*;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

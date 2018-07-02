@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,10 +8,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
 import edu.fatec.model.ModelLeilao;

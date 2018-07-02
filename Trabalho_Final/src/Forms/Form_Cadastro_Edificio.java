@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,7 +10,6 @@ import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.EdificiosComerciais;
 import edu.fatec.leilao.produto.EnumImoveis;
-import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
 
 import javax.swing.JButton;
@@ -22,9 +20,6 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SpinnerNumberModel;
 
 public class Form_Cadastro_Edificio extends JFrame {

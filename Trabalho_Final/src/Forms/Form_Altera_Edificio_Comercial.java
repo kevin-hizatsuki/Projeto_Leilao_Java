@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -149,6 +148,7 @@ public class Form_Altera_Edificio_Comercial extends JFrame {
 		
 		JSpinner spinner_2 = new JSpinner();
 		spinner_2.setBounds(164, 173, 29, 20);
+		spinner_2.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner_2.setValue(((EdificiosComerciais) Main.getProdutoTelas()).getCondominio());
 		contentPane.add(spinner_2);
 		

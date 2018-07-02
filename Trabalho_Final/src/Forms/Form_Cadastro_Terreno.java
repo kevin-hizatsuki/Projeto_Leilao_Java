@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,12 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.Endereco;
-import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.EnumImoveis;
 import edu.fatec.leilao.produto.Imoveis;
-import edu.fatec.leilao.produto.Produto;
-import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
 
 import javax.swing.JButton;
@@ -61,12 +57,6 @@ public class Form_Cadastro_Terreno extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		
-		
-		
-		
-		
 		
 		JLabel lblCadastroDeTerrenos = new JLabel("Cadastro de Terrenos");
 		lblCadastroDeTerrenos.setHorizontalAlignment(SwingConstants.CENTER);

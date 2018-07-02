@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,7 +8,6 @@ import javax.swing.border.EmptyBorder;
 
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Main;
-import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.model.ModelProduto;
@@ -157,7 +155,8 @@ public class Form_Altera_Terreno extends JFrame {
 		
 		JSpinner spinner_6 = new JSpinner();
 		spinner_6.setBounds(81, 185, 27, 20);
-		spinner_6.setValue(((Imoveis) Main.getProdutoTelas()).condominio);
+		spinner_6.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
+		spinner_6.setValue(((Imoveis) Main.getProdutoTelas()).condominio); 
 		contentPane.add(spinner_6);
 		
 		JLabel label_13 = new JLabel("ID Leil\u00E3o");

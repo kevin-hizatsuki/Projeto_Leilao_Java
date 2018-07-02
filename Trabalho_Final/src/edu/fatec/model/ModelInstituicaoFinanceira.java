@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import edu.fatec.leilao.banco.InstituicaoFinanceira;
-import edu.fatec.leilao.produto.Produto;
 
 public class ModelInstituicaoFinanceira {
 	
@@ -18,7 +17,7 @@ public class ModelInstituicaoFinanceira {
 		if(cnpjRepetido(i.getCnpj())) {
 		instituicaoFinanceira.add(i);
 		}
-	}
+	} 
 
 	public static void AtualizarInstituicaoFinanceira(InstituicaoFinanceira i) {
 		for(InstituicaoFinanceira ins:instituicaoFinanceira) {

@@ -1,23 +1,13 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
-import edu.fatec.leilao.SiteLeilao;
-import edu.fatec.leilao.banco.InstituicaoFinanceira;
-import edu.fatec.leilao.produto.Apartamento;
-import edu.fatec.leilao.produto.Casas;
-import edu.fatec.leilao.produto.EnumImoveis;
-import edu.fatec.leilao.produto.Imoveis;
-import edu.fatec.leilao.produto.Produto;
 import edu.fatec.model.ModelLeilao;
 
 import javax.swing.JLabel;
@@ -25,12 +15,10 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 public class Form_Historico_Leiloes extends JFrame {

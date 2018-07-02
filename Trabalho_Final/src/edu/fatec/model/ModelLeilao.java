@@ -4,20 +4,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 import edu.fatec.leilao.Leiloes;
-import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Carro;
 import edu.fatec.leilao.produto.Casas;
 import edu.fatec.leilao.produto.EdificiosComerciais;
 import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
-import edu.fatec.leilao.usuario.Cliente;
 
 public class ModelLeilao {
 	

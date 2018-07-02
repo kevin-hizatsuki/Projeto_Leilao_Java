@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,7 +10,6 @@ import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.EnumImoveis;
-import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
 
 import javax.swing.JButton;

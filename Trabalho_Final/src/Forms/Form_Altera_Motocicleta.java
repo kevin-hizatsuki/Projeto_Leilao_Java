@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -62,7 +61,7 @@ public class Form_Altera_Motocicleta extends JFrame {
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(125, 148, 196, 18);
-		textField.setText(((Carro) Main.getProdutoTelas()).modelo);
+		textField.setText(((Veiculos) Main.getProdutoTelas()).modelo);
 		contentPane.add(textField);
 		
 		JLabel label = new JLabel("Cilindrada");
@@ -71,12 +70,13 @@ public class Form_Altera_Motocicleta extends JFrame {
 		
 		JSpinner spinner = new JSpinner();
 		spinner.setBounds(125, 176, 38, 18);
-		spinner.setValue(((Carro) Main.getProdutoTelas()).cilindrada);
+		spinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
+		spinner.setValue(((Veiculos) Main.getProdutoTelas()).cilindrada);
 		contentPane.add(spinner);
 		
 		JSpinner spinner_1 = new JSpinner();
 		spinner_1.setBounds(125, 206, 38, 18);
-		spinner_1.setValue(((Carro) Main.getProdutoTelas()).ano);
+		spinner_1.setValue(((Veiculos) Main.getProdutoTelas()).ano);
 		contentPane.add(spinner_1);
 		
 		JLabel label_1 = new JLabel("Ano");
@@ -86,7 +86,7 @@ public class Form_Altera_Motocicleta extends JFrame {
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(125, 229, 196, 18);
-		textField_1.setText(((Carro) Main.getProdutoTelas()).cambio);
+		textField_1.setText(((Veiculos) Main.getProdutoTelas()).cambio);
 		contentPane.add(textField_1);
 		
 		JLabel label_2 = new JLabel("Cambio");
@@ -99,13 +99,14 @@ public class Form_Altera_Motocicleta extends JFrame {
 		
 		JSpinner spinner_2 = new JSpinner();
 		spinner_2.setBounds(125, 259, 38, 18);
-		spinner_2.setValue(((Carro) Main.getProdutoTelas()).km);
+		spinner_2.setValue(((Veiculos) Main.getProdutoTelas()).km);
+		spinner_2.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		contentPane.add(spinner_2);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(125, 288, 196, 18);
-		textField_2.setText(((Carro) Main.getProdutoTelas()).combustivel);
+		textField_2.setText(((Veiculos) Main.getProdutoTelas()).combustivel);
 		contentPane.add(textField_2);
 		
 		JLabel label_4 = new JLabel("Combustivel");
@@ -116,7 +117,7 @@ public class Form_Altera_Motocicleta extends JFrame {
 		spinner_3.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner_3.setBounds(125, 319, 38, 18);
 
-		spinner_3.setValue(((Carro) Main.getProdutoTelas()).preco);
+		spinner_3.setValue(((Veiculos) Main.getProdutoTelas()).preco);
 		contentPane.add(spinner_3);
 		
 		JLabel label_5 = new JLabel("Valor");
@@ -126,13 +127,13 @@ public class Form_Altera_Motocicleta extends JFrame {
 		JSpinner spinner_5 = new JSpinner();
 		spinner_5.setEnabled(false);
 		spinner_5.setBounds(125, 45, 66, 18);
-		spinner_5.setValue(((Carro) Main.getProdutoTelas()).idLeilao);
+		spinner_5.setValue(((Veiculos) Main.getProdutoTelas()).idLeilao);
 		contentPane.add(spinner_5);
 		
 		JSpinner spinner_6 = new JSpinner();
 		spinner_6.setEnabled(false);
 		spinner_6.setBounds(125, 70, 59, 18);
-		spinner_6.setValue(((Carro) Main.getProdutoTelas()).idProduto);
+		spinner_6.setValue(((Veiculos) Main.getProdutoTelas()).idProduto);
 		contentPane.add(spinner_6);
 		
 		JLabel lblMotocicleta = new JLabel("Motocicleta");
@@ -162,13 +163,13 @@ public class Form_Altera_Motocicleta extends JFrame {
 		textField_3.setEnabled(false);
 		textField_3.setColumns(10);
 		textField_3.setBounds(125, 96, 196, 17);
-		textField_3.setText(((Carro) Main.getProdutoTelas()).tipo);
+		textField_3.setText(((Veiculos) Main.getProdutoTelas()).tipo);
 		contentPane.add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(125, 119, 196, 18);
-		textField_4.setText(((Carro) Main.getProdutoTelas()).marca);	
+		textField_4.setText(((Veiculos) Main.getProdutoTelas()).marca);	
 		contentPane.add(textField_4);
 		
 		JButton button = new JButton("Cadastrar");
@@ -180,7 +181,7 @@ public class Form_Altera_Motocicleta extends JFrame {
 						textField_3.getText(),
 						textField_4.getText(),
 						textField.getText(),
-						(double) spinner.getValue(),
+						(double) spinner.getValue(), 
 						(int)spinner_1.getValue(),
 						textField_1.getText(),
 						(double)spinner_2.getValue(),

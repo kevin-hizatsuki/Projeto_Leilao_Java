@@ -1,26 +1,12 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import edu.fatec.leilao.Endereco;
-import edu.fatec.leilao.Leiloes;
-import edu.fatec.leilao.Main;
-import edu.fatec.leilao.banco.InstituicaoFinanceira;
-import edu.fatec.leilao.produto.Apartamento;
-import edu.fatec.leilao.produto.Carro;
-import edu.fatec.leilao.produto.Casas;
-import edu.fatec.leilao.produto.EdificiosComerciais;
-import edu.fatec.leilao.produto.EnumImoveis;
-import edu.fatec.leilao.produto.Imoveis;
-import edu.fatec.leilao.produto.Veiculos;
-import edu.fatec.model.ModelCliente;
 import edu.fatec.model.ModelInstituicaoFinanceira;
-import edu.fatec.model.ModelLance;
 import edu.fatec.model.ModelLeilao;
 import edu.fatec.model.ModelProduto;
 
@@ -30,11 +16,9 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
-import javax.swing.Action;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.ParseException;
-import java.time.LocalDate;
 
 public class Controller extends JFrame {
 

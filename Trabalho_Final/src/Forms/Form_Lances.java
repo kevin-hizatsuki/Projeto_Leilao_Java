@@ -1,8 +1,6 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Carro;
@@ -25,9 +22,7 @@ import edu.fatec.leilao.produto.Imoveis;
 import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.produto.Veiculos;
 import edu.fatec.leilao.usuario.Cliente;
-import edu.fatec.leilao.usuario.EnumUsuario;
 import edu.fatec.leilao.usuario.Lance;
-import edu.fatec.leilao.usuario.Usuario;
 import edu.fatec.model.ModelCliente;
 import edu.fatec.model.ModelLance;
 import edu.fatec.model.ModelLeilao;
@@ -40,7 +35,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.JList;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.JSeparator;
@@ -102,7 +96,7 @@ public class Form_Lances extends JFrame {
 			Integer id = dados.get(i).getIdProduto();
 			String tipo = dados.get(i).getTipo();
 			double preco = dados.get(i).getPreco();
-			
+			 
 			
 			Object [] dados1 = {id,tipo, preco};
 			tabelaModelo.addRow(dados1);

@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,23 +9,15 @@ import javax.swing.table.DefaultTableModel;
 
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.Main;
-import edu.fatec.leilao.produto.Produto;
-import edu.fatec.leilao.usuario.Cliente;
-import edu.fatec.model.ModelLance;
 import edu.fatec.model.ModelLeilao;
-import edu.fatec.model.ModelProduto;
 
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
 
 public class Form_Vencedores_Leilao extends JFrame {
 

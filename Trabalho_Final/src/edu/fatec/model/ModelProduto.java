@@ -32,7 +32,7 @@ public class ModelProduto {
 			}
 		}
 	}
-	
+	 
 	public static void removerProduto(Produto remover) {
 		produto.remove(produto.indexOf(remover));
 	}

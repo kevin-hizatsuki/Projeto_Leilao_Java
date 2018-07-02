@@ -1,6 +1,5 @@
 package Forms;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -170,6 +169,7 @@ public class Form_Altera_Casa extends JFrame {
 		
 		JSpinner spinner_5 = new JSpinner();
 		spinner_5.setBounds(81, 170, 27, 20);
+		spinner_5.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		spinner_5.setValue(((Casas) Main.getProdutoTelas()).area);
 		contentPane.add(spinner_5);
 		
@@ -212,7 +212,7 @@ public class Form_Altera_Casa extends JFrame {
 						(int) spinner.getValue(),//Id
 						(int) spinner_1.getValue(),//IdImovel
 						textField.getText(),
-						(double) spinner_5.getValue(), //Tipo do produto
+						(double) spinner_5.getValue(), //Tipo do produto 
 						new Endereco(
 								textField_2.getText(),
 								textField_3.getText(),

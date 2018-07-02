@@ -3,7 +3,6 @@ package edu.fatec.model;
 import java.util.LinkedList;
 import java.util.List;
 
-import edu.fatec.leilao.produto.Produto;
 import edu.fatec.leilao.usuario.Cliente;
 import edu.fatec.leilao.usuario.Usuario;
 
@@ -20,7 +19,7 @@ public class ModelCliente {
 		for (Usuario c : cliente) {
 			if (c.getUser().equals(atualizar.getUser())) {
 				cliente.set(cliente.indexOf(c), atualizar);
-			}
+			} 
 		}
 	}
 	

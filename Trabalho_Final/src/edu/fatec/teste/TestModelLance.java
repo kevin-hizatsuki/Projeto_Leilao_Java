@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import Forms.Form_Lances;
 import edu.fatec.leilao.Endereco;
-import edu.fatec.leilao.Identificador;
+//import edu.fatec.leilao.Identificador;
 import edu.fatec.leilao.Leiloes;
 import edu.fatec.leilao.banco.InstituicaoFinanceira;
 import edu.fatec.leilao.produto.Apartamento;
@@ -36,7 +36,7 @@ import edu.fatec.model.ModelProduto;
 
 class TestModelLance {
 
-	Identificador id;
+//	Identificador id;
 	ModelLeilao leilao;
 	ModelProduto produto;
 	ModelCliente usuario;
@@ -69,7 +69,7 @@ class TestModelLance {
 	Endereco endereco2;
 	Endereco endereco3;
 	InstituicaoFinanceira banco;
-	//Form_Lances iL = Form_Lances();
+	Form_Lances iL = new Form_Lances();
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -156,6 +156,12 @@ class TestModelLance {
 		}*/
 	}
 	
+	@Test
+	void testFormLances() {
+		iL.setVisible(true);
+		iL.dispose();
+	}
+	 
 	@AfterEach
 	public void limpeza() {
 		lance.getLisLance().clear();
