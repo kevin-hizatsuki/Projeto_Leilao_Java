@@ -50,7 +50,7 @@ public class Form_Vencedores_Janela extends JFrame {
 			}
 		});
 	}
-
+ 
 	/**
 	 * Create the frame.
 	 */

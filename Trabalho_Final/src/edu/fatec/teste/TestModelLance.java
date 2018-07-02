@@ -109,7 +109,7 @@ class TestModelLance {
 		InsFin.AdicionarInstituicaoFinanceira(banco);
 	}
  
-	@Test
+	@Test 
 	void testInsercao() {
 		lance.adicionarLance(l1);
 		lance.adicionarLance(l2);

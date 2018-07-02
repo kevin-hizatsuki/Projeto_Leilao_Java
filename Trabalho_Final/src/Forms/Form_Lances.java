@@ -68,7 +68,7 @@ public class Form_Lances extends JFrame {
 			}
 		});
 	}  
-
+ 
 	/**
 	 * Create the frame.
 	 */
@@ -128,9 +128,9 @@ public class Form_Lances extends JFrame {
 		JButton btnNewButton = new JButton("Fazer Lance!");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Usuario usuario1 = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "123");
-				ModelCliente.adicionarCliente(usuario1);
-				Main.setIdUsuarioLogado(usuario1.getUser());
+//				Usuario usuario1 = new Cliente(EnumUsuario.Cliente, "123456", "Jose", "JOJO", "123");
+//				ModelCliente.adicionarCliente(usuario1);
+//				Main.setIdUsuarioLogado(usuario1.getUser());
 				
 //				System.out.println("Usuario: "+Main.getIdUsuarioLogado());
 //				System.out.println("Usuario logado?:"+ModelCliente.getObjClienteLogado(Main.getIdUsuarioLogado().toString()));

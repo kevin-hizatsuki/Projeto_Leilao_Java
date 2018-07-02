@@ -27,6 +27,7 @@ import Forms.Form_Cadastro_Terreno;
 import Forms.Form_Pesquisa_CadastroGeral;
 import edu.fatec.leilao.Endereco;
 import edu.fatec.leilao.Leiloes;
+import edu.fatec.leilao.Main;
 import edu.fatec.leilao.banco.InstituicaoFinanceira;
 import edu.fatec.leilao.produto.Apartamento;
 import edu.fatec.leilao.produto.Carro;
@@ -70,12 +71,12 @@ class TestMoodelProduto {
 	Form_Altera_Casa aCas = new Form_Altera_Casa();
 	Form_Altera_Terreno aTr = new Form_Altera_Terreno();
 	Form_Altera_Edificio_Comercial aEc = new Form_Altera_Edificio_Comercial();
-	*/
+	
 	Form_Altera_Apartamento aAp = new Form_Altera_Apartamento();
-	//Form_Altera_Motocicleta aMc = new Form_Altera_Motocicleta();
+	Form_Altera_Motocicleta aMc = new Form_Altera_Motocicleta();
 
 	Form_Cadastro_Motocicleta iCm = new Form_Cadastro_Motocicleta();
-
+*/
 	InstituicaoFinanceira banco;
 
 	@BeforeEach
@@ -192,7 +193,7 @@ class TestMoodelProduto {
 		produto.AdicionarProduto(produto9);
 		System.out.println(produto.produtoAseuLeilao(produto2, leilao.getLisLeiloes()));
 	}
-
+/*
 	@Test
 	void testInterfaceCadastroCarro() {
 		c.setVisible(true);
@@ -207,12 +208,14 @@ class TestMoodelProduto {
 
 	@Test
 	void testInterfaceCadastroAp() {
+		Main.setProdutoTelas(produto2);
 		iCap.setVisible(true);
 		iCap.dispose();
 	}
 
 	@Test
 	void testInterfaceCadastroEd() {
+		Main.setProdutoTelas(produto4);
 		iCed.setVisible(true);
 		iCed.dispose();
 	}
@@ -241,7 +244,7 @@ class TestMoodelProduto {
 		aAp.setVisible(true);
 		aAp.dispose();
 	}
-/*
+
 	@Test
 	void testInterfaceAlteraCar() {
 		aCar.setVisible(true);
@@ -277,10 +280,10 @@ class TestMoodelProduto {
 		iCc.setVisible(true);
 		iCc.dispose();
 	}
-*/
+
 	@AfterEach
 	public void limpeza() {
 		produto.getLisProduto().clear();
 	}
-
+*/
 }
