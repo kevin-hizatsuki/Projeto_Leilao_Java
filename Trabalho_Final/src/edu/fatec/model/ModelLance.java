@@ -1,5 +1,14 @@
 package edu.fatec.model;
 
+<<<<<<< HEAD
+=======
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
+>>>>>>> 8013d1dcbd3e4b814dad04a6e39776ba11bef6b0
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,6 +59,15 @@ public class ModelLance {
 		}
 		
 		return vencedor;
+	}
+	
+	public static void gerarArquivo(List<Lance> list)throws IOException {
+		PrintWriter escritor = new PrintWriter( new FileWriter("C:\\temp\\lances_"+LocalDate.now().toString()+".det"));
+		for(Lance l: list) {
+			escritor.println(l.toString());
+			escritor.println("-----------------------------------");
+		}
+		escritor.close();
 	}
 	
 
