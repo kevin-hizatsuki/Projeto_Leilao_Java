@@ -54,7 +54,7 @@ public class Form_Cadastro_Leilao extends JFrame {
 			}
 		});
 	}
-
+ 
 	/**
 	 * Create the frame.
 	 * @throws ParseException 

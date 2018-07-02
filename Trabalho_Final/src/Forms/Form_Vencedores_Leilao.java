@@ -49,7 +49,7 @@ public class Form_Vencedores_Leilao extends JFrame {
 		});
 	} 
 
-	/**
+	/** 
 	 * Create the frame.
 	 */
 	public Form_Vencedores_Leilao() {
